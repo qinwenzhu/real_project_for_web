@@ -80,8 +80,8 @@ class LoginPage(BasePage):
 
     def is_login_success(self):
         # 判断是否登录成功：如果能定位到 USERNAME 元素，登录成功<返回True>，否则返回 False
-        USERNAME = (By.CSS_SELECTOR, 'span[class="avatar-name"]')
         try:
+            USERNAME = (By.CSS_SELECTOR, 'span[class="avatar-name"]')
             WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(USERNAME))
         except:
             print("-------------等待用户名元素存在失败！---------------")

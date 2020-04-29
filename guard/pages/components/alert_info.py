@@ -17,8 +17,8 @@ class AlertInfoPage(BasePage):
     def get_alert_info(self):
 
         # 定位alert弹框
-        INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
         try:
+            INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
             print("-------------等待alert弹框消息可见失败！---------------")

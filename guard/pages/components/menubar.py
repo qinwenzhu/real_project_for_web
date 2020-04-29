@@ -7,8 +7,10 @@
 
 import time
 from selenium.webdriver.common.by import By
-from guard.pages.classes.web_global_info import GlobalDialogInfo
 from guard.pages.classes.basepage import BasePage
+from selenium.webdriver.support.wait import WebDriverWait
+from guard.pages.components.alert_info import AlertInfoPage
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class MenubarPage(BasePage):
@@ -22,15 +24,13 @@ class MenubarPage(BasePage):
         """
 
         # 当推送消息过多，系统会弹出消息提示，但是会挡住nav导航条，所以需要在定位元素之前进行判断和关闭
-        INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
         try:
-            self.driver.find_element(*INFO_TEXT)
+            INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
+            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
-            # 异常不抛出，直接处理下方代码
-            pass
+            print("-------------无消息弹框出现---------------")
         else:
-            GlobalDialogInfo(self.driver).close_alert()
-            time.sleep(0.2)
+            AlertInfoPage(self.driver).close_alert()
 
         if menu_text == "工具":
             MENU_TEXT = (By.XPATH, f'//div[text()="{menu_text}"]')
@@ -41,11 +41,11 @@ class MenubarPage(BasePage):
 
         if sub_menu_text is not None:
             # 通过移动到一级目录然后点击二级目录
-            BasePage(self.driver).mouse_move_ele(MENU_TEXT, "顶部导航组件-nav")
-            BasePage(self.driver).mouse_move_ele_and_click(MENU_TEXT, SUB_MENU_TEXT, img_describe="顶部导航组件-nav")
+            BasePage(self.driver).mouse_move_ele(MENU_TEXT)
+            BasePage(self.driver).mouse_move_ele_and_click(MENU_TEXT, SUB_MENU_TEXT)
         else:
             # 选择指定的一级目录
-            BasePage(self.driver).click_ele(MENU_TEXT, "顶部导航组件-nav")
+            BasePage(self.driver).click_ele(MENU_TEXT)
 
 
 if __name__ == '__main__':

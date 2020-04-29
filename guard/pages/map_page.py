@@ -7,7 +7,9 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
+from selenium.webdriver.support.wait import WebDriverWait
 from guard.pages.components.group_tree import GroupTreePage
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class MapPage(BasePage):
@@ -22,14 +24,17 @@ class MapPage(BasePage):
         # 等待3秒查看地图上传效果
         time.sleep(3)
 
-    def judge_upload_map_success(self):
+    def is_upload_map_success(self):
         # 判断地图是否上传成功
-        TAG = (By.XPATH, '//div[@class="main_head"]//div')
-        if BasePage(self.driver).get_ele_locator(TAG):
-            # 如果地图上传成功，会出现该标签
-            return True
-        else:
+
+        try:
+            TAG = (By.XPATH, '//div[@class="main_head"]//div')
+            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(TAG))
+        except:
+            print("-------------地图上传失败！---------------")
             return False
+        else:
+            return True
 
 
 if __name__ == '__main__':
