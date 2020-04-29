@@ -1,0 +1,981 @@
+[2020-04-29 16:02:34,642] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:02:34,673] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:34,673] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:34,914] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:02:34,951] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:34,967] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:35,139] - INFO - Senseguard:Oauth2:Login:3535632893091236的redis值为：b'gwn83b'
+[2020-04-29 16:02:35,143] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:02:35,168] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:35,177] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:35,297] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:35,328] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:02:35,335] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:35,400] - INFO - 等待元素存在：current页面的-('css selector', 'span[class="avatar-name"]')元素
+[2020-04-29 16:02:36,249] - INFO - 获取元素定位：current页面的('css selector', 'span[class="avatar-name"]')元素
+[2020-04-29 16:02:43,233] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:02:43,348] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:43,348] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:43,409] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:02:43,446] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:43,458] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:43,541] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:02:43,574] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:43,580] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:43,646] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:43,685] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:02:43,694] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:43,756] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:44,286] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:44,293] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:50,862] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:02:50,883] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:50,883] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:50,941] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:02:51,090] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:51,104] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:51,156] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:02:51,185] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:51,199] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:51,273] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:51,304] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:02:51,316] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:51,383] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:51,914] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:51,922] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:02:58,870] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:02:58,881] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:58,897] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:02:59,123] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:02:59,159] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:59,165] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:02:59,282] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:02:59,312] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:59,319] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:02:59,442] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:59,475] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:02:59,482] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:02:59,544] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:00,116] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:00,128] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:00,139] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:06,882] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:03:06,927] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:06,927] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:07,057] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:03:07,091] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:07,102] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:07,291] - INFO - Senseguard:Oauth2:Login:08381904364011827的redis值为：b'752m2y'
+[2020-04-29 16:03:07,292] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:03:07,326] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:07,337] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:07,456] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:07,488] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:03:07,502] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:07,572] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:08,650] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:08,656] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:08,668] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:15,416] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:03:15,441] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:15,460] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:15,584] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:03:15,632] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:15,641] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:15,804] - INFO - Senseguard:Oauth2:Login:1726443108154676的redis值为：b'4wfddx'
+[2020-04-29 16:03:15,807] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:03:15,872] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:15,884] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:16,000] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:16,030] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:03:16,037] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:16,116] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:17,171] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:17,180] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:17,193] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:23,945] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:03:24,119] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:24,169] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:24,551] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:03:24,666] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:24,717] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:25,132] - INFO - Senseguard:Oauth2:Login:6430713726901305的redis值为：b'n5ywdn'
+[2020-04-29 16:03:25,133] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:03:25,160] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:25,171] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:25,290] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:25,319] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:03:25,326] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:25,390] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:25,928] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:25,941] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:25,953] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:32,702] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:03:32,734] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:32,756] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:32,869] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:03:32,901] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:32,911] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:33,089] - INFO - Senseguard:Oauth2:Login:9577786310846739的redis值为：b'cgcdx2'
+[2020-04-29 16:03:33,089] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:03:33,121] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:33,132] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:33,254] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:33,283] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:03:33,291] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:33,381] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:34,454] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:34,465] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:34,472] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:41,043] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:03:41,064] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:41,079] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:03:41,158] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:03:41,301] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:41,312] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:03:41,459] - INFO - Senseguard:Oauth2:Login:9535661688368269的redis值为：b'n73ep2'
+[2020-04-29 16:03:41,460] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:03:41,491] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:41,498] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:03:41,625] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:41,657] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:03:41,664] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:03:41,744] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:03:42,812] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:42,824] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:03:42,833] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:19:56,836] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:19:56,877] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:19:56,887] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:19:57,244] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:19:57,326] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:19:57,331] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:19:57,607] - INFO - Senseguard:Oauth2:Login:43273352582082447的redis值为：b'5wnsy4'
+[2020-04-29 16:19:57,608] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:19:57,640] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:19:57,646] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:19:57,766] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:19:57,797] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:19:57,809] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:21:27,001] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:21:27,039] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:21:27,049] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:21:27,238] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:21:27,270] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:21:27,278] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:21:27,441] - INFO - Senseguard:Oauth2:Login:07230043631723793的redis值为：b'dm38cb'
+[2020-04-29 16:21:27,441] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:21:27,484] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:21:27,490] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:21:27,599] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:21:27,625] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:21:27,636] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:23:31,532] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:23:31,615] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:23:31,627] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:23:31,824] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:23:31,855] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:23:31,866] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:23:32,052] - INFO - Senseguard:Oauth2:Login:3843665371101568的redis值为：b'5adwb4'
+[2020-04-29 16:23:32,053] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:23:32,122] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:23:32,135] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:23:32,269] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:23:32,299] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:23:32,307] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:23:32,385] - INFO - 等待元素存在：current页面的-('css selector', 'span[class="avatar-name"]')元素
+[2020-04-29 16:26:26,053] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:26:26,085] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:26:26,094] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:26:26,173] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:26:26,235] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:26:26,243] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:26:26,362] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:26:26,437] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:26:26,450] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:26:26,561] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:26:26,609] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:26:26,624] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:26:26,710] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:26:26,730] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:26:26,744] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:26:33,571] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:26:33,640] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:26:33,648] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:26:33,749] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:26:33,784] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:26:33,789] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:26:33,852] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:26:33,884] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:26:33,890] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:26:33,972] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:26:34,007] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:26:34,019] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:26:34,085] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:26:34,614] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:26:34,623] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:27:28,809] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:27:28,871] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:27:28,885] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:27:29,094] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:27:29,125] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:27:29,136] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:27:29,305] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:27:29,337] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:27:29,344] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:27:29,511] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:27:29,558] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:27:29,572] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:27:29,658] - INFO - 等待元素可见：current页面的-//div[@role="alert"]//p元素
+[2020-04-29 16:27:29,723] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:27:29,737] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:27:29,742] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:29:53,922] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:29:53,954] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:29:54,068] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:29:54,315] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:29:54,354] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:29:54,366] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:29:54,503] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:29:54,536] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:29:54,544] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:29:54,689] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:29:54,720] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:29:54,729] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:29:54,806] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:29:55,334] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:29:55,341] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:32:46,733] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:32:46,770] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:32:46,778] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:32:47,064] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:32:47,097] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:32:47,108] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:32:47,293] - INFO - Senseguard:Oauth2:Login:9081262337250702的redis值为：b'aenxn2'
+[2020-04-29 16:32:47,293] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:32:47,326] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:32:47,331] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:32:47,460] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:32:47,492] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:32:47,498] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:32:47,578] - INFO - 等待元素存在：current页面的-('css selector', 'span[class="avatar-name"]')元素
+[2020-04-29 16:32:55,584] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:32:55,751] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:32:55,759] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:32:55,807] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:32:55,854] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:32:55,867] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:32:55,952] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:32:55,992] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:32:56,004] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:32:56,075] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:32:56,108] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:32:56,119] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:32:56,186] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:32:56,717] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:32:56,723] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:33:03,383] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:03,418] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:03,427] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:03,499] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:03,611] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:03,658] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:03,781] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:03,814] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:03,821] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:03,906] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:03,948] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:03,956] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:04,045] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:33:04,577] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:33:04,584] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:33:11,454] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:11,528] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:11,539] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:11,724] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:11,758] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:11,770] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:11,944] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:11,974] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:11,979] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:12,128] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:12,160] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:12,172] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:12,243] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:12,278] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:12,291] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:19,419] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:19,470] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:19,482] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:19,595] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:19,636] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:19,648] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:19,847] - INFO - Senseguard:Oauth2:Login:6276547948332423的redis值为：b'dman6f'
+[2020-04-29 16:33:19,847] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:19,881] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:19,888] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:20,019] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:20,049] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:20,055] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:20,199] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:20,755] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:20,784] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:27,894] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:27,959] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:27,967] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:28,078] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:28,114] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:28,126] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:28,273] - INFO - Senseguard:Oauth2:Login:5027593591774384的redis值为：b'6e2ew4'
+[2020-04-29 16:33:28,274] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:28,298] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:28,309] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:28,442] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:28,475] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:28,482] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:28,563] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:29,609] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:29,620] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:36,439] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:36,489] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:36,503] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:36,635] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:36,674] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:36,686] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:37,555] - INFO - Senseguard:Oauth2:Login:8818921217916809的redis值为：b'df5fbp'
+[2020-04-29 16:33:37,555] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:37,586] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:37,598] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:37,721] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:37,753] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:37,765] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:37,838] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:38,389] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:38,404] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:45,414] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:45,449] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:45,458] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:45,592] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:45,624] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:45,633] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:45,847] - INFO - Senseguard:Oauth2:Login:6127902422859974的redis值为：b'n4f2s6'
+[2020-04-29 16:33:45,847] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:45,883] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:45,895] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:46,015] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:46,045] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:46,053] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:46,130] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:47,176] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:47,183] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:53,764] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:33:53,791] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:53,798] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:33:53,994] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:33:54,055] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:54,060] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:33:54,220] - INFO - Senseguard:Oauth2:Login:7999878063933559的redis值为：b'8am5dg'
+[2020-04-29 16:33:54,220] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:33:54,253] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:54,259] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:33:54,386] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:54,418] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:33:54,425] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:33:54,490] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:55,020] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:33:55,027] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:41:57,613] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:41:57,688] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:41:57,795] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:41:58,012] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:41:58,048] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:41:58,058] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:41:58,267] - INFO - Senseguard:Oauth2:Login:9645347552703882的redis值为：b'5sa4wg'
+[2020-04-29 16:41:58,268] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:41:58,293] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:41:58,306] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:41:58,428] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:41:58,460] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:41:58,472] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:41:58,544] - INFO - 等待元素存在：current页面的-('css selector', 'span[class="avatar-name"]')元素
+[2020-04-29 16:42:06,987] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:07,057] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:07,164] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:07,304] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:07,339] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:07,351] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:07,435] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:07,468] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:07,481] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:07,568] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:07,600] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:07,613] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:07,734] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:07,758] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:07,769] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:14,506] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:14,564] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:14,572] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:14,630] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:14,703] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:14,782] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:14,857] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:14,896] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:14,912] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:15,014] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:15,045] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:15,059] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:15,127] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:15,658] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:15,664] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:42:22,427] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:22,564] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:22,576] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:22,862] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:22,892] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:22,903] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:23,055] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:23,088] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:23,098] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:23,253] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:23,287] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:23,296] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:23,932] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:23,939] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:23,951] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:30,715] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:30,743] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:30,752] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:30,947] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:30,981] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:30,994] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:31,147] - INFO - Senseguard:Oauth2:Login:06138903060263634的redis值为：b'w5m4g4'
+[2020-04-29 16:42:31,148] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:31,203] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:31,215] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:31,337] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:31,366] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:31,378] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:32,512] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:32,524] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:32,531] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:39,289] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:39,359] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:39,377] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:39,508] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:39,542] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:39,554] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:39,709] - INFO - Senseguard:Oauth2:Login:6624371188152833的redis值为：b's78s8d'
+[2020-04-29 16:42:39,709] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:39,740] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:39,746] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:39,875] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:39,907] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:39,920] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:40,534] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:40,541] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:40,554] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:47,371] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:47,407] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:47,423] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:47,522] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:47,553] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:47,569] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:47,705] - INFO - Senseguard:Oauth2:Login:1602010903504012的redis值为：b'n32xwx'
+[2020-04-29 16:42:47,705] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:47,736] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:47,748] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:47,855] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:47,884] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:47,891] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:49,028] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:49,036] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:49,046] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:55,779] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:42:55,813] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:55,830] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:42:55,931] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:42:55,961] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:55,976] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:42:56,114] - INFO - Senseguard:Oauth2:Login:884815682240865的redis值为：b'ce26dc'
+[2020-04-29 16:42:56,115] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:42:56,159] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:56,168] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:42:56,281] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:56,312] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:42:56,324] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:42:57,464] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:57,476] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:42:57,485] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:43:04,111] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:43:04,140] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:43:04,148] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:43:04,250] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:43:04,400] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:43:04,410] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:43:04,571] - INFO - Senseguard:Oauth2:Login:44744121220097255的redis值为：b'xpbc7w'
+[2020-04-29 16:43:04,571] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:43:04,603] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:43:04,608] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:43:04,734] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:43:04,759] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:43:04,771] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:43:05,383] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:43:05,389] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:43:05,400] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:22,310] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:50:22,357] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:22,388] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:22,582] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:50:22,620] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:22,632] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:22,816] - INFO - Senseguard:Oauth2:Login:7294663012671521的redis值为：b'n6ecc7'
+[2020-04-29 16:50:22,816] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:50:22,846] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:22,852] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:22,980] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:23,013] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:50:23,018] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:30,955] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:50:30,985] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:31,081] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:31,158] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:50:31,194] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:31,203] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:31,278] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:50:31,324] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:31,337] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:31,408] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:31,443] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:50:31,455] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:31,521] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:32,056] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:32,071] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:39,006] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:50:39,043] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:39,064] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:39,153] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:50:39,184] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:39,195] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:39,237] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:50:39,282] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:39,297] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:39,375] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:39,403] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:50:39,418] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:39,483] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:40,014] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:40,020] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="el-form-item__error"]')元素
+[2020-04-29 16:50:46,953] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:50:46,990] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:47,008] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:47,205] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:50:47,243] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:47,255] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:47,381] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:50:47,412] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:47,424] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:47,543] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:47,575] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:50:47,581] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:48,230] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:48,241] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:48,247] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:54,984] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:50:55,026] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:55,033] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:50:55,294] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:50:55,346] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:55,354] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:50:55,513] - INFO - Senseguard:Oauth2:Login:5484446143392208的redis值为：b'gm2dca'
+[2020-04-29 16:50:55,514] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:50:55,568] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:55,573] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:50:55,716] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:55,749] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:50:55,754] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:50:56,369] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:56,382] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:50:56,388] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:04,277] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:51:04,394] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:04,415] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:04,540] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:51:04,580] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:04,592] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:04,765] - INFO - Senseguard:Oauth2:Login:017431713865998066的redis值为：b'87c6cn'
+[2020-04-29 16:51:04,765] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:51:04,814] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:04,826] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:04,958] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:04,992] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:51:04,998] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:05,625] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:05,632] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:05,644] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:12,419] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:51:12,452] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:12,458] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:12,725] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:51:12,759] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:12,771] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:12,954] - INFO - Senseguard:Oauth2:Login:8383791267207115的redis值为：b'den37d'
+[2020-04-29 16:51:12,954] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:51:12,986] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:12,991] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:13,127] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:13,156] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:51:13,169] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:13,786] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:13,800] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:13,807] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:21,669] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:51:21,744] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:21,812] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:21,951] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:51:21,983] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:21,996] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:22,161] - INFO - Senseguard:Oauth2:Login:8301521350530441的redis值为：b'wpn4n3'
+[2020-04-29 16:51:22,161] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:51:22,196] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:22,201] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:22,334] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:22,362] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:51:22,368] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:23,500] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:23,512] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:23,524] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:30,365] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 16:51:30,400] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:30,500] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 16:51:30,641] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 16:51:30,677] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:30,687] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 16:51:30,843] - INFO - Senseguard:Oauth2:Login:24701826388191028的redis值为：b'gwd4bf'
+[2020-04-29 16:51:30,844] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 16:51:30,874] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:30,887] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 16:51:31,009] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:31,038] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 16:51:31,043] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 16:51:32,222] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:32,237] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 16:51:32,245] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 17:08:59,243] - INFO - 等待元素可见：current页面的-input[name="username"]元素
+[2020-04-29 17:08:59,285] - INFO - 获取元素定位：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 17:08:59,292] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="username"]')元素
+[2020-04-29 17:08:59,560] - INFO - 等待元素可见：current页面的-input[name="password"]元素
+[2020-04-29 17:08:59,593] - INFO - 获取元素定位：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 17:08:59,604] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="password"]')元素
+[2020-04-29 17:08:59,800] - INFO - Senseguard:Oauth2:Login:8666447118579492的redis值为：b'awgyap'
+[2020-04-29 17:08:59,800] - INFO - 等待元素可见：current页面的-input[name="verifyCode"]元素
+[2020-04-29 17:08:59,826] - INFO - 获取元素定位：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 17:08:59,838] - INFO - 文本框输入文本：current页面的('css selector', 'input[name="verifyCode"]')元素
+[2020-04-29 17:08:59,957] - INFO - 等待元素可见：登录页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 17:08:59,989] - INFO - 获取元素定位：current页面的('xpath', '//button//span[contains(text(), "登录")]')元素
+[2020-04-29 17:08:59,998] - INFO - 点击元素：current页面的-//button//span[contains(text(), "登录")]元素
+[2020-04-29 17:09:00,108] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:01,012] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:01,021] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:01,373] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:01,393] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:01,403] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="1:1人脸验证"]元素
+[2020-04-29 17:09:01,956] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="1:1人脸验证"]')元素
+[2020-04-29 17:09:01,967] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="1:1人脸验证"]元素
+[2020-04-29 17:09:04,788] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-pics .imageselsect-container:first-child > input[type="file"]')元素
+[2020-04-29 17:09:04,805] - INFO - 文件上传：current页面的-.app-tools-content-pics .imageselsect-container:first-child > input[type="file"]元素
+[2020-04-29 17:09:04,825] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-pics .imageselsect-container:last-child > input[type="file"]')元素
+[2020-04-29 17:09:04,856] - INFO - 文件上传：current页面的-.app-tools-content-pics .imageselsect-container:last-child > input[type="file"]元素
+[2020-04-29 17:09:04,888] - INFO - 等待元素可见：10页面的-app-tools-content-pics-vsbtn元素
+[2020-04-29 17:09:04,923] - INFO - 获取元素定位：current页面的('class name', 'app-tools-content-pics-vsbtn')元素
+[2020-04-29 17:09:04,933] - INFO - 点击元素：current页面的-app-tools-content-pics-vsbtn元素
+[2020-04-29 17:09:05,533] - INFO - 等待元素存在：current页面的-('css selector', '.app-tools-content-pics-vsbtn-popover > strong')元素
+[2020-04-29 17:09:05,539] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-pics-vsbtn-popover > strong')元素
+[2020-04-29 17:09:05,547] - INFO - 获取元素文本：current页面的('css selector', '.app-tools-content-pics-vsbtn-popover > strong')元素
+[2020-04-29 17:09:05,561] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-face-verification")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:05,588] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-face-verification")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:05,596] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-face-verification")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:05,686] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:05,713] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:05,720] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:05,996] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:06,018] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:06,029] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:06,573] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:06,599] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:09,446] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:09,457] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:09,485] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:09,516] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
+[2020-04-29 17:09:09,530] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:11,154] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:11,163] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:11,170] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:11,192] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:11,214] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:11,225] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:11,282] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:11,303] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:11,314] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:11,578] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:11,600] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:11,614] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:12,161] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:12,168] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:15,027] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:15,040] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:15,065] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:15,098] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
+[2020-04-29 17:09:15,110] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:16,774] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:16,789] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:16,805] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:16,824] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:16,843] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:16,853] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:16,922] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:16,942] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:16,953] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:17,220] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:17,239] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:17,246] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:17,791] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:17,814] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:20,695] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:20,703] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:20,741] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:20,796] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
+[2020-04-29 17:09:20,823] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:22,476] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:22,492] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:22,506] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:22,537] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:22,569] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:22,577] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:22,723] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:22,757] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:22,775] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:23,049] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:23,068] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:23,075] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:23,656] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:23,674] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:26,491] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:26,504] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:26,525] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:26,978] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
+[2020-04-29 17:09:27,001] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:30,788] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:30,800] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:30,850] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-center"]//span')元素
+[2020-04-29 17:09:30,884] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:30,917] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:30,973] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:31,072] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:31,118] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:31,149] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:31,427] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:31,448] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:31,460] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:32,021] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:32,048] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:34,886] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:34,918] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:34,965] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:35,387] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
+[2020-04-29 17:09:35,627] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:09:41,209] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:41,266] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:41,335] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:41,450] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:41,502] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:41,512] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:41,789] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:41,825] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:41,845] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:41,928] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="质量分数检测"]')元素
+[2020-04-29 17:09:41,946] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="质量分数检测"]元素
+[2020-04-29 17:09:44,786] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:44,803] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:45,557] - INFO - 等待元素存在：current页面的-('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 17:09:45,572] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 17:09:45,589] - INFO - 获取元素文本：current页面的('xpath', '//div[@role="alert"]//p')元素
+[2020-04-29 17:09:45,624] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:45,674] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:45,702] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-score-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:45,807] - INFO - 等待元素可见：10页面的-//div[@role="alert"]//i[contains(@class, "el-icon-close")]元素
+[2020-04-29 17:09:45,892] - INFO - 获取元素定位：current页面的('xpath', '//div[@role="alert"]//i[contains(@class, "el-icon-close")]')元素
+[2020-04-29 17:09:45,951] - INFO - 点击元素：current页面的-//div[@role="alert"]//i[contains(@class, "el-icon-close")]元素
+[2020-04-29 17:09:46,306] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:46,333] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:46,341] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:46,614] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:46,636] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:46,649] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:47,206] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="人脸属性检测"]')元素
+[2020-04-29 17:09:47,223] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:50,130] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:50,137] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:50,155] - INFO - 等待元素可见：10页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:09:50,203] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-face-detectbtn')元素
+[2020-04-29 17:09:50,218] - INFO - 点击元素：current页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:09:50,894] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:50,901] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:50,911] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:50,951] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:50,969] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:50,988] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:51,028] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:51,035] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:51,046] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:51,085] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:51,094] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:51,101] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:51,143] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:51,150] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:51,169] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:51,213] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:51,220] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:51,231] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:51,275] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:51,283] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:51,295] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:51,328] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:51,336] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:51,348] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:51,364] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:51,392] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:51,400] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:51,464] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:51,484] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:51,494] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:51,765] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:51,801] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:51,821] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:51,884] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="人脸属性检测"]')元素
+[2020-04-29 17:09:51,900] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:54,777] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:54,790] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:54,811] - INFO - 等待元素可见：10页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:09:54,843] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-face-detectbtn')元素
+[2020-04-29 17:09:54,850] - INFO - 点击元素：current页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:09:55,459] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:55,472] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:55,480] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:09:55,515] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:55,528] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:55,539] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:09:55,574] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:55,582] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:55,593] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:09:55,645] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:55,656] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:55,663] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:09:55,700] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:55,710] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:55,721] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:09:55,778] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:55,789] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:55,797] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:09:55,833] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:55,843] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:55,854] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:09:55,891] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:55,899] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:55,910] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:09:55,926] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:55,946] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:09:55,957] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:09:56,077] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:56,130] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:56,147] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:56,422] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:09:56,461] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:09:56,479] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:57,029] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="人脸属性检测"]')元素
+[2020-04-29 17:09:57,039] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="人脸属性检测"]元素
+[2020-04-29 17:09:59,847] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:09:59,861] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:09:59,890] - INFO - 等待元素可见：10页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:09:59,925] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-face-detectbtn')元素
+[2020-04-29 17:09:59,937] - INFO - 点击元素：current页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:10:00,552] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:00,560] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:00,570] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:00,607] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:00,618] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:00,625] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:00,660] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:00,672] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:00,679] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:00,713] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:00,722] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:00,733] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:00,787] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:00,799] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:00,807] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:00,844] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:00,856] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:00,868] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:00,903] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:00,910] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:00,919] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:00,952] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:00,959] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:00,969] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:00,985] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:10:01,006] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:10:01,017] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:10:01,088] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:01,108] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:10:01,120] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:01,385] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:01,406] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:10:01,419] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="人脸属性检测"]元素
+[2020-04-29 17:10:01,962] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="人脸属性检测"]')元素
+[2020-04-29 17:10:01,972] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="人脸属性检测"]元素
+[2020-04-29 17:10:04,851] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:10:04,859] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:10:04,885] - INFO - 等待元素可见：10页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:10:04,916] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-face-detectbtn')元素
+[2020-04-29 17:10:04,923] - INFO - 点击元素：current页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:10:05,573] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:05,592] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:05,604] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "性别")]/parent::li')元素
+[2020-04-29 17:10:05,649] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:05,669] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:05,686] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "年龄")]/parent::li')元素
+[2020-04-29 17:10:05,733] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:05,740] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:05,752] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "表情")]/parent::li')元素
+[2020-04-29 17:10:05,798] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:05,806] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:05,816] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "胡子")]/parent::li')元素
+[2020-04-29 17:10:05,852] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:05,865] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:05,873] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "眼镜")]/parent::li')元素
+[2020-04-29 17:10:05,908] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:05,919] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:05,931] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "口罩")]/parent::li')元素
+[2020-04-29 17:10:05,966] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:05,973] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:05,983] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "安全帽")]/parent::li')元素
+[2020-04-29 17:10:06,019] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:06,030] - INFO - 获取元素定位：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:06,039] - INFO - 获取元素文本：current页面的('xpath', '//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "帽子")]/parent::li')元素
+[2020-04-29 17:10:06,055] - INFO - 等待元素可见：10页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:10:06,075] - INFO - 获取元素定位：current页面的('xpath', '//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]')元素
+[2020-04-29 17:10:06,086] - INFO - 点击元素：current页面的-//div[contains(@class, "tools-test-detection")]//i[contains(@class, "app-tools-header-close")]元素
+[2020-04-29 17:10:06,256] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:06,292] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:10:06,319] - INFO - 鼠标移动到指定元素：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:06,613] - INFO - 等待元素可见：顶部导航组件-nav页面的-//div[text()="工具"]元素
+[2020-04-29 17:10:06,636] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//div[text()="工具"]')元素
+[2020-04-29 17:10:06,649] - INFO - 等待元素可见：顶部导航组件-nav页面的-//li[text()="人脸属性检测"]元素
+[2020-04-29 17:10:07,289] - INFO - 获取元素定位：顶部导航组件-nav页面的('xpath', '//li[text()="人脸属性检测"]')元素
+[2020-04-29 17:10:07,321] - INFO - 顶部导航组件-nav页面：鼠标移动到父级元素//div[text()="工具"],操作子元素//li[text()="人脸属性检测"]元素
+[2020-04-29 17:10:10,154] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
+[2020-04-29 17:10:10,169] - INFO - 文件上传：current页面的-input[type="file"]元素
+[2020-04-29 17:10:10,198] - INFO - 等待元素可见：10页面的-.app-tools-content-face-detectbtn元素
+[2020-04-29 17:10:10,221] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-face-detectbtn')元素
+[2020-04-29 17:10:10,232] - INFO - 点击元素：current页面的-.app-tools-content-face-detectbtn元素
