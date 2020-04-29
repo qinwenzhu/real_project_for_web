@@ -11,17 +11,17 @@ from guard.pages.classes.basepage import BasePage
 
 class GroupTreePage(BasePage):
 
+    # 点击左侧树图分组，通过分组名称
     def click_group_by_name(self, group_name):
-        """ 点击左侧树图分组 """
 
-        # 部门分组名称
+        # 定位分组名
         DEPARTMENT_NAME = (By.XPATH, f'//div[@title="{group_name}"]')
         BasePage(self.driver).click_ele(DEPARTMENT_NAME)
 
+    # 点击左侧树图icon，进行创建同级/下一级、详情、重命名和删除操作
     def click_menu_by_name(self, group_name, menu_name):
-        """ 滑动到左侧树图右侧icon - 出现列表项 """
 
-        # 部门分组右侧icon
+        # 定位分组右侧icon
         GROUP_ICON = (By.XPATH, f'//div[@title="{group_name}"]/parent::div/following-sibling::div[contains(text(), "︙")]')
         BasePage(self.driver).mouse_move_ele(GROUP_ICON)
 
