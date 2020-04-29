@@ -30,7 +30,7 @@ class ToolPage(BasePage):
         # 获取人脸比对成功的结果
         CHECK_RESULT_CONTENT = (By.CSS_SELECTOR, '.app-tools-content-pics-vsbtn-popover > strong')
         try:
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(CHECK_RESULT_CONTENT))
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(CHECK_RESULT_CONTENT))
         except:
             print("-------------获取比对结果失败！---------------")
         else:
@@ -56,7 +56,7 @@ class ToolPage(BasePage):
         # TODO filter 和 lambda结合使用
         # return "".join(filter(lambda c: c not in [' '], self.get_text(CHECK_CONTENT_DETECTION_BUTTON_RESULT)))
         try:
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(CHECK_CONTENT_DETECTION_BUTTON_RESULT))
+            WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(CHECK_CONTENT_DETECTION_BUTTON_RESULT))
         except:
             print("-------------获取检测结果失败！---------------")
         else:
@@ -78,21 +78,24 @@ class ToolPage(BasePage):
         """
         CHECK_CONTENT = (By.XPATH, f'//div[@class="app-tools-content-detection-right"]//li//span[contains(text(), "{name}")]/parent::li')
         try:
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(CHECK_CONTENT))
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(CHECK_CONTENT))
         except:
             print("-------------获取人脸属性内容失败！---------------")
         else:
             return BasePage(self.driver).get_text(CHECK_CONTENT)
 
     def close_tool_current_win(self, current_btn):
-        """ common 关闭当前操作的小工具 """
+        """ common 关闭当前打开的工具窗口 """
         if current_btn == "tools-face-verification":
+            # 1:1
             CLOSE_BTN = (By.XPATH,
                          f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
         elif current_btn == "tools-score-detection":
+            # 质量分数
             CLOSE_BTN = (By.XPATH,
                          f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
         elif current_btn == "tools-test-detection":
+            # 人脸属性
             CLOSE_BTN = (By.XPATH,
                          f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
         BasePage(self.driver).click_ele(CLOSE_BTN)
