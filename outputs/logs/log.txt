@@ -62,6 +62,7 @@
 [2020-04-29 17:20:41,881] - INFO - 获取元素定位：current页面的('css selector', 'input[type="file"]')元素
 [2020-04-29 17:20:41,893] - INFO - 文件上传：current页面的-input[type="file"]元素
 [2020-04-29 17:20:41,913] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
+[2020-04-29 17:20:41,913] - INFO - 等待元素可见：10页面的-.app-tools-content-detection-detectbtn元素
 [2020-04-29 17:20:41,950] - INFO - 获取元素定位：current页面的('css selector', '.app-tools-content-detection-detectbtn')元素
 [2020-04-29 17:20:41,958] - INFO - 点击元素：current页面的-.app-tools-content-detection-detectbtn元素
 [2020-04-29 17:20:43,576] - INFO - 等待元素存在：current页面的-('xpath', '//div[@class="app-tools-content-center"]//span')元素
