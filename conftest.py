@@ -73,11 +73,11 @@ def login(start_driver_and_quit):
     # 优化：动态传入测试环境  start_driver_and_quit.get("http://10.151.3.96/login")
     start_driver_and_quit.get(f'http://{env()["host"]}/login')
     # 优化：动态传入登陆用户  LoginPage(start_driver_and_quit).login("zhuwenqin", "888888")
-    # LoginPage(start_driver_and_quit).login(f'{env()["username"]}',
-    #                                        f'{env()["password"]}',
-    #                                        login_way=env()["login_way"])
     LoginPage(start_driver_and_quit).login(f'{env()["username"]}',
-                                           f'{env()["password"]}')
+                                           f'{env()["password"]}',
+                                           login_way=env()["login_way"])
+    # LoginPage(start_driver_and_quit).login(f'{env()["username"]}',
+    #                                        f'{env()["password"]}')
     yield start_driver_and_quit
 
 
@@ -146,9 +146,9 @@ def device(login):
 def map_module(login):
     # 进入地图管理模块
     MenubarPage(login).click_nav_item("配置", "地图管理")
-    before_name = {"map_group_name": f"FGN-{uuid4_data()}"}
-    yield login, before_name
-    GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["map_group_name"], module_val="map")
+    required_parameters = {"map_group_name": f"FGN-{uuid4_data()}"}
+    yield login, required_parameters
+    # GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["map_group_name"], module_val="map")
 
 
 @pytest.fixture

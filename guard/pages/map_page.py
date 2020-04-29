@@ -14,18 +14,20 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class MapPage(BasePage):
 
-    def upload_map(self, file_name, group_name):
-        """ 地图上传 """
-        # 点击指定地图分组
-        GroupTreePage(self.driver).click_group_by_name(group_name)
-        # 地图上传
+    # 上传地图
+    def upload_map(self, file_name, group_name="Default"):
+
+        # 定位上传元素
         UPLOAD_FILE = (By.XPATH, '//input[@class="el-upload__input"]')
+
+        # 点击指定地图分组，默认点击Default分组
+        GroupTreePage(self.driver).click_group_by_name(group_name)
         BasePage(self.driver).upload_file(loc=UPLOAD_FILE, filename=file_name)
         # 等待3秒查看地图上传效果
         time.sleep(3)
 
+    # 判断地图是否上传成功
     def is_upload_map_success(self):
-        # 判断地图是否上传成功
 
         try:
             TAG = (By.XPATH, '//div[@class="main_head"]//div')
@@ -43,5 +45,5 @@ if __name__ == '__main__':
     from guard.pages.components.menubar import MenubarPage
     driver = webdriver.Chrome()
     driver.get("http://10.151.3.96/login")
-    LoginPage(driver).login("zhuwenqin", "888888")
+    LoginPage(driver).login("zhuwenqin", "888888", login_way="debug")
     MenubarPage(driver).click_nav_item("配置", "地图管理")

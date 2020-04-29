@@ -9,9 +9,14 @@ from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+""" 
+全局组件 - alert消息框
+
+如：添加用户成功，…… 
+"""
+
 
 class AlertInfoPage(BasePage):
-    """ 全局组件，系统页面的 alert消息框， 如：添加用户成功，…… """
 
     # 获取系统页面中的alert弹框信息
     def get_alert_info(self):

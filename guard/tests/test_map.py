@@ -6,6 +6,7 @@
 
 import pytest
 from guard.pages.map_page import MapPage
+from guard.pages.components.alert_info import AlertInfoPage
 from guard.pages.classes.custom_share_path import SharePath
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.classes.web_global_info import GlobalDialogInfo
@@ -19,9 +20,11 @@ class TestMapPositive:
         # 测试从Default分组创建同级地图分组
         GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=map_module[1]["map_group_name"], parent_name="Default")
 
-        result = GlobalDialogInfo(map_module[0]).judge_alert_info()
+        # result = GlobalDialogInfo(map_module[0]).judge_alert_info()
+        result = AlertInfoPage(map_module[0]).get_alert_info()
         assert "创建同级分组成功" == result
 
+    @pytest.mark.skip("跳过")
     def test_upload_map(self, map_module):
         # 测试在指定地图分组中上传地图
 

@@ -32,8 +32,15 @@ from guard.pages.classes.get_run_env import env
 
 class LoginPage(BasePage):
 
-    def login(self, username, password, code=None, login_way="default"):
-        """ 登录 """
+    def login(self, username, password, code=None, login_way="redis"):
+        """
+        页面登陆
+        :param username: 登陆用户名
+        :param password: 登陆密码
+        :param code: 登陆验证码
+        :param login_way: 获取验证码的方式，有：redis<默认> 、ssh 、cjy<第三方识别> ocr 、 控制台手动输入<debug>
+        :return:
+        """
 
         # 登录用户名文本框
         USERNAME_INPUT = (By.CSS_SELECTOR, 'input[name="username"]')
@@ -51,7 +58,7 @@ class LoginPage(BasePage):
 
         if code is None:
             """ 获取登录验证码的不同方式 """
-            if login_way == "default":
+            if login_way == "redis":
                 # 1、通过redis的方式获取登录验证码
                 code = self.get_captcha_from_redis()
             elif login_way == "cjy":

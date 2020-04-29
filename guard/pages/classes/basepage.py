@@ -199,7 +199,7 @@ class BasePage:
 
     """-----------------------------鼠标操作-Actionscharns------------------------------------"""
     def mouse_move_ele(self, loc, img_describe="current"):
-        """  鼠标移动到指定元素上 """
+        """  鼠标移动到元素上 """
 
         actions = ActionChains(self.driver)
         self.wait_for_ele_to_be_visible(loc, img_describe)
@@ -218,15 +218,15 @@ class BasePage:
         actions = ActionChains(self.driver)
         # 等待滑动到目标元素可见
         self.wait_for_ele_to_be_visible(loc1, img_describe)
-        ele = self.get_ele_locator(loc1, img_describe)
+        move_ele = self.get_ele_locator(loc1, img_describe)
         # 等待需要操作的元素可见
         self.wait_for_ele_to_be_visible(loc2, img_describe)
-        sub_ele = self.get_ele_locator(loc2, img_describe)
+        opera_ele = self.get_ele_locator(loc2, img_describe)
         self.log.info(f"{img_describe}页面：鼠标移动到父级元素{loc1[-1]},操作子元素{loc2[-1]}元素")
         try:
-            actions.move_to_element(ele).perform()
+            actions.move_to_element(move_ele).perform()
             actions.pause(pause_time)
-            actions.click(sub_ele).perform()
+            actions.click(opera_ele).perform()
         except Exception as e:
             self.save_web_screenshots(img_describe)
             self.log.error(f"鼠标移动到元素上并点击元素失败！")
