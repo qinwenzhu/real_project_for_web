@@ -5,5 +5,5 @@ guard/pages/classes/__pycache__/
 guard/tools/__pycache__/
 utils/__pycache__/
 outputs/screenshots/*.jpg
-outputs/logs/*.txt
+outputs/logs/*
 outputs/reports/*
