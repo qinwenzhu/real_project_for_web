@@ -1,0 +1,16 @@
+# database configurations
+database:
+  hostname: ""
+  port: 30446
+  user: "root"
+  password: "UVlY88m9suHLsthK"
+  database: "senseguard"
+
+# all SQL files for initialization
+init:
+  path: "."
+  sql_files:
+    - "create_senseguard.sql"
+    - "init_senseguard.sql"
+    - "create_uums.sql"
+    - "init_uums.sql"

@@ -1,0 +1,7 @@
+# ssh configurations
+ssh:
+  hostname: ""
+  port: 22
+  username: "root"
+  password: "Nebula123$%^"
+  timeout: 60

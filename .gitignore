@@ -1,0 +1,9 @@
+.idea/
+__pycache__/
+guard/pages/__pycache__/
+guard/pages/classes/__pycache__/
+guard/tools/__pycache__/
+utils/__pycache__/
+outputs/screenshots/*.jpg
+outputs/logs/*.txt
+outputs/reports/*
