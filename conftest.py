@@ -6,19 +6,16 @@
 
 import time
 import uuid
-import random
-
 import pytest
+import random
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-from guard.pages.classes.basepage import BasePage
 from guard.pages.map_page import MapPage
 from guard.pages.tool_page import ToolPage
 from guard.pages.user_page import UserPage
 from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
+from guard.pages.classes.basepage import BasePage
 from guard.pages.timezone_page import TimezonePage
 from guard.pages.components.menubar import MenubarPage
 from guard.pages.components.group_tree import GroupTreePage
@@ -148,22 +145,6 @@ def map_module(login):
     MenubarPage(login).click_nav_item("配置", "地图管理")
     required_parameters = {"map_group_name": f"FGN-{uuid4_data()}"}
     yield login, required_parameters
-    # GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["map_group_name"], module_val="map")
-
-
-@pytest.fixture
-def del_sub_map_group_to_default(map_module, sole_group_name):
-    yield
-    # 删除Default分组的下一级分组，只有当Default下没有该元素的时候，才说明下一级地图分组创建成功，才进行后置删除操作
-    if not MapPage(map_module[0]).judge_upload_map_success():
-        GroupTreePage(map_module[0]).delete_peer_or_next_group_by_name(group_name=sole_group_name, parent_name="Default", module_val="map", is_peer=False)
-
-
-@pytest.fixture
-def close_next_map_group_tree_dialog(login):
-    # 关闭左侧树图弹框 - 当创建已经存在地图分组的下一级组
-    yield
-    GlobalDialog(login).close_dialog_btn("创建下一级")
 
 
 """ ---------------------------- 配置-时间条件 ---------------------------- """

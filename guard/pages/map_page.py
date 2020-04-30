@@ -23,8 +23,6 @@ class MapPage(BasePage):
         # 点击指定地图分组，默认点击Default分组
         GroupTreePage(self.driver).click_group_by_name(group_name)
         BasePage(self.driver).upload_file(loc=UPLOAD_FILE, filename=file_name)
-        # 等待3秒查看地图上传效果
-        time.sleep(3)
 
     # 判断地图是否上传成功
     def is_upload_map_success(self):
@@ -33,11 +31,23 @@ class MapPage(BasePage):
             TAG = (By.XPATH, '//div[@class="main_head"]//div')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(TAG))
         except:
-            print("-------------地图上传失败！---------------")
+            print("-------------地图上传失败/当前地图分组下没有上传地图---------------")
             return False
         else:
             return True
 
+    # 判断地图上是否存在设备
+    def map_is_exist_device(self):
+        # 定位设备点位容器内的icon
+
+        try:
+            DEVICE_ICON = (By.XPATH, '//div[@class="leaflet-pane leaflet-marker-pane"]//img')
+            WebDriverWait(self.driver, 5).until(EC.presence_of_all_elements_located(DEVICE_ICON))
+        except:
+            print("-------------该地图上不存在存在设备---------------")
+            return False
+        else:
+            return True
 
 if __name__ == '__main__':
     from selenium import webdriver

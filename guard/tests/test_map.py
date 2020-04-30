@@ -6,9 +6,11 @@
 
 import pytest
 from guard.pages.map_page import MapPage
+from selenium.webdriver.support.wait import WebDriverWait
+from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
 from guard.pages.classes.custom_share_path import SharePath
-from guard.pages.components.group_tree import GroupTreePage
+from selenium.webdriver.support import expected_conditions as EC
 from guard.pages.classes.web_global_info import GlobalDialogInfo
 
 
@@ -18,13 +20,11 @@ class TestMapPositive:
 
     def test_create_peer_map_group_from_default(self, map_module):
         # 测试从Default分组创建同级地图分组
-        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=map_module[1]["map_group_name"], parent_name="Default")
+        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=map_module[1]["map_group_name"])
 
-        # result = GlobalDialogInfo(map_module[0]).judge_alert_info()
         result = AlertInfoPage(map_module[0]).get_alert_info()
         assert "创建同级分组成功" == result
 
-    @pytest.mark.skip("跳过")
     def test_upload_map(self, map_module):
         # 测试在指定地图分组中上传地图
 
@@ -33,27 +33,16 @@ class TestMapPositive:
 
         assert MapPage(map_module[0]).is_upload_map_success()
 
-    @pytest.mark.skip("跳过")
-    @pytest.mark.usefixtures("del_sub_map_group_to_default")
-    def test_create_next_map_group_suc_from_default(self, map_module, sole_group_name):
+    def test_create_next_map_group_from_default(self, map_module, sole_group_name):
         # 测试从Default默认分组创建下一级地图分组
 
-        if MapPage(map_module[0]).is_upload_map_success() is False:
-            # 如果当前分组下不存在地图，则进行创建
-            GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default",
-                                                                   is_peer=False)
-            result = GlobalDialogInfo(map_module[0]).judge_alert_info()
-            assert "创建下一级分组成功" == result
-
-    @pytest.mark.skip("跳过")
-    @pytest.mark.usefixtures("close_next_map_group_tree_dialog")
-    def test_create_next_map_group_fail_from_default(self, map_module, sole_group_name):
-        # 测试从Default默认分组创建下一级地图分组
-
-        if MapPage(map_module[0]).is_upload_map_success() is True:
-            # 需要先判断当前分组是否已经上传地图，如果已经上传地图，则断言该用例
-            GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default",
+        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default",
                                                                is_peer=False)
 
-            result = GlobalDialogInfo(map_module[0]).judge_alert_info()
+        result = GlobalDialogInfo(map_module[0]).judge_alert_info()
+        print(result)
+        """ 条件判断：如果地图上存在设备，则断言A，否则断言B，默认返回True，存在设备 """
+        if MapPage(map_module[0]).map_is_exist_device() is True:
             assert "地图上存在设备" == result
+        else:
+            assert "创建下一级分组成功" == result
