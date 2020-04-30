@@ -33,38 +33,27 @@ class BasePage:
         # 传入 driver - 指定类型为：WebDriver
         self.driver = driver
 
-    def save_web_screenshots(self, img_describe):
-        """
-        保存页面截图
-        :param img_describe: 图片描述，如：当前截图是在哪个页面或者哪个模块
-        :return:
-        """
-        current_time_to_str = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S')
-        file_name = f"{img_describe}_{current_time_to_str}.jpg"
-        self.driver.save_screenshot(f"{SharePath.SCREENSHOT_FOLDER}/{file_name}")
-        self.log.info(f"页面截图保存位置：{file_name}")
-
-    def wait_for_ele_to_be_visible(self, loc, img_describe="current", timeout=10, poll_frequency=0.5):
+    def wait_for_ele_to_be_visible(self, loc, timeout=10, poll_frequency=0.5):
         """ 等待元素在页面中可见 """
 
-        self.log.info(f"等待元素可见：{img_describe}页面的-{loc[-1]}元素")
+        self.log.info(f"等待元素可见！---{loc[-1]}---")
         try:
             WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
         except TimeoutError as e:
             # 对当前页面进行截图
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"等待元素可见失败!")
+            self.save_web_screenshots()
+            self.log.error(f"等待元素可见报错!---{loc[-1]}---")
             raise e
 
-    def wait_for_ele_to_be_presence(self, loc, img_describe="current", timeout=10, poll_frequency=0.5):
+    def wait_for_ele_to_be_presence(self, loc, timeout=10, poll_frequency=0.5):
         """ 等待元素在页面中存在"""
 
-        self.log.info(f"等待元素存在：{img_describe}页面的-{loc}元素")
+        self.log.info(f"等待元素存在！---{loc[-1]}---")
         try:
             WebDriverWait(self.driver, timeout, poll_frequency).until(EC.presence_of_element_located(loc))
         except TimeoutError as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"等待元素存在失败!")
+            self.save_web_screenshots()
+            self.log.error(f"等待元素存在报错!---{loc[-1]}---")
             raise e
 
     # def wait_for_ele_to_click(self, loc, img_describe="current", timeout=10, poll_frequency=0.5):
@@ -78,84 +67,87 @@ class BasePage:
     #         self.log.error(f"等待元素可点击失败!")
     #         raise e
 
-    def get_ele_locator(self, loc, img_describe="current"):
+    def get_ele_locator(self, loc):
         """ 获取元素 """
 
-        self.log.info(f"获取元素定位：{img_describe}页面的{loc}元素")
+        self.log.info(f"获取元素！---{loc[-1]}---")
         try:
             ele = self.driver.find_element(*loc)
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"元素定位失败！")
+            self.save_web_screenshots()
+            self.log.error(f"获取元素报错！---{loc[-1]}---")
             raise e
         else:
             return ele
 
-    def get_ele_locator_by_index(self, loc, index, img_describe="current"):
+    def get_ele_locator_by_index(self, loc, index):
         """ 页面定位表达式能匹配到多个，通过下标访问 """
 
-        self.log.info(f"页面表达式匹配多个元素，通过下标获取指定元素定位：{img_describe}页面的{loc}元素")
+        self.log.info(f"获取元素列表！---{loc[-1]}---")
         try:
             ele = self.driver.find_elements(*loc)
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"定位指定下标值的元素失败！")
+            self.save_web_screenshots()
+            self.log.error(f"获取元素列表报错！---{loc[-1]}---")
             raise e
         else:
             return ele[index]
 
-    def get_text(self, loc, img_describe="current"):
+    def get_text(self, loc):
         """ 获取元素的文本内容  前提：元素存在 """
 
-        self.wait_for_ele_to_be_presence(loc, img_describe)
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"获取元素文本：{img_describe}页面的{loc}元素")
+        self.wait_for_ele_to_be_presence(loc)
+        ele = self.get_ele_locator(loc)
+        self.log.info(f"获取元素文本！---{loc[-1]}---")
         try:
             return ele.text
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"获取元素文本失败！")
+            self.save_web_screenshots()
+            self.log.error(f"获取元素文本报错！---{loc[-1]}---")
             raise e
 
-    def get_ele_attribute(self, loc, attr, img_describe="current"):
+    def get_ele_attribute(self, loc, attr_name):
         """ 获取元素的属性  前提：元素存在 """
 
-        self.wait_for_ele_to_be_presence(loc, img_describe)
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"获取元素属性：{img_describe}页面的{loc}元素")
+        self.wait_for_ele_to_be_presence(loc)
+        ele = self.get_ele_locator(loc)
+        self.log.info(f"获取元素属性！---{loc[-1]}---")
         try:
-            attr_val = ele.get_attribute(attr)
+            attr_val = ele.get_attribute(attr_name)
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"获取元素属性失败！")
+            self.save_web_screenshots()
+            self.log.error(f"获取元素属性报错！---{loc[-1]}---")
             raise e
         else:
             return attr_val
 
-    def update_input_text(self, loc, val, img_describe="current"):
+    def update_input_text(self, loc, val):
         """ 文本框输入文本  前提：元素可见 """
 
-        self.wait_for_ele_to_be_visible(loc, img_describe)
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"文本框输入文本：{img_describe}页面的{loc}元素")
+        self.wait_for_ele_to_be_visible(loc)
+        ele = self.get_ele_locator(loc)
+        self.log.info(f"文本框输入！---{loc[-1]}---")
         try:
             ele.send_keys(val)
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"文本输入失败！")
+            self.save_web_screenshots()
+            self.log.error(f"文本框输入报错！---{loc[-1]}---")
             raise e
 
-    def clear_input_default_val(self, loc, img_describe="current"):
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"清空文本框默认值：{img_describe}页面的{loc}元素")
+    def clear_input_default_val(self, loc):
+        """ 清空文本框默认值 """
+
+        self.wait_for_ele_to_be_presence(loc)
+        ele = self.get_ele_locator(loc)
+        self.log.info(f"清空文本框默认值！---{loc[-1]}---")
         try:
             ele.clear()
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"清空文本失败！")
+            self.save_web_screenshots()
+            self.log.error(f"清空文本框默认值报错！---{loc[-1]}---")
             raise e
 
-    def upload_file(self, loc, filename=None, upload_way="input", browser_type="chrome", img_describe="current"):
+    def upload_file(self, loc, filename=None, upload_way="input", browser_type="chrome"):
         """
         文件上传
         :param loc: 元素定位表达式
@@ -165,24 +157,19 @@ class BasePage:
         :param img_describe: 截图命名描述
         """
 
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"文件上传：{img_describe}页面的-{loc[-1]}元素")
-        if upload_way == "input":
-            try:
-                # <input type=file /> input类型的上传操作
+        self.wait_for_ele_to_be_visible(loc)
+        ele = self.get_ele_locator(loc)
+        try:
+            if upload_way == "input":
+                self.log.info(f"通过input类型为file的方式进行文件上传！---{loc[-1]}---")
                 ele.send_keys(filename)
-            except Exception as e:
-                self.save_web_screenshots(img_describe)
-                self.log.error("input_file，文件上传失败！")
-                raise e
-        elif upload_way == "win":
-            try:
-                # windows窗口 的文件上传 - 调用utils共用类进行上传操作
+            elif upload_way == "win":
+                self.log.info(f"通过windows窗口的方式进行文件上传！---{loc[-1]}---")
                 upload(file_path=filename, browser_type=browser_type)
-            except Exception as e:
-                self.save_web_screenshots(img_describe)
-                self.log.error("wiin窗口，文件上传失败！")
-                raise e
+        except Exception as e:
+            self.save_web_screenshots()
+            self.log.error(f"文件上传报错！---{loc[-1]}---")
+            raise e
 
     def click_ele(self, loc, timeout=10, img_describe="current"):
         """ 点击元素，等待元素可见进行点击"""
@@ -269,3 +256,10 @@ class BasePage:
             self.save_web_screenshots(img_describe)
             self.log.error("滚动到元素在页面可视区域失败！")
             raise e
+
+    def save_web_screenshots(self):
+        """ 保存页面截图 """
+        current_time_to_str = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S')
+        file_name = f"{current_time_to_str}.jpg"
+        self.driver.save_screenshot(f"{SharePath.SCREENSHOT_FOLDER}/{file_name}")
+        self.log.info(f"页面截图保存位置：{file_name}")
