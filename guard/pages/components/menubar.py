@@ -5,7 +5,6 @@
 # @Software: PyCharm
 
 
-import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,7 +12,7 @@ from guard.pages.components.alert_info import AlertInfoPage
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class MenubarPage(BasePage):
+class MenuBarPage(BasePage):
 
     def click_nav_item(self, menu_text, sub_menu_text=None):
         """
@@ -49,15 +48,16 @@ class MenubarPage(BasePage):
 
 
 if __name__ == '__main__':
+    import time
     from selenium import webdriver
     from guard.pages.login_page import LoginPage
     driver = webdriver.Chrome()
     driver.get("http://10.151.3.96/login")
     LoginPage(driver).login("zhuwenqin", "888888", login_way="ssh")
     # 测试点击存在二级导航的
-    MenubarPage(driver).click_nav_item("工具", "人脸属性检测")
+    MenuBarPage(driver).click_nav_item("工具", "人脸属性检测")
     time.sleep(4)
     # 测试点击只存在一级导航
-    MenubarPage(driver).click_nav_item("看板")
+    MenuBarPage(driver).click_nav_item("看板")
     time.sleep(2)
     driver.quit()

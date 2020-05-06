@@ -17,8 +17,9 @@ from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
 from guard.pages.classes.basepage import BasePage
 from guard.pages.timezone_page import TimezonePage
-from guard.pages.components.menubar import MenubarPage
+from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.group_tree import GroupTreePage
+from guard.pages.components.alert_info import AlertInfoPage
 
 from guard.pages.classes.custom_share_path import SharePath
 from guard.pages.classes.web_global_dialog import GlobalDialog
@@ -84,12 +85,12 @@ def task(login):
     before_name = {"map_group_name": f"MGN-{uuid4_data()}", "device_group_name": f"DGN-{uuid4_data()}",
                    "device_name": f"dname-{get_current_time()}", "device_id": f"id-{get_current_time()}",
                    "task_name": f"tname-{get_current_time()}", "time_minute": integer_num()}
-    MenubarPage(login).click_nav_item("配置", "地图管理")
+    MenuBarPage(login).click_nav_item("配置", "地图管理")
     GroupTreePage(login).create_peer_or_next_group(group_name=before_name["map_group_name"], parent_name="Default")
     MapPage(login).upload_map(file_name=r"{}/map_data/company_4th_floor.jpg".format(SharePath.DATA_FOLDER), group_name=before_name["map_group_name"])
     # 进入设备模块，创建设备分组，不同设备类型的设备
     time.sleep(2)
-    MenubarPage(login).click_nav_item("配置", "设备管理")
+    MenuBarPage(login).click_nav_item("配置", "设备管理")
     time.sleep(2)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_name["device_group_name"], parent_name="Default")
     # 添加设备类型为：网络摄像机、相机类型为：RTSP 的设备
@@ -98,23 +99,23 @@ def task(login):
                                 device_group_name=before_name["device_group_name"], map_group_name=before_name["map_group_name"],
                                 rtsp_address="rtsp://10.151.3.119:7554/IMG_0322.264", camera_type="RTSP")
     time.sleep(2)
-    MenubarPage(login).click_nav_item("配置", "任务管理")
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login, before_name
     # 进入实况，搜索设备，查看推送
-    # MenubarPage(login).click_nav_item("实况")
+    # MenuBarPage(login).click_nav_item("实况")
 
     # 删除任务
     # 删除设备分组
-    # MenubarPage(login).click_nav_item("配置", "设备管理")
+    # MenuBarPage(login).click_nav_item("配置", "设备管理")
     # GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["device_group_name"], module_val="device")
     # # 删除地图分组
-    # MenubarPage(login).click_nav_item("配置", "地图管理")
+    # MenuBarPage(login).click_nav_item("配置", "地图管理")
     # GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["map_group_name"], module_val="map")
 
 
 @pytest.fixture(scope="module")
 def task_no_setup(login):
-    MenubarPage(login).click_nav_item("配置", "任务管理")
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login
     TaskPage(login).click_close_dialog_btn()
 
@@ -125,16 +126,16 @@ def device(login):
     before_name = {"map_group_name": f"MGN-{uuid4_data()}", "device_group_name": f"DGN-{uuid4_data()}",
                    "device_name": f"name-{uuid4_data()}", "device_id": f"id-{uuid4_data()}"}
     # 进入地图模块，创建地图分组，上传地图
-    MenubarPage(login).click_nav_item("配置", "地图管理")
+    MenuBarPage(login).click_nav_item("配置", "地图管理")
     GroupTreePage(login).create_peer_or_next_group(group_name=before_name["map_group_name"], parent_name="Default")
     MapPage(login).upload_map(file_name=r"{}/map_data/company_4th_floor.jpg".format(SharePath.DATA_FOLDER), group_name=before_name["map_group_name"])
-    MenubarPage(login).click_nav_item("配置", "设备管理")
+    MenuBarPage(login).click_nav_item("配置", "设备管理")
     yield login, before_name
     # 删除设备
     # 删除设备分组
     GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["device_group_name"], module_val="device")
     # 删除地图分组
-    MenubarPage(login).click_nav_item("配置", "地图管理")
+    MenuBarPage(login).click_nav_item("配置", "地图管理")
     GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["map_group_name"], module_val="map")
 
 
@@ -142,7 +143,7 @@ def device(login):
 @pytest.fixture(scope="module")
 def map_module(login):
     # 进入地图管理模块
-    MenubarPage(login).click_nav_item("配置", "地图管理")
+    MenuBarPage(login).click_nav_item("配置", "地图管理")
     required_parameters = {"map_group_name": f"FGN-{uuid4_data()}"}
     yield login, required_parameters
 
@@ -151,18 +152,11 @@ def map_module(login):
 @pytest.fixture(scope="module")
 def timezone(login):
     # 进入时间条件模块
-    MenubarPage(login).click_nav_item("配置", "时间条件")
+    MenuBarPage(login).click_nav_item("配置", "时间条件")
     before_name = {"timezone": f"TIME-{get_current_time()}",
                    "holiday_name": f"H-{get_current_time()}",
                    "workday_name": f"W-{get_current_time()}"}
     yield login, before_name
-    # 如果创建成功，进行后置数据的处理
-    if TimezonePage(login).assert_result_by_name(before_name["timezone"]):
-        TimezonePage(login).delete_or_rename_timezone_name(before_name["timezone"])
-    if TimezonePage(login).assert_result_by_name(before_name["holiday_name"]):
-        TimezonePage(login).delete_or_rename_holidays_or_workday(before_name["holiday_name"])
-    if TimezonePage(login).assert_result_by_name(before_name["workday_name"]):
-        TimezonePage(login).delete_or_rename_holidays_or_workday(before_name["workday_name"])
 
 
 @pytest.fixture
@@ -176,7 +170,7 @@ def overlong_name():
 @pytest.fixture(scope="module")
 def user(login):
     # 进入用户管理模块
-    MenubarPage(login).click_nav_item("配置", "用户管理")
+    MenuBarPage(login).click_nav_item("配置", "用户管理")
     sole_name = f"UDN-{uuid4_data()}"
     yield login, sole_name
 
@@ -245,7 +239,12 @@ def setup_login():
     driver.quit()
 
 
-""" ---------------------------- 封装公用方法/常用方法 ---------------------------- """
+""" ---------------------------- 共用 ---------------------------- """
+@pytest.fixture
+def close_alert_info(login):
+    # 关闭alert消息弹框
+    yield
+    AlertInfoPage(login).close_alert()
 
 
 def get_current_time():

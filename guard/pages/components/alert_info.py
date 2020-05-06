@@ -21,8 +21,8 @@ class AlertInfoPage(BasePage):
     # 获取系统页面中的alert弹框信息
     def get_alert_info(self):
 
-        # 定位alert弹框
         try:
+            # 定位alert弹框
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
@@ -33,6 +33,12 @@ class AlertInfoPage(BasePage):
     # 关闭alert弹框
     def close_alert(self):
 
-        # 关闭alert弹框
-        CLOSE_BTN = (By.XPATH, '//div[@role="alert"]//i[contains(@class, "el-icon-close")]')
-        BasePage(self.driver).click_ele(CLOSE_BTN)
+        try:
+            # 定位alert弹框中的关闭按钮
+            CLOSE_BTN = (By.XPATH, '//div[@role="alert"]//i[contains(@class, "el-icon-close")]')
+            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(CLOSE_BTN))
+        except:
+            print("-------------等待alert弹框消息关闭按钮可见失败！---------------")
+        else:
+            BasePage(self.driver).click_ele(CLOSE_BTN)
+

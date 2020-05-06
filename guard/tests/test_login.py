@@ -13,7 +13,6 @@ from guard.pages.components.alert_info import AlertInfoPage
 
 @pytest.mark.smoke
 @pytest.mark.positive
-@pytest.mark.test
 def test_login_success(setup_login):
     # 登录成功校验
     LoginPage(setup_login).login(*LoginData.success_login_data)
