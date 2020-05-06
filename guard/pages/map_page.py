@@ -4,7 +4,6 @@
 # @File: map_page.py
 # @Software: PyCharm
 
-import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,17 +15,14 @@ class MapPage(BasePage):
 
     # 上传地图
     def upload_map(self, file_name, group_name="Default"):
-
         # 定位上传元素
         UPLOAD_FILE = (By.XPATH, '//input[@class="el-upload__input"]')
-
         # 点击指定地图分组，默认点击Default分组
         GroupTreePage(self.driver).click_group_by_name(group_name)
         BasePage(self.driver).upload_file(loc=UPLOAD_FILE, filename=file_name)
 
     # 判断地图是否上传成功
     def is_upload_map_success(self):
-
         try:
             TAG = (By.XPATH, '//div[@class="main_head"]//div')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(TAG))
@@ -38,16 +34,15 @@ class MapPage(BasePage):
 
     # 判断地图上是否存在设备
     def map_is_exist_device(self):
-        # 定位设备点位容器内的icon
-
+        # 定位设备点位容器内的icon，如果存在<返回True>，则说明Default分组下存在设备
         try:
             DEVICE_ICON = (By.XPATH, '//div[@class="leaflet-pane leaflet-marker-pane"]//img')
-            WebDriverWait(self.driver, 5).until(EC.presence_of_all_elements_located(DEVICE_ICON))
+            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(DEVICE_ICON))
         except:
-            print("-------------该地图上不存在存在设备---------------")
             return False
         else:
             return True
+
 
 if __name__ == '__main__':
     from selenium import webdriver

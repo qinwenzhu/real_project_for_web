@@ -6,12 +6,9 @@
 
 import pytest
 from guard.pages.map_page import MapPage
-from selenium.webdriver.support.wait import WebDriverWait
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
 from guard.pages.classes.custom_share_path import SharePath
-from selenium.webdriver.support import expected_conditions as EC
-from guard.pages.classes.web_global_info import GlobalDialogInfo
 
 
 class TestMapPositive:
@@ -36,12 +33,15 @@ class TestMapPositive:
     def test_create_next_map_group_from_default(self, map_module, sole_group_name):
         # 测试从Default默认分组创建下一级地图分组
 
-        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default",
-                                                               is_peer=False)
+        # 点击Default分组列表
+        GroupTreePage(map_module[0]).click_group_by_name()
+        # 滑动到右侧icon，进行下一级分组的创建
+        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default", is_peer=False)
 
-        result = GlobalDialogInfo(map_module[0]).judge_alert_info()
+        result = AlertInfoPage(map_module[0]).get_alert_info()
         print(result)
-        """ 条件判断：如果地图上存在设备，则断言A，否则断言B，默认返回True，存在设备 """
+        print(MapPage(map_module[0]).map_is_exist_device())
+        """ 条件判断：如果Default分组下存在设备，则断言A，否则断言B，默认返回True，存在设备 """
         if MapPage(map_module[0]).map_is_exist_device() is True:
             assert "地图上存在设备" == result
         else:

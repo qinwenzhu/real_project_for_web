@@ -11,18 +11,14 @@ import random
 from selenium import webdriver
 from guard.pages.map_page import MapPage
 from guard.pages.tool_page import ToolPage
-from guard.pages.user_page import UserPage
 from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
-from guard.pages.classes.basepage import BasePage
-from guard.pages.timezone_page import TimezonePage
 from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
 
 from guard.pages.classes.custom_share_path import SharePath
-from guard.pages.classes.web_global_dialog import GlobalDialog
 from guard.pages.classes.web_global_info import GlobalDialogInfo
 
 

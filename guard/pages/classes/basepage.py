@@ -176,15 +176,16 @@ class BasePage:
         :param browser_type: win窗口上传时打开的当前浏览器
         :param img_describe: 截图命名描述
         """
-
-        self.wait_for_ele_to_be_visible(loc)
-        ele = self.get_ele_locator(loc)
         try:
             if upload_way == "input":
                 self.log.info(f"通过input类型为file的方式进行文件上传！---{loc[-1]}---")
+                self.wait_for_ele_to_be_presence(loc)
+                ele = self.get_ele_locator(loc)
                 ele.send_keys(filename)
             elif upload_way == "win":
                 self.log.info(f"通过windows窗口的方式进行文件上传！---{loc[-1]}---")
+                # TODO 待测试，使用win窗口进行文件上传
+                # self.wait_for_ele_to_be_visible(loc)
                 upload(file_path=filename, browser_type=browser_type)
         except Exception as e:
             self.save_web_screenshots()

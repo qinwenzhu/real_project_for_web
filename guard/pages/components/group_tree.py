@@ -12,7 +12,7 @@ from guard.pages.components.dialog import DialogPage
 class GroupTreePage(BasePage):
 
     # 点击左侧树图分组，通过分组名称
-    def click_group_by_name(self, group_name):
+    def click_group_by_name(self, group_name="Default"):
 
         # 定位分组名
         DEPARTMENT_NAME = (By.XPATH, f'//div[@title="{group_name}"]')
