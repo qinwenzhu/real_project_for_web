@@ -33,7 +33,7 @@ class BasePage:
         # 传入 driver - 指定类型为：WebDriver
         self.driver = driver
 
-    def wait_for_ele_to_be_visible(self, loc, timeout=10, poll_frequency=0.5):
+    def wait_for_ele_to_be_visible(self, loc, timeout=20, poll_frequency=0.5):
         """ 等待元素在页面中可见 """
 
         self.log.info(f"等待元素可见！---{loc[-1]}---")
@@ -171,90 +171,94 @@ class BasePage:
             self.log.error(f"文件上传报错！---{loc[-1]}---")
             raise e
 
-    def click_ele(self, loc, timeout=10, img_describe="current"):
+    def click_ele(self, loc):
         """ 点击元素，等待元素可见进行点击"""
 
-        self.wait_for_ele_to_be_visible(loc, timeout)
+        self.wait_for_ele_to_be_visible(loc)
         ele = self.get_ele_locator(loc)
-        self.log.info(f"点击元素：{img_describe}页面的-{loc[-1]}元素")
+        self.log.info(f"点击元素！---{loc[-1]}---")
         try:
             ele.click()
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error("点击元素失败！")
+            self.save_web_screenshots()
+            self.log.error(f"点击元素报错！---{loc[-1]}---")
             raise e
 
     """-----------------------------鼠标操作-Actionscharns------------------------------------"""
-    def mouse_move_ele(self, loc, img_describe="current"):
+    def mouse_move_ele(self, loc):
         """  鼠标移动到元素上 """
 
         actions = ActionChains(self.driver)
-        self.wait_for_ele_to_be_visible(loc, img_describe)
-        ele = self.get_ele_locator(loc, img_describe)
-        self.log.info(f"鼠标移动到指定元素：{img_describe}页面的-{loc[-1]}元素")
+        self.wait_for_ele_to_be_visible(loc)
+        ele = self.get_ele_locator(loc)
+        self.log.info(f"鼠标移动到指定元素！---{loc[-1]}---")
         try:
             actions.move_to_element(ele).perform()
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"鼠标移动到指定元素上失败！")
+            self.save_web_screenshots()
+            self.log.error(f"鼠标移动到指定元素报错！---{loc[-1]}---")
             raise e
 
-    def mouse_move_ele_and_click(self, loc1, loc2, pause_time=2, img_describe="current"):
+    def mouse_move_ele_and_click(self, loc1, loc2, pause_time=2):
         """  鼠标移动到指定元素上并进行列表的点击操作 """
 
         actions = ActionChains(self.driver)
         # 等待滑动到目标元素可见
-        self.wait_for_ele_to_be_visible(loc1, img_describe)
-        move_ele = self.get_ele_locator(loc1, img_describe)
+        self.wait_for_ele_to_be_visible(loc1)
+        move_ele = self.get_ele_locator(loc1)
         # 等待需要操作的元素可见
-        self.wait_for_ele_to_be_visible(loc2, img_describe)
-        opera_ele = self.get_ele_locator(loc2, img_describe)
-        self.log.info(f"{img_describe}页面：鼠标移动到父级元素{loc1[-1]},操作子元素{loc2[-1]}元素")
+        self.wait_for_ele_to_be_visible(loc2)
+        opera_ele = self.get_ele_locator(loc2)
+        self.log.info(f"鼠标移动到A元素---{loc1[-1]}---操作B元素---{loc2[-1]}---！")
         try:
             actions.move_to_element(move_ele).perform()
             actions.pause(pause_time)
             actions.click(opera_ele).perform()
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error(f"鼠标移动到元素上并点击元素失败！")
+            self.save_web_screenshots()
+            self.log.error(f"鼠标移动到A元素---{loc1[-1]}---操作B元素---{loc2[-1]}---报错！")
             raise e
 
-    def mouse_move_to_ele_and_offset(self, x_offset, y_offset, pause_time=2, loc=None, ele=None, img_describe="current"):
+    def mouse_move_to_ele_and_offset(self, x_offset, y_offset, pause_time=2, loc=None, ele=None):
         """  设置鼠标移动到距元素ele，x,y轴指定坐标的距离 """
 
         actions = ActionChains(self.driver)
-        self.log.info(f"{img_describe}页面：鼠标移动到x,y轴的位移，操作元素为：{loc}, x轴移动坐标：{x_offset}, y轴移动坐标：{y_offset}")
+        self.log.info(f"鼠标移动到元素---{loc[-1]}---距离x---{x_offset}---,y---{y_offset}---轴的位移！")
         try:
             if loc is not None:
                 # 等待滑动到目标元素可见
-                ele = self.get_ele_locator(loc, img_describe)
+                self.log.info(f"传入的是元素定位表达！---{loc[-1]}---")
+                ele = self.get_ele_locator(loc)
             actions.move_to_element_with_offset(ele, x_offset, y_offset)
             actions.perform()
             actions.pause(pause_time)
             actions.click()
             actions.perform()
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error("鼠标操作元素在x、y轴移动失败！")
+            self.save_web_screenshots()
+            self.log.error(f"鼠标移动到元素---{loc[-1]}---距离x---{x_offset}---,y---{y_offset}---轴的位移报错！")
             raise e
 
-    def scroll_visibility_region(self, ele=None, loc=None, img_describe="current"):
+    def scroll_visibility_region(self, ele=None, loc=None):
         """
         滚动到元素可见区域
         :param ele: 需要滚动到页面可见区域的元素对象
         :param loc: 需要滚动到页面可见的元素定位表达式
         :param img_describe: 当前页面的截图文字介绍
         """
+        self.log.info("通过js实现元素滚动到页面可是区域！")
         try:
             if ele is not None:
+                self.log.info(f"传参方式为：元素！---{ele}---")
                 self.driver.execute_script("arguments[0].scrollIntoView();", ele)
             elif loc is not None:
+                self.log.info(f"传传参方式为：元素定位表达！---{loc[-1]}---")
                 self.wait_for_ele_to_be_presence(loc)
                 element = self.get_ele_locator(loc)
                 self.driver.execute_script("arguments[0].scrollIntoView();", element)
         except Exception as e:
-            self.save_web_screenshots(img_describe)
-            self.log.error("滚动到元素在页面可视区域失败！")
+            self.save_web_screenshots()
+            self.log.error("通过js实现元素滚动到页面可是区域报错！")
             raise e
 
     def save_web_screenshots(self):

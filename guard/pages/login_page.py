@@ -83,7 +83,7 @@ class LoginPage(BasePage):
         BasePage(self.driver).update_input_text(CODE_INPUT, code)
 
         # 点击登录网站
-        BasePage(self.driver).click_ele(LOGIN_BUTTON, "登录")
+        BasePage(self.driver).click_ele(LOGIN_BUTTON)
 
     def is_login_success(self):
         # 判断是否登录成功：如果能定位到 USERNAME 元素，登录成功<返回True>，否则返回 False
@@ -105,7 +105,7 @@ class LoginPage(BasePage):
     def get_code_cjy(self):
         """ 通过调用第三方接口获取验证码"""
         CODE_IMG = (By.CSS_SELECTOR, '.code-pic > img')
-        BasePage(self.driver).wait_for_ele_to_be_visible(CODE_IMG, "登录")
+        BasePage(self.driver).wait_for_ele_to_be_visible(CODE_IMG)
         code_img_src = BasePage(self.driver).get_ele_locator(CODE_IMG).get_attribute("src")
         # 将获取到的图片地址保存到本地目录
         urllib.request.urlretrieve(code_img_src, r'{}\cjy\login_code.jpg'.format(SharePath.DATA_FOLDER))
