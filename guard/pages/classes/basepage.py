@@ -80,18 +80,38 @@ class BasePage:
         else:
             return ele
 
-    def get_ele_locator_by_index(self, loc, index):
+    # def get_ele_locator_by_index(self, loc, index):
+    #     """ 页面定位表达式能匹配到多个，通过下标访问 """
+    #
+    #     self.log.info(f"获取元素列表！---{loc[-1]}---")
+    #     try:
+    #         ele = self.driver.find_elements(*loc)
+    #     except Exception as e:
+    #         self.save_web_screenshots()
+    #         self.log.error(f"获取元素列表报错！---{loc[-1]}---")
+    #         raise e
+    #     else:
+    #         return ele[index]
+
+    def get_ele_locator_by_index(self, loc, index=None):
         """ 页面定位表达式能匹配到多个，通过下标访问 """
 
         self.log.info(f"获取元素列表！---{loc[-1]}---")
         try:
-            ele = self.driver.find_elements(*loc)
+            if index is None:
+                self.log.info(f"获取单个元素！---{loc[-1]}---")
+                ele = BasePage(self.driver).get_ele_locator(loc)
+                return ele
+            else:
+                self.log.info(f"获取元素列表，通过下标得到指定的元素！---{loc[-1]}---")
+                ele = self.driver.find_elements(*loc)
+                if isinstance(ele, list):
+                    # 如果得到的元素为列表，则根据指定下标获取对应元素，否则返回当前元素
+                    return ele[index]
         except Exception as e:
             self.save_web_screenshots()
             self.log.error(f"获取元素列表报错！---{loc[-1]}---")
             raise e
-        else:
-            return ele[index]
 
     def get_text(self, loc):
         """ 获取元素的文本内容  前提：元素存在 """

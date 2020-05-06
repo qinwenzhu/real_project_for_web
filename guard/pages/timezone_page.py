@@ -8,7 +8,7 @@ import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
-from guard.pages.classes.web_global_dialog import GlobalDialog
+from guard.pages.components.dialog import DialogPage
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -111,7 +111,7 @@ class TimezonePage(BasePage):
             time.sleep(2)
             BasePage(self.driver).mouse_move_ele_and_click(SELECT_TIMEZONE, ELE_LOC)
             # 执行删除操作
-            GlobalDialog(self.driver).dialog_delete()
+            DialogPage(self.driver).is_delete_or_cancel()
 
     def delete_or_rename_holidays_or_workday(self, name, flag="删除"):
         """ 删除假期或特殊工作日 """
@@ -126,7 +126,7 @@ class TimezonePage(BasePage):
             ELE_LOC = (By.XPATH, '//div[@class="timezone-left-popper"]//span[contains(text(), "删除")]')
             BasePage(self.driver).mouse_move_ele_and_click(SELECT_TIMEZONE, ELE_LOC)
             # 执行删除操作
-            GlobalDialog(self.driver).dialog_delete()
+            DialogPage(self.driver).is_delete_or_cancel()
 
     def dialog_info_com(self, til_name, val, confirm=True):
         """
@@ -206,4 +206,4 @@ if __name__ == '__main__':
     # TimezonePage(driver).add_timezone_name("timezone1")
     # TimezonePage(driver).add_timezone_name("timezone2")
     # TimezonePage(driver).delete_or_rename_timezone_name("timezone1", "重命名")
-    # TimezonePage(driver).delete_or_rename_timezone_name("TIME-20200506133523")
+    TimezonePage(driver).delete_or_rename_timezone_name("ttttt")

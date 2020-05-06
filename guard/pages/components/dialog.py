@@ -32,5 +32,21 @@ class DialogPage(BasePage):
             BasePage(self.driver).click_ele(CONFIRM_BTN)
         else:
             # 定位取消按钮
-            CONFIRM_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"取消")]')
-            BasePage(self.driver).click_ele(CONFIRM_BTN)
+            CANCLE_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"取消")]')
+            BasePage(self.driver).click_ele(CANCLE_BTN)
+
+    # dialog对话框的删除或取消操作
+    def is_delete_or_cancel(self, index=None, is_delete=True):
+
+        if is_delete:
+            # 点击删除按钮
+            DELETE_BTN = (By.XPATH, '//button//span[contains(text(), "删除")]')
+            # 返回元素
+            ele = BasePage(self.driver).get_ele_locator_by_index(DELETE_BTN, index)
+            # 点击按钮
+            ele.click()
+            # BasePage(self.driver).click_ele(DELETE_BTN)
+        else:
+            # 点击取消按钮
+            CANCLE_BTN = (By.XPATH, '//button//span[contains(text(), "取消")]')
+            BasePage(self.driver).click_ele(CANCLE_BTN)

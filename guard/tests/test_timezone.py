@@ -9,7 +9,6 @@ import time
 import pytest
 from guard.pages.timezone_page import TimezonePage
 from guard.pages.components.alert_info import AlertInfoPage
-from guard.pages.classes.web_global_info import GlobalDialogInfo
 
 
 # 正向测试用例
@@ -27,6 +26,7 @@ class TestTimezonePositive:
         TimezonePage(timezone[0]).add_timezone(timezone[1]["timezone"])
         # 断言
         sql = "SELECT * FROM senseguard.info_time_zone WHERE time_zone_name=%s;"
+        # 优化：鼠标总是移动到删除按钮失败，强制等待2秒
         time.sleep(2)
         result = connect_mysql_and_close.select_database(sql, args=(timezone[1]["timezone"], ))
         # print(f"数据库查询结果为：{result}")
@@ -101,6 +101,7 @@ class TestTimezoneNegative:
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_timezone(timezone):
+    # 删除时间条件
     TimezonePage(timezone[0]).delete_or_rename_timezone_name(timezone[1]["timezone"])
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["timezone"])
 
@@ -108,6 +109,7 @@ def test_delete_timezone(timezone):
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_holiday(timezone):
+    # 删除假期
     TimezonePage(timezone[0]).delete_or_rename_holidays_or_workday(timezone[1]["holiday_name"])
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["holiday_name"])
 
@@ -115,5 +117,6 @@ def test_delete_holiday(timezone):
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_workday(timezone):
+    # 删除特殊工作日
     TimezonePage(timezone[0]).delete_or_rename_holidays_or_workday(timezone[1]["workday_name"])
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["workday_name"])
