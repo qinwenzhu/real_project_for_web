@@ -41,7 +41,7 @@ class TestMapPositive:
         # 测试从Default默认分组创建下一级地图分组
 
         # 点击Default分组列表
-        GroupTreePage(map_module[0]).click_group_by_name()
+        # GroupTreePage(map_module[0]).click_group_by_name()
         # 滑动到右侧icon，进行下一级分组的创建
         GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default", is_peer=False)
 

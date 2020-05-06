@@ -153,13 +153,6 @@ def timezone(login):
     yield login, before_name
 
 
-@pytest.fixture
-def overlong_name():
-    # 创建超出时间条件命名长度的名称
-    sole_name = f"ABD-{uuid4_data()}"
-    yield sole_name
-
-
 """ ---------------------------- 配置-用户管理 ---------------------------- """
 @pytest.fixture(scope="module")
 def user(login):
@@ -169,36 +162,27 @@ def user(login):
     yield login, sole_name
 
 
-# @pytest.fixture
-# def close_alert(user):
-#     # 删除alert消息弹框
-#     yield
-#     GlobalDialogInfo(user[0]).close_alert()
-
-
 @pytest.fixture
 def del_sub_dep_name_to_default(user, sole_group_name):
     yield
     # 删除Default分组的下一级分组
     GroupTreePage(user[0]).delete_peer_or_next_group_by_name(group_name=sole_group_name, module_val="user", is_peer=False)
-    time.sleep(2)
 
 
 @pytest.fixture
 def del_dep_name_to_user(user, sole_group_name):
     yield
     # 删除用户自定义分组的同级分组
-    GroupTreePage(user[0]).delete_peer_or_next_group_by_name(parent_name=sole_group_name, module_val="user")
-    time.sleep(2)
+    if AlertInfoPage(user[0]).get_alert_info() == "创建同级分组成功":
+        GroupTreePage(user[0]).delete_peer_or_next_group_by_name(parent_name=sole_group_name, module_val="user")
 
 
 @pytest.fixture
 def del_sub_dep_name_to_user(user, sole_group_name):
     yield
     # 删除用户自定义分组的下一级分组
-    time.sleep(10)
-    GroupTreePage(user[0]).delete_peer_or_next_group_by_name(group_name=sole_group_name, parent_name=user[1], module_val="user", is_peer=False)
-    time.sleep(2)
+    if AlertInfoPage(user[0]).get_alert_info() == "创建下一级分组成功":
+        GroupTreePage(user[0]).delete_peer_or_next_group_by_name(group_name=sole_group_name, parent_name=user[1], module_val="user", is_peer=False)
 
 
 """ ---------------------------- 工具 ---------------------------- """
@@ -265,5 +249,11 @@ def integer_num():
 
 @pytest.fixture
 def sole_group_name():
-    sole_name = f"UNIQUE-{uuid4_data()}"
+    sole_name = f"UNIQUE-{get_current_time()}"
+    yield sole_name
+
+
+@pytest.fixture
+def overlong_name():
+    sole_name = f"ABD-{uuid4_data()}"
     yield sole_name

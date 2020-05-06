@@ -24,7 +24,7 @@ class GroupTreePage(BasePage):
         BasePage(self.driver).click_ele(DEPARTMENT_NAME)
 
     # 创建同级/下一级分组
-    def create_peer_or_next_group(self, group_name=None, parent_name="Default", is_peer=True):
+    def create_peer_or_next_group(self, group_name=None, parent_name="Default", is_peer=True, is_confirm=True):
         """
         创建同级/下一级分组
         :param group_name: 当前需要创建的分组名
@@ -33,17 +33,29 @@ class GroupTreePage(BasePage):
         """
 
         if is_peer:
+            # 先点击分组名
+            GroupTreePage(self.driver).click_group_by_name(group_name=parent_name)
+
             # 滑动到icon并选择创建同级分组
             GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=parent_name, menu_name="创建同级")
 
-            # 通过dialog对话框 - 创建同级
-            DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建同级", group_name=group_name)
+            if is_confirm:
+                # 通过dialog对话框 - 创建同级
+                DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建同级", group_name=group_name)
+            else:
+                DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建同级", group_name=group_name, is_confirm=False)
         else:
+            # 先点击分组名
+            GroupTreePage(self.driver).click_group_by_name(group_name=parent_name)
+
             # 滑动到icon并选择创建下一级分组
             GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=parent_name, menu_name="创建下一级")
 
-            # 通过dialog对话框 - 创建下一级
-            DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建下一级", group_name=group_name)
+            if is_confirm:
+                # 通过dialog对话框 - 创建下一级
+                DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建下一级", group_name=group_name)
+            else:
+                DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建下一级", group_name=group_name, is_confirm=False)
 
     # 删除同级/下一级分组
     def delete_peer_or_next_group_by_name(self, module_val, group_name=None, parent_name="Default", is_peer=True, is_delete=True):
@@ -64,10 +76,11 @@ class GroupTreePage(BasePage):
         else:
 
             # 点击父级分组，出现子级分组列表
-            GroupTreePage(self.driver).click_group_by_name(parent_name)
-            time.sleep(0.5)
+            GroupTreePage(self.driver).click_group_by_name(group_name=parent_name)
+            # 点击子级分组
+            GroupTreePage(self.driver).click_group_by_name(group_name=group_name)
 
-            # # 滑动到icon并点击删除
+            # 滑动到icon并点击删除
             GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name, "删除")
 
         if is_delete:
@@ -143,19 +156,19 @@ class GroupTreePage(BasePage):
     # #     else:
     # #         # 点击取消按钮
     # #         BasePage(self.driver).click_ele(CANCEL_BTN)
-    #
-    # def search_dep_by_name(self, group_name):
-    #
-    #     # 定位搜索文本框
-    #     SEARCH_INPUT = (By.XPATH, '//aside[@class="el-aside"]//div[contains(@class,"el-input--suffix")]/input')
-    #     BasePage(self.driver).update_input_text(SEARCH_INPUT, group_name)
-    #
-    #     # 点击搜索
-    #     SEARCH_BTN = (By.XPATH, '//aside[@class="el-aside"]//div[contains(@class,"el-input--suffix")]/span')
-    #     BasePage(self.driver).click_ele(SEARCH_BTN)
-    #
-    # def judge_search_success(self, group_name):
-    #     # 判断 tree分组下搜索到对应的分组
-    #     RESULT_TEXT = (By.XPATH, f'//div[@role="tree"]//div[contains(@title,"{group_name}")]')
-    #     return BasePage(self.driver).get_text(RESULT_TEXT)
+
+    def search_dep_by_name(self, group_name):
+
+        # 定位搜索文本框
+        SEARCH_INPUT = (By.XPATH, '//aside[@class="el-aside"]//div[contains(@class,"el-input--suffix")]/input')
+        BasePage(self.driver).update_input_text(SEARCH_INPUT, group_name)
+
+        # 点击搜索
+        SEARCH_BTN = (By.XPATH, '//aside[@class="el-aside"]//div[contains(@class,"el-input--suffix")]/span')
+        BasePage(self.driver).click_ele(SEARCH_BTN)
+
+    def judge_search_success(self, group_name):
+        # 判断 tree分组下搜索到对应的分组
+        RESULT_TEXT = (By.XPATH, f'//div[@role="tree"]//div[contains(@title,"{group_name}")]')
+        return BasePage(self.driver).get_text(RESULT_TEXT)
 

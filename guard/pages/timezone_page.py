@@ -111,7 +111,6 @@ class TimezonePage(BasePage):
             time.sleep(2)
             BasePage(self.driver).mouse_move_ele_and_click(SELECT_TIMEZONE, ELE_LOC)
             # 执行删除操作
-            # DialogPage(self.driver).is_delete_or_cancel()
             DialogPage(self.driver).is_delete_or_cancel(module_val="timezone")
 
     def delete_or_rename_holidays_or_workday(self, name, flag="删除"):
@@ -127,7 +126,6 @@ class TimezonePage(BasePage):
             ELE_LOC = (By.XPATH, '//div[@class="timezone-left-popper"]//span[contains(text(), "删除")]')
             BasePage(self.driver).mouse_move_ele_and_click(SELECT_TIMEZONE, ELE_LOC)
             # 执行删除操作
-            # DialogPage(self.driver).is_delete_or_cancel()
             DialogPage(self.driver).is_delete_or_cancel(module_val="timezone")
 
     def dialog_info_com(self, til_name, val, confirm=True):
