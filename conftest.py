@@ -14,13 +14,11 @@ from guard.pages.tool_page import ToolPage
 from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
+from guard.pages.components.dialog import DialogPage
 from guard.pages.components.menubar import MenuBarPage
-from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
-
+from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.classes.custom_share_path import SharePath
-from guard.pages.classes.web_global_info import GlobalDialogInfo
-
 
 from utils.handle_config import HandleConfig
 from utils.handle_database import HandleDB
@@ -171,11 +169,11 @@ def user(login):
     yield login, sole_name
 
 
-@pytest.fixture
-def close_alert(user):
-    # 删除alert消息弹框
-    yield
-    GlobalDialogInfo(user[0]).close_alert()
+# @pytest.fixture
+# def close_alert(user):
+#     # 删除alert消息弹框
+#     yield
+#     GlobalDialogInfo(user[0]).close_alert()
 
 
 @pytest.fixture
@@ -241,6 +239,13 @@ def close_alert_info(login):
     # 关闭alert消息弹框
     yield
     AlertInfoPage(login).close_alert()
+
+
+# @pytest.fixture
+# def close_dialog(login):
+#     # 关闭dialog
+#     yield
+#     DialogPage(login).close_dialog()
 
 
 def get_current_time():

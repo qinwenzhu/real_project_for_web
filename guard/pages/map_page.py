@@ -32,8 +32,8 @@ class MapPage(BasePage):
         else:
             return True
 
-    # 判断地图上是否存在设备
-    def map_is_exist_device(self):
+    # 判断地图分组下是否存在设备
+    def map_group_is_exist_device(self):
         # 定位设备点位容器内的icon，如果存在<返回True>，则说明Default分组下存在设备
         try:
             DEVICE_ICON = (By.XPATH, '//div[@class="leaflet-pane leaflet-marker-pane"]//img')

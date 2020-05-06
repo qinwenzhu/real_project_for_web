@@ -30,6 +30,13 @@ class TestMapPositive:
 
         assert MapPage(map_module[0]).is_upload_map_success()
 
+    def test_delete_peer_map_group_from_default(self, map_module):
+        # 测试从Default分组删除同级地图分组
+        GroupTreePage(map_module[0]).delete_peer_or_next_group_by_name(module_val="map", parent_name=map_module[1]["map_group_name"])
+
+        result = AlertInfoPage(map_module[0]).get_alert_info()
+        assert "删除分组成功！" == result
+
     def test_create_next_map_group_from_default(self, map_module, sole_group_name):
         # 测试从Default默认分组创建下一级地图分组
 
@@ -39,10 +46,11 @@ class TestMapPositive:
         GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default", is_peer=False)
 
         result = AlertInfoPage(map_module[0]).get_alert_info()
-        print(result)
-        print(MapPage(map_module[0]).map_is_exist_device())
+        # print(result)
+        # print(MapPage(map_module[0]).map_group_is_exist_device())
         """ 条件判断：如果Default分组下存在设备，则断言A，否则断言B，默认返回True，存在设备 """
-        if MapPage(map_module[0]).map_is_exist_device() is True:
+        if MapPage(map_module[0]).map_group_is_exist_device() is True:
             assert "地图上存在设备" == result
+            map_module[0].refresh()
         else:
             assert "创建下一级分组成功" == result

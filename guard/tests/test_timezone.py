@@ -56,7 +56,7 @@ class TestTimezonePositive:
         sql = "SELECT * FROM senseguard.info_holiday WHERE holiday_name=%s;"
         time.sleep(2)
         result = connect_mysql_and_close.select_database(sql, args=(timezone[1]["workday_name"], ))
-        print(f"数据库查询结果为：{result}")
+        # print(f"数据库查询结果为：{result}")
         assert timezone[1]["workday_name"] == result["holiday_name"]
         # 断言2：通过获取添加动作之后的页面元素的text来断言 - 两个断言条件都可以断言成功，
         text_result = TimezonePage(timezone[0]).assert_result_by_name(timezone[1]["workday_name"])
