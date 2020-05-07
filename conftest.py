@@ -235,9 +235,11 @@ def uuid4_para():
 def before_device_common(login):
 
     # before_name = {"floor_group_name": f"FGN-{get_current_time()}"}
+    # 将相关联的前置数据，写在同一个地方
     before_name = {"floor_group_name": f"FGN-{get_current_time()}",
                    "device_group_name": f"DGN-{get_current_time()}",
-                   "device_name": f"FGN-{get_current_time()}"}
+                   "device_name": f"DN-{get_current_time()}",
+                   "task_name": f"TN-{get_current_time()}"}
 
     # 进入地图模块，创建地图分组，上传地图
     MenuBarPage(login).click_nav_item("配置", "地图管理")
@@ -263,7 +265,7 @@ def before_structuring_task_common(login, before_device_common):
                 floor_name=before_device_common["floor_group_name"], rtsp_address="rtsp://10.151.3.119:7554/IMG_0322.264")
 
     # 创建设备 - 网络摄像机 - RTSP
-    time.sleep(0.5)
+    time.sleep(2)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_device_common["device_group_name"])
     time.sleep(2)
     DevicePage(login).add_device_by_type(rtsp_para, device_type="网络摄像机")
