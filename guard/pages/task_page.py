@@ -7,59 +7,62 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
+from guard.pages.components.dialog import DialogPage
 from selenium.webdriver.common.action_chains import ActionChains
 from guard.pages.classes.web_com_content_click import WebContentClick as click_btn
 
 
 class TaskPage(BasePage):
 
+    def add_task_by_type(self, task, task_type, is_confirm=True):
+
+        # 点击任务左侧菜单
+        self.click_left_menu(menu_name=task_type)
+        # 点击添加任务按钮
+        self.click_add_task_btn()
+        # 选择任务类型
+        self.select_task_type(task_type=task_type)
+        """ 开始添加任务界面的基础共用操作：任务名称、设备名称、设备分组，选择特殊属性 """
+        self.task_basic_set(task)
+
+        if task_type == "车辆-违停检测任务":
+            # 设置违停时限
+            self.input_park_time()
+            # 绘制违停区域
+            self.draw_park_region()
+
+        elif task_type == "人体-区域闯入检测任务":
+            pass
+
+        elif task_type == "人体-越线检测任务":
+            pass
+
+        # 点击确认或取消按钮
+        if is_confirm:
+            DialogPage(self.driver).is_confirm_or_cancel("添加任务")
+        else:
+            DialogPage(self.driver).is_confirm_or_cancel("添加任务", is_confirm=False)
+
+    # 点击左侧任务菜单
     def click_left_menu(self, menu_name):
-        """ 点击左侧任务菜单 """
         TASK_MENU = (By.XPATH, f'//div[@class="task-menu-container"]//li[contains(text(), "{menu_name}")]')
         BasePage(self.driver).click_ele(TASK_MENU)
 
-    def add_task_to_parked_vehicle(self, task_name, device_name, time_minute, timezone_name=None, attr_name=None, menu_name="车辆-违停检测任务", is_confirm=True):
-        """
-        添加车辆违停任务
-        :param task_name: 任务名称
-        :param device_name: 设备名称
-        :param time_minute: 违停时长
-        :param timezone_name: 时间条件名称
-        :param attr_name: 特殊属性
-        :param menu_name: 任务类型
-        :param is_confirm: 是否添加任务，默认添加
-        """
-        # 点击左侧菜单
-        self.click_left_menu(menu_name)
-        # 点击添加任务
-        click_btn(self.driver).click_btn(btn_name="添加任务")
-        # 基础配置
-        self.select_task_type(menu_name)
-        self.input_task_name(task_name)
-        self.select_device(device_name)
-        self.select_timezone(timezone_name)
-        self.select_special_attr(attr_name)
-        self.input_park_time(time_minute)
-        self.com_car_size("最小车辆识别尺寸", width=30, height=30)
-        self.com_car_size("最大车辆识别尺寸", width=500, height=500)
-        self.draw_park_region()
+    # 点击添加任务
+    def click_add_task_btn(self):
+        ADD_BTN = (By.XPATH, '//span[contains(text(), "添加任务")]')
+        BasePage(self.driver).click_ele(ADD_BTN)
 
-        if is_confirm:
-            # 点击确定
-            self.com_confirm_or_cancel(is_confirm=is_confirm)
-        else:
-            # 点击取消
-            self.com_confirm_or_cancel(is_confirm=is_confirm)
+    # 添加各种任务类型共用的部分
+    def task_basic_set(self, task):
+        # 输入任务名称
+        self.input_task_name(task_name=task.task_name)
+        # 通过设备名选择设备
+        self.select_device(device_name=task.device_name)
+        # 设置特殊属性
+        self.select_special_attr(attr_name=task.special_attributes)
 
-    def com_confirm_or_cancel(self, til_name="添加任务", is_confirm=True):
-        if is_confirm:
-            # 点击确定
-            CONFIRM_BTN = (By.XPATH, f'//div[@aria-label="{til_name}"]//div[@class="el-dialog__footer"]//span[contains(text(), "确定")]')
-            BasePage(self.driver).click_ele(CONFIRM_BTN)
-        else:
-            # 点击取消
-            CANCEL_BTN = (By.XPATH, f'//div[@aria-label="{til_name}"]//div[@class="el-dialog__footer"]//span[contains(text(), "取消")]')
-            BasePage(self.driver).click_ele(CANCEL_BTN)
+    """ ---------------------------- 添加任务 - dialog界面元素操作 ---------------------------- """
 
     # 定位-任务类型
     def select_task_type(self, task_type):
@@ -113,10 +116,13 @@ class TaskPage(BasePage):
         BasePage(self.driver).click_ele(SPECIAL_ATTR)
 
         if attr_name is not None:
-            # 通过指定特殊属性的名称，进行选择
-            SELECT_ATTR = (By.XPATH, f'//span[text()="{attr_name}"]')
-            # 移动到特殊属性下拉列表上并进行选择
-            BasePage(self.driver).mouse_move_ele_and_click(SPECIAL_ATTR, SELECT_ATTR)
+            # if len(attr_name) > 1:
+            for single_attr in attr_name:
+                # 通过指定特殊属性的名称，进行选择
+                # SELECT_ATTR = (By.XPATH, f'//span[text()="{attr_name}"]')
+                SELECT_ATTR = (By.XPATH, f'//span[text()="{single_attr}"]')
+                # 移动到特殊属性下拉列表上并进行选择
+                BasePage(self.driver).mouse_move_ele_and_click(SPECIAL_ATTR, SELECT_ATTR)
         else:
             BasePage(self.driver).click_ele(SPECIAL_ATTR)
 
@@ -170,7 +176,7 @@ class TaskPage(BasePage):
         # 2、通过设备名device_name, 定位到查询结果
         RESULT = (By.XPATH, f'//span[@class="el-radio__label"]//span[@title="{name}"]')
         # 点击到查询的设备分组名
-        BasePage(self.driver).click_ele(RESULT, timeout=20)
+        BasePage(self.driver).click_ele(RESULT)
 
     def draw_line(self, x_offset, y_offset, ele):
         actions = ActionChains(self.driver)
@@ -202,37 +208,29 @@ class TaskPage(BasePage):
         BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     """------------------ 非空校验 ---------------------------"""
-    def verify_parked_vehicle_not_null(self, is_confirm=True):
-        """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
-        # 点击左侧菜单
-        self.click_left_menu("车辆-违停检测任务")
-        click_btn(self.driver).click_btn(btn_name="添加任务")
-        self.com_confirm_or_cancel(is_confirm=is_confirm)
-
-    # def verify_parked_vehicle_not_null_device_name(self, device_name, menu_name="车辆-违停检测任务", is_confirm=True):
-    #     点击左侧菜单
-    #     self.click_left_menu(menu_name)
-    #     # 点击添加任务
+    # def verify_parked_vehicle_not_null(self, is_confirm=True):
+    #     """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
+    #     # 点击左侧菜单
+    #     self.click_left_menu("车辆-违停检测任务")
     #     click_btn(self.driver).click_btn(btn_name="添加任务")
-    #     # 基础配置
-    #     # self.select_task_type(menu_name)
-    #     self.input_task_name(task_name)
-    #
-    #     self.select_device()
     #     self.com_confirm_or_cancel(is_confirm=is_confirm)
 
 
 if __name__ == '__main__':
     from selenium import webdriver
     from guard.pages.login_page import LoginPage
-    from guard.pages.components.menubar import MenubarPage
+    from guard.pages.components.menubar import MenuBarPage
+    from guard.pages.classes.task import Task
 
     driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get("http://10.151.3.96/login")
     LoginPage(driver).login("zhuwenqin", "888888", login_way="debug")
-    MenubarPage(driver).click_nav_item("配置", "任务管理")
-    TaskPage(driver).add_task_to_parked_vehicle(task_name="test", device_name="1111", time_minute=1)
+    MenuBarPage(driver).click_nav_item("配置", "任务管理")
+
+    task = Task("wse", "3210")
+    TaskPage(driver).add_task_by_type(task, task_type="车辆-违停检测任务")
+    # TaskPage(driver).add_task_to_parked_vehicle(task_name="test", device_name="1111", time_minute=1)
 
     # from guard.pages.components.table_list import TableListPage
     # TaskPage(driver).click_left_menu("车辆-违停检测任务")

@@ -46,8 +46,9 @@ class DevicePage(BasePage):
         elif type == '人脸抓拍机':
             pass
 
+        # 点击确定或取消按钮
         if is_confirm:
-           DialogPage(self.driver).is_confirm_or_cancel("添加设备")
+            DialogPage(self.driver).is_confirm_or_cancel("添加设备")
         else:
             DialogPage(self.driver).is_confirm_or_cancel("添加设备", is_confirm)
 
