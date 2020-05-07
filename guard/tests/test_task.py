@@ -30,32 +30,14 @@ class TestStructTaskPositive:
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
 
-@pytest.mark.negative
 class TestStructTaskNegative:
 
-    @pytest.mark.usefixtures("close_add_task_dialog_btn")
-    def test_add_parking_detection_task_and_task_name_not_null(self, task_no_setup):
-        # 测试添加车辆违停任务 - 任务名不能为空
+    # @pytest.mark.usefixtures("close_add_task_dialog_btn")
+    def test_add_parking_detection_task_and_not_null(self, task_no_setup):
+        # 测试添加车辆违停任务 - 非空校验
         TaskPage(task_no_setup).verify_parked_vehicle_not_null()
-        time.sleep(1)
-        result = TaskPage(task_no_setup).dialog_error_info(flag="task")
-        assert "请输入正确格式的任务名称" in result
-
-    @pytest.mark.usefixtures("close_add_task_dialog_btn")
-    def test_add_parking_detection_task_and_device_not_null(self, task_no_setup):
-        # 测试添加车辆违停任务 - 设备不能为空，必须选择
-        TaskPage(task_no_setup).verify_parked_vehicle_not_null()
-        time.sleep(1)
-        result = TaskPage(task_no_setup).dialog_error_info(flag="device")
-
-        assert "请选择设备" in result
-
-    @pytest.mark.usefixtures("close_add_task_dialog_btn")
-    def test_add_parking_detection_task_and_region_not_null(self, task_no_setup):
-        # 测试添加车辆违停任务 - 违停区域不能为空
-        TaskPage(task_no_setup).verify_parked_vehicle_not_null()
-        time.sleep(1)
-        result = TaskPage(task_no_setup).dialog_error_info(flag="device")
-        assert "请绘制违停区域" in result
-
-
+        time.sleep(2)
+        result = [TaskPage(task_no_setup).dialog_error_info(flag="task"),
+                  TaskPage(task_no_setup).dialog_error_info(flag="device"),
+                  TaskPage(task_no_setup).dialog_error_info(flag="region")]
+        assert "请输入正确格式的任务名称" in result[0] and "请选择设备" in result[1] and "请绘制违停区域" in result[2]

@@ -100,6 +100,7 @@ class BasePage:
         try:
             if index is None:
                 self.log.info(f"获取单个元素！---{loc[-1]}---")
+                WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
                 ele = BasePage(self.driver).get_ele_locator(loc)
                 return ele
             else:
