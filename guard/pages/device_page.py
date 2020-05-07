@@ -16,13 +16,11 @@ from guard.pages.components.dialog import DialogPage
 
 class DevicePage(BasePage):
 
-    def add_device_by_type(self, device, device_type, protocol='TCP', encoding_type='Direct', is_confirm=True):
+    def add_device_by_type(self, device, device_type, is_confirm=True):
         """
         通过指定类型来添加不同的设备
         :param device: 设备实例
         :param device_type: 设备类型，默认为网络摄像机，可选人脸识别机（后）、人脸抓拍机、身份验证一体机、人脸识别机（前）
-        :param protocol:
-        :param encoding_type:
         :param is_confirm: 是否确认，默认为确认
         """
 
