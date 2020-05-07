@@ -6,9 +6,9 @@
 
 import pytest
 from guard.pages.map_page import MapPage
+from guard.pages.classes.path import SharePath
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
-from guard.pages.classes.path import SharePath
 
 
 class TestMapPositive:
@@ -37,13 +37,15 @@ class TestMapPositive:
         result = AlertInfoPage(map_module[0]).get_alert_info()
         assert "删除分组成功！" == result
 
+
+@pytest.mark.negative
+class TestMapNegative:
+
+    # @pytest.mark.usefixtures("close_add_floor_dialog_btn")
     def test_create_next_map_group_from_default(self, map_module, sole_group_name):
         # 测试从Default默认分组创建下一级地图分组
-
-        # 点击Default分组列表
-        # GroupTreePage(map_module[0]).click_group_by_name()
-        # 滑动到右侧icon，进行下一级分组的创建
-        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default", is_peer=False)
+        GroupTreePage(map_module[0]).create_peer_or_next_group(group_name=sole_group_name, parent_name="Default",
+                                                               is_peer=False)
 
         result = AlertInfoPage(map_module[0]).get_alert_info()
         # print(result)

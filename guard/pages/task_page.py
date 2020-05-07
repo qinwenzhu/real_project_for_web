@@ -200,19 +200,20 @@ class TaskPage(BasePage):
             ele = BasePage(self.driver).get_ele_locator_by_index(ERROR_INFO, 2)
         return ele.text
 
+    # 点击关闭dialog窗口
     def click_close_dialog_btn(self):
-        """  点击关闭dialog窗口 """
         # 定位关闭弹窗
         CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog__wrapper"]//span[contains(text(), "添加任务")]/following-sibling::button')
         BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     """------------------ 非空校验 ---------------------------"""
-    # def verify_parked_vehicle_not_null(self, is_confirm=True):
-    #     """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
-    #     # 点击左侧菜单
-    #     self.click_left_menu("车辆-违停检测任务")
-    #     click_btn(self.driver).click_btn(btn_name="添加任务")
-    #     self.com_confirm_or_cancel(is_confirm=is_confirm)
+    def verify_parked_vehicle_not_null(self):
+        """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
+        # 点击左侧菜单
+        self.click_left_menu("车辆-违停检测任务")
+        # 点击添加任务
+        self.click_add_task_btn()
+        DialogPage(self.driver).is_confirm_or_cancel(loc_by_til="添加任务")
 
 
 if __name__ == '__main__':

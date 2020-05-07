@@ -12,6 +12,7 @@ from selenium import webdriver
 from guard.pages.classes.rtsp import Rtsp
 from guard.pages.map_page import MapPage
 from guard.pages.tool_page import ToolPage
+from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
 from guard.pages.components.menubar import MenuBarPage
@@ -81,11 +82,18 @@ def task(login, before_structuring_task_common):
     yield login, before_structuring_task_common
 
 
-# @pytest.fixture(scope="module")
-# def task_no_setup(login):
-#     MenuBarPage(login).click_nav_item("配置", "任务管理")
-#     yield login
-#     TaskPage(login).click_close_dialog_btn()
+@pytest.fixture(scope="module")
+def task_no_setup(login):
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
+    yield login
+    TaskPage(login).click_close_dialog_btn()
+
+
+@pytest.fixture()
+def close_add_task_dialog_btn(login):
+    # 点击关闭添加任务弹框
+    yield
+    TaskPage(login).click_close_dialog_btn()
 
 
 """ ---------------------------- 配置-设备管理 ---------------------------- """
@@ -103,6 +111,13 @@ def map_module(login):
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     required_parameters = {"map_group_name": f"FGN-{uuid4_data()}"}
     yield login, required_parameters
+
+
+@pytest.fixture()
+def close_add_floor_dialog_btn(login):
+    # 点击关闭添加地图分组弹框
+    yield
+    MapPage(login).click_close_dialog_btn()
 
 
 """ ---------------------------- 配置-时间条件 ---------------------------- """

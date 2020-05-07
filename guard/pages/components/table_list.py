@@ -7,27 +7,30 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
-from guard.pages.components.dialog import DialogPage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class TableListPage(BasePage):
 
     def judge_table_list_add_name(self, name):
-        """ 判断列表内是否存在当前名称的列表， 存在返回 True """
-        TABLE_NAME = (By.XPATH, f'//table[@class="el-table__body"]//div[@class="cell" and  text() = "{name}"]')
+        """ 判断当前列表内是否存在name元素，如果存在返回True，说明添加成功！反之添加失败，返回False """
         try:
-            if self.driver.find_element(*TABLE_NAME):
-                return True
+            TABLE_NAME = (By.XPATH, f'//table[@class="el-table__body"]//div[@class="cell" and  text() = "{name}"]')
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(TABLE_NAME))
         except:
             return False
+        else:
+            return True
 
     def judge_table_list_delete_name(self, name):
-        """ 判断列表内是否存在当前名称的列表  不存在返回 True"""
-        TABLE_NAME = (By.XPATH, f'//table[@class="el-table__body"]//div[@class="cell" and  text() = "{name}"]')
+        """ 判断当前列表内是否存在name元素，如果存在返回False，说明删除失败！反之删除成功，返回True """
         try:
-            if not self.driver.find_element(*TABLE_NAME):
-                return True
+            TABLE_NAME = (By.XPATH, f'//table[@class="el-table__body"]//div[@class="cell" and  text() = "{name}"]')
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(TABLE_NAME))
         except:
+            return True
+        else:
             return False
 
     def operations_table_list(self, name, flag):
@@ -43,13 +46,11 @@ class TableListPage(BasePage):
         time.sleep(2)
         if flag == "view":
             BasePage(self.driver).click_ele(VIEW_ICON)
-
             # TODO 弹框操作
             pass
 
         elif flag == "edit":
             BasePage(self.driver).click_ele(EDIT_ICON)
-
             # TODO 弹框操作
             pass
 
@@ -74,11 +75,9 @@ class TableListPage(BasePage):
 
     def table_list_switch(self, name):
         """  table_list 列表状态开关，如任务的启用/禁用 """
-
         # 定位开关操作
         SWITCH_BTN = (By.XPATH, f'//div[@class="cell" and text()="{name}"]/parent::td/following-sibling::td//div[@class="el-switch"]')
         BasePage(self.driver).click_ele(SWITCH_BTN)
-
         # 在弹框中点击修改状态
         # TODO
         # DialogPage(self.driver).is_delete_or_cancel(module_val="")

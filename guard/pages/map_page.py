@@ -21,6 +21,13 @@ class MapPage(BasePage):
         GroupTreePage(self.driver).click_group_by_name(group_name)
         BasePage(self.driver).upload_file(loc=UPLOAD_FILE, filename=file_name)
 
+    # 点击关闭dialog窗口
+    def click_close_dialog_btn(self):
+        # 定位关闭弹窗
+        CLOSE_BUTTON = (
+        By.XPATH, '//span[@class="el-dialog__title" and contains(text(), "创建下一级")]/following-sibling::button')
+        BasePage(self.driver).click_ele(CLOSE_BUTTON)
+
     # 判断地图是否上传成功
     def is_upload_map_success(self):
         try:
