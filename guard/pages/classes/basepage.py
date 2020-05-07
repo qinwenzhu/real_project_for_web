@@ -18,7 +18,7 @@ from guard.tools.custom_upload_file import upload
 # 自定义 - 导入日志
 from utils.handle_log import HandleLog
 # 自定义 - 导入公共路径
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 
 
 class BasePage:

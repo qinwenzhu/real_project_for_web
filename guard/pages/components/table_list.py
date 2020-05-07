@@ -7,7 +7,7 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
-from guard.pages.classes.web_global_dialog import GlobalDialog
+from guard.pages.components.dialog import DialogPage
 
 
 class TableListPage(BasePage):
@@ -80,4 +80,5 @@ class TableListPage(BasePage):
         BasePage(self.driver).click_ele(SWITCH_BTN)
 
         # 在弹框中点击修改状态
-        GlobalDialog(self.driver).dialog_delete()
+        # TODO
+        # DialogPage(self.driver).is_delete_or_cancel(module_val="")

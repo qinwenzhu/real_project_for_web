@@ -10,7 +10,7 @@ from guard.pages.tool_page import ToolPage
 from guard.datas.tool_data.tool_data import ToolData
 from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.alert_info import AlertInfoPage
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 
 """ 
 小工具模块相对独立，所以冒烟测试也是跑全部测试用例

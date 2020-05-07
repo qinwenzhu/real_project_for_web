@@ -8,7 +8,7 @@ import pytest
 from guard.pages.map_page import MapPage
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 
 
 class TestMapPositive:

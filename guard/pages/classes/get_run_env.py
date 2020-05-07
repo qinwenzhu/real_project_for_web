@@ -4,7 +4,7 @@
 # @File: run_env.py
 # @Software: PyCharm
 
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 from utils.handle_config import HandleConfig
 
 

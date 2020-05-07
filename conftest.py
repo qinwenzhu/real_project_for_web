@@ -12,14 +12,12 @@ from selenium import webdriver
 from guard.pages.classes.rtsp import Rtsp
 from guard.pages.map_page import MapPage
 from guard.pages.tool_page import ToolPage
-from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
-from guard.pages.components.dialog import DialogPage
 from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.alert_info import AlertInfoPage
 from guard.pages.components.group_tree import GroupTreePage
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 
 from utils.handle_config import HandleConfig
 from utils.handle_database import HandleDB
@@ -251,8 +249,7 @@ def before_device_common(login):
     # 删除地图分组
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     time.sleep(0.2)
-    GroupTreePage(login).delete_peer_or_next_group_by_name(parent_name=before_name["floor_group_name"],
-                                                           module_val="map")
+    GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="map", parent_name=before_name["floor_group_name"])
 
 
 @pytest.fixture(scope="module")
@@ -274,5 +271,5 @@ def before_structuring_task_common(login, before_device_common):
     yield before_device_common
 
     MenuBarPage(login).click_nav_item("配置", "设备管理")
-    # 删除设备分组
-    GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="device", group_name=before_device_common["device_group_name"])
+    # 删除相对于Default分组的同级设备分组
+    GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="device", parent_name=before_device_common["device_group_name"])

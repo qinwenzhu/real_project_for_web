@@ -5,25 +5,21 @@
 # @file: test_task.py
 # @software: PyCharm
 
-import time
 import pytest
-from guard.pages.task_page import TaskPage
 from guard.pages.classes.task import Task
+from guard.pages.task_page import TaskPage
 from guard.pages.components.table_list import TableListPage
 
 
+@pytest.mark.smoke
+@pytest.mark.positive
 def test_add_vehicle_illegally_parking_detection_task(task, uuid4_para):
     task_para = Task(task_name=uuid4_para, device_name=task[1]["device_name"])
     TaskPage(task[0]).add_task_by_type(task_para, task_type="车辆-违停检测任务")
 
-# def test_add_vehicle_illegally_parking_detection_task(task):
-#     # 测试添加-车辆违停任务
-#     TaskPage(task[0]).add_task_to_parked_vehicle(task_name=task[1]["task_name"], device_name=task[1]["device_name"],
-#                                                  time_minute=task[1]["time_minute"], timezone_name=None, attr_name=None)
-#     time.sleep(2)
-#     assert TableListPage(task[0]).judge_table_list_add_name(task[1]["task_name"])
-#
-#
+    assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
+
+
 # def test_add_parking_detection_task_and_not_null(task_no_setup):
 #     # 测试添加车辆违停任务 - 非空校验
 #     TaskPage(task_no_setup).verify_parked_vehicle_not_null()

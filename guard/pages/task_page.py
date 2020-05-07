@@ -9,7 +9,6 @@ from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from guard.pages.components.dialog import DialogPage
 from selenium.webdriver.common.action_chains import ActionChains
-from guard.pages.classes.web_com_content_click import WebContentClick as click_btn
 
 
 class TaskPage(BasePage):

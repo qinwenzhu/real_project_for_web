@@ -23,7 +23,7 @@ from utils.ssh import SSH
 from utils.handle_config import HandleConfig
 
 # 导入共用路径
-from guard.pages.classes.custom_share_path import SharePath
+from guard.pages.classes.path import SharePath
 
 # 导入二次封装selenium框架的 BasePage类
 from guard.pages.classes.basepage import BasePage
