@@ -5,93 +5,82 @@
 # @Software: PyCharm
 
 import time
+
+# 导入参数
+from guard.pages.classes.rtsp import Rtsp
+
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
-# from selenium.webdriver.common.action_chains import ActionChains
-from guard.pages.classes.web_com_content_click import WebContentClick as click_btn
+from guard.pages.components.dialog import DialogPage
 
 
 class DevicePage(BasePage):
 
-    def add_device_com(self):
-        # 点击添加设备
+    def add_device_by_type(self, device, device_type, protocol='TCP', encoding_type='Direct', is_confirm=True):
+        """
+        通过指定类型来添加不同的设备
+        :param device: 设备实例
+        :param device_type: 设备类型，默认为网络摄像机，可选人脸识别机（后）、人脸抓拍机、身份验证一体机、人脸识别机（前）
+        :param protocol:
+        :param encoding_type:
+        :param is_confirm: 是否确认，默认为确认
+        """
+
+        # 点击添加设备按钮
+        self.click_add_device_btn()
+        # 选择设备类型
+        self.select_device_type(device_type=device_type)
+        """ 开始添加设备界面的基础共用操作：设备名称、设备id、设备分组，指定地图分组，给设备标注点位 """
+        self.device_basic_set(device)
+
+        if device_type == "网络摄像机":
+            # 选择camera的类型，有RTSP和ONVIF两种类型
+            self.select_camera_type()
+            if isinstance(device, Rtsp):
+                # 输入rtsp的地址
+                self.input_rtsp_address(device.rtsp_address)
+                """ 编码类型和传输协议使用默认 """
+            # elif isinstance(device, ONVIF):
+            elif isinstance(device, Rtsp):
+                pass
+        elif type == "人脸识别机（前）":
+            pass
+        elif type == '人脸抓拍机':
+            pass
+
+        if is_confirm:
+           DialogPage(self.driver).is_confirm_or_cancel("添加设备")
+        else:
+            DialogPage(self.driver).is_confirm_or_cancel("添加设备", is_confirm)
+
+    # 点击添加设备
+    def click_add_device_btn(self):
         ADD_BTN = (By.XPATH, '//span[contains(text(), "添加设备")]')
         BasePage(self.driver).click_ele(ADD_BTN)
 
-    def is_confirm_or_cancel_com(self, is_confirm=True):
-        if is_confirm:
-            # 定位-确定按钮
-            CONFIRM_BTN = (By.XPATH,
-                           '//div[@class="deviceAdd"]//div[@class="el-dialog__footer"]//span[contains(text(), "确定")]')
-            BasePage(self.driver).click_ele(CONFIRM_BTN)
-        else:
-            # 定位-取消按钮
-            CANCEL_BTN = (
-                By.XPATH, '//div[@class="deviceAdd"]//div[@class="el-dialog__footer"]//span[contains(text(), "取消")]')
-            BasePage(self.driver).click_ele(CANCEL_BTN)
-
-    def add_camera(self, device_type, device_name, device_id, device_group_name, map_group_name,
-                   rtsp_address, camera_type="RTSP", is_confirm=True):
-        """
-        添加设备,设备类型为 摄像头Cam
-        :param device_name: 设备名称
-        :param device_id: 设备id
-        :param device_group_name: 设备分组名称
-        :param map_group_name: 地图分组名称
-        :param rtsp_address: RTSP视频流地址
-        :param camera_type: 摄像机类型划分：RTSP和ONVIF
-        :param device_type: 指定创建设备的设备类型，设备类型包括<网络摄像机、人脸识别机（后）、人脸抓拍机、身份验证一体机、人脸识别机（前）>
-        :param is_confirm: 确定或取消
-        """
-
-        # 添加设备
-        click_btn(self.driver).click_btn(btn_name="添加设备")
-
-        # 设置设备类型 - 网络摄像机
-        self.select_device_type(device_type)
+    # 添加设备的共用基本参数设置
+    def device_basic_set(self, device):
         # 设置设备名称
-        self.input_device_name(device_name)
+        self.input_device_name(device.device_name)
         # 设置设备id
-        self.input_device_id(device_id)
-        # 设置设备分组名称
-        self.select_device_group(device_group_name)
-        # 标注设备在地图上的点位 - <前置：需要创建地图分组，上传地图》
-        self.select_device_site(map_group_name)
-        # TODO 暂时使用默认
-        #  设置该设备的使用权限，分配给哪些用户，自动化设置，使用默认值
-        # self.assign_device_jurisdiction_to_user()
-        if camera_type == "RTSP":
-            # 创建摄像机类型为：RTSP 的设备
-            self.camera_type_to_rtsp(rtsp_address)
-        elif camera_type == "ONVIF":
-            # TODO 创建摄像机类型为：ONVIF  的设备
-            pass
-        # TODO 是否设置该设备 - 关联无感门禁
-        # self.is_open_switch(is_relevance)
-        # 调用确认or取消
-        self.is_confirm_or_cancel_com(is_confirm)
+        self.input_device_id(device.device_id)
+        # 选择设备分组名称
+        self.select_device_group(device.group_name)
+        # 选定地图分组并在地图上标注设备的安装点位
+        self.select_device_site(device.floor_name)
 
-    def camera_type_to_rtsp(self, rtsp_address, camera_type="RTSP", encod_type="直连", tran_pro="TCP"):
-        """ 设置摄像机类型为RTSP """
-        # 选择类型为RTSP
-        self.select_camera_type(camera_type)
-        # 设置RTSP地址
-        self.input_rtsp_address(rtsp_address)
-        # 设置编码类型
-        self.select_encoding_type(encod_type)
-        # 选择传输协议
-        self.select_transport_protocols(tran_pro)
-
-    """ ---------------------------- 添加设备 - page界面操作 ---------------------------- """
+    """ ---------------------------- 添加设备 - dialog界面元素操作 ---------------------------- """
     # 定位-设备类型
-    def select_device_type(self, default="网络摄像机"):
+    def select_device_type(self, device_type):
+
         # 定位设备类型框 并点击
         TYPE = (By.XPATH, '//label[contains(text(), "设备类型")]/following-sibling::div//input')
-        BasePage(self.driver).click_ele(TYPE)
-
-        time.sleep(0.2)
         # 通过传入的不同设备类型 - 去动态定位设备类型
-        SELECT_TYPE = (By.XPATH, f'//div[contains(@class,"el-popper") and contains(@style, "position")]//ul[contains(@class, "el-select-dropdown__list")]//span[contains(text(), "{default}")]')
+        SELECT_TYPE = (By.XPATH,
+                       f'//div[contains(@class,"el-popper") and contains(@style, "position")]//ul[contains(@class, "el-select-dropdown__list")]//span[contains(text(), "{device_type}")]')
+
+        BasePage(self.driver).click_ele(TYPE)
+        time.sleep(0.2)
         # 移动到type元素并选择目标元素
         BasePage(self.driver).mouse_move_ele_and_click(TYPE, SELECT_TYPE)
 
@@ -146,7 +135,7 @@ class DevicePage(BasePage):
 
         # 定位 - 地图容器
         TARGET_ELE = (By.XPATH, '//div[@class="leaflet-control-container"]')
-        BasePage(self.driver).mouse_move_to_ele_and_offset(100, 100, loc=TARGET_ELE)
+        BasePage(self.driver).mouse_move_to_ele_and_offset(x_offset=100, y_offset=100, loc=TARGET_ELE)
 
         if is_confirm:
             # 点击确定
@@ -166,15 +155,10 @@ class DevicePage(BasePage):
 
     """ ---------------------------- 设备类型 - 网络摄像机 - 类型为：RTSP ---------------------------- """
     # 定位-类型<RTSP/ONVIF>
-    def select_camera_type(self, default="RTSP"):
-        TYPE = (By.XPATH, f'//div[@class="el-form-item__content"]//span[contains(text(), "{default}")]')
+    def select_camera_type(self, camera_type="RTSP"):
+        TYPE = (By.XPATH, f'//div[@class="el-form-item__content"]//span[contains(text(), "{camera_type}")]')
         # 点击选择 - 摄像机类型
         BasePage(self.driver).click_ele(TYPE)
-        # 选择不同的Camera类型，进行不同的操作
-        if default == "RTSP":
-            pass
-        elif default == "ONVIF":
-            pass
 
     # 定位-RTSP地址
     def input_rtsp_address(self, rtsp_address):
@@ -222,13 +206,13 @@ class DevicePage(BasePage):
 if __name__ == '__main__':
     from selenium import webdriver
     from guard.pages.login_page import LoginPage
-    from guard.pages.components.menubar import MenubarPage
+    from guard.pages.components.menubar import MenuBarPage
 
     driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get("http://10.151.3.96/login")
     LoginPage(driver).login("zhuwenqin", "888888", login_way="debug")
-    MenubarPage(driver).click_nav_item("配置", "设备管理")
-    DevicePage(driver).add_camera(device_type="网络摄像机", device_name="test", device_id="test1", device_group_name="Default",
-                                  map_group_name="Default", rtsp_address="rtsp://10.151.3.119:7554/IMG_0322.264")
+    MenuBarPage(driver).click_nav_item("配置", "设备管理")
+    device = Rtsp("a", "111", "Default", "Default", "rtsp://10.151.3.119:7554/IMG_0322.264")
+    DevicePage(driver).add_device_by_type(device, device_type="网络摄像机")
 
