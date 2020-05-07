@@ -29,28 +29,39 @@ class HandleLog(object):
         self.logger = logging.getLogger("")
         # 设置日志收集等级
         self.logger.setLevel(logging.DEBUG)
-
-        # 定义日志输出到控制台 并设置日志输出的等级
-        console = logging.StreamHandler()
-        console.setLevel(logging.ERROR)
-
-        if not os.path.exists(file_name):
-            with open(file_name, mode='w', encoding='utf-8') as file:
-                log_file = logging.FileHandler(file_name, encoding='utf-8')
-        else:
-            # 定义日志输出到指定路径 <file_name>，并设置日志输出的等级
-            log_file = logging.FileHandler(file_name, encoding='utf-8')
-        # log_file.setLevel(logging.DEBUG)
-        log_file.setLevel(logging.INFO)
-
         # 设置日志输出格式，并添加到控制台和文件内部
         formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - %(message)s')
-        console.setFormatter(formatter)
-        log_file.setFormatter(formatter)
 
-        # 添加日志句柄
-        self.logger.addHandler(console)
-        self.logger.addHandler(log_file)
+        # TODO 当log文件不存在会自动创建的，所以注释
+        # if not os.path.exists(file_name):
+        #     with open(file_name, mode='w', encoding='utf-8') as file:
+        #         log_file = logging.FileHandler(file_name, encoding='utf-8')
+
+        # 如果文件路径为空，则只将日志输出到控制台
+        if file_name is None:
+            # 定义日志输出到控制台
+            console = logging.StreamHandler()
+            # 设置日志在控制台中的输出等级<ERROR>
+            console.setLevel(logging.ERROR)
+            # 设置日志在控制台中输出的格式
+            console.setFormatter(formatter)
+            # 添加日志句柄
+            self.logger.addHandler(console)
+        else:
+            # 如果文件路径不为空的情况下，同时将日志输出到控制台和对应日志文件
+
+            console = logging.StreamHandler()
+            console.setLevel(logging.ERROR)
+            console.setFormatter(formatter)
+            self.logger.addHandler(console)
+
+            # 定义日志输出到指定路径 <file_name>，并设置日志输出的等级<INFO>
+            log_file = logging.FileHandler(file_name, encoding='utf-8')
+            # log_file.setLevel(logging.DEBUG)
+            log_file.setLevel(logging.INFO)
+            log_file.setFormatter(formatter)
+            # 添加日志句柄
+            self.logger.addHandler(log_file)
 
     def info(self, message):
         # 定义日志的info方法，打印info等级的日志

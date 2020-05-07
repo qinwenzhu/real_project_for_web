@@ -4,6 +4,7 @@
 # @File: alert_info.py
 # @Software: PyCharm
 
+import logging
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -26,7 +27,7 @@ class AlertInfoPage(BasePage):
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
-            print("-------------等待alert弹框消息可见失败！---------------")
+            self.log.debug("-------------等待alert弹框消息可见失败！---------------")
         else:
             return BasePage(self.driver).get_text(INFO_TEXT)
 
@@ -38,7 +39,7 @@ class AlertInfoPage(BasePage):
             CLOSE_BTN = (By.XPATH, '//div[@role="alert"]//i[contains(@class, "el-icon-close")]')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(CLOSE_BTN))
         except:
-            print("-------------等待alert弹框消息关闭按钮可见失败！---------------")
+            self.log.debug("-------------等待alert消息弹框关闭按钮可见失败！---------------")
         else:
             BasePage(self.driver).click_ele(CLOSE_BTN)
 

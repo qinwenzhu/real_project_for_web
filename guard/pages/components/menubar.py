@@ -4,7 +4,7 @@
 # @File: menubar.py
 # @Software: PyCharm
 
-
+from utils.handle_log import HandleLog
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,6 +13,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class MenuBarPage(BasePage):
+
+    log = HandleLog().get_logger()
 
     def click_nav_item(self, menu_text, sub_menu_text=None):
         """
@@ -27,7 +29,8 @@ class MenuBarPage(BasePage):
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
             WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
-            print("-------------无消息弹框出现---------------")
+            # 此处设置日志的等级为debug，仅仅是为了自己能在控制台中查看，不算抛出异常
+            self.log.debug("-------------无消息弹框出现---------------")
         else:
             AlertInfoPage(self.driver).close_alert()
 
