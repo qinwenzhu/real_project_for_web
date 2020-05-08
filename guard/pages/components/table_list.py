@@ -46,14 +46,8 @@ class TableListPage(BasePage):
         time.sleep(2)
         if flag == "view":
             BasePage(self.driver).click_ele(VIEW_ICON)
-            # TODO 弹框操作
-            pass
-
         elif flag == "edit":
             BasePage(self.driver).click_ele(EDIT_ICON)
-            # TODO 弹框操作
-            pass
-
         elif flag == "delete":
             time.sleep(2)
             BasePage(self.driver).click_ele(DELETE_ICON)

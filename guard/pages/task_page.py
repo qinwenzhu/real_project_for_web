@@ -8,6 +8,7 @@ import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from guard.pages.components.dialog import DialogPage
+from guard.pages.components.table_list import TableListPage
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -41,6 +42,18 @@ class TaskPage(BasePage):
             DialogPage(self.driver).is_confirm_or_cancel("添加任务")
         else:
             DialogPage(self.driver).is_confirm_or_cancel("添加任务", is_confirm=False)
+
+    # 修改任务界面中的车辆违停时限
+    def update_input_park_time(self, task_name, is_confirm=True):
+        # 点击编辑icon
+        TableListPage(self.driver).operations_table_list(task_name, flag="edit")
+        # 修改违停时限为2分钟
+        self.input_park_time(2)
+        # 点击确认或取消按钮
+        if is_confirm:
+            DialogPage(self.driver).is_confirm_or_cancel("编辑")
+        else:
+            DialogPage(self.driver).is_confirm_or_cancel("编辑", is_confirm=False)
 
     # 点击左侧任务菜单
     def click_left_menu(self, menu_name):
@@ -200,13 +213,20 @@ class TaskPage(BasePage):
             ele = BasePage(self.driver).get_ele_locator_by_index(ERROR_INFO, 2)
         return ele.text
 
-    # 点击关闭dialog窗口
-    def click_close_dialog_btn(self):
+    # 点击关闭任务添加窗口
+    def click_close_task_add_btn(self):
         # 定位关闭弹窗
         CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog__wrapper"]//span[contains(text(), "添加任务")]/following-sibling::button')
         BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
-    """------------------ 非空校验 ---------------------------"""
+    # 点击关闭任务详情窗口
+    def click_close_task_view_btn(self):
+        # 定位关闭弹窗
+        CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog"]//span[contains(text(), "详情")]/following-sibling::button')
+        ele = BasePage(self.driver).get_ele_locator_by_index(CLOSE_BUTTON, 2)
+        ele.click()
+
+    # 非空校验
     def verify_parked_vehicle_not_null(self):
         """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
         # 点击左侧菜单
@@ -214,6 +234,20 @@ class TaskPage(BasePage):
         # 点击添加任务
         self.click_add_task_btn()
         DialogPage(self.driver).is_confirm_or_cancel(loc_by_til="添加任务")
+
+    # 任务详情查看
+    def verify_view_task_detail(self):
+        """ 验证查看任务详情是否是当前任务名的详情 """
+        TASK_NAME = (By.XPATH, '//label[contains(text(), "任务名称")]/following-sibling::div')
+        return BasePage(self.driver).get_text(TASK_NAME)
+
+    # 任务编辑-验证违停时限是否修改成功
+    def verify_input_park_time(self, task_name):
+        """ 修改任务的违停时限之后，进入详情页面，获取违停时限的文本值 """
+        # 进入任务详情页
+        TableListPage(self.driver).operations_table_list(task_name, flag="view")
+        INPUT_PARK_TIME = (By.XPATH, '//label[contains(text(), "违停时限")]/following-sibling::div')
+        return BasePage(self.driver).get_text(INPUT_PARK_TIME)
 
 
 if __name__ == '__main__':

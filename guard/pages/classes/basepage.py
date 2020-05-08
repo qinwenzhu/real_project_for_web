@@ -241,7 +241,7 @@ class BasePage:
             self.log.error(f"鼠标移动到A元素---{loc1[-1]}---操作B元素---{loc2[-1]}---报错！")
             raise e
 
-    def mouse_move_to_ele_and_offset(self, x_offset, y_offset, pause_time=2, loc=None, ele=None):
+    def mouse_move_to_ele_and_offset(self, x_offset, y_offset, pause_time=1, loc=None, ele=None):
         """  设置鼠标移动到距元素ele，x,y轴指定坐标的距离 """
 
         actions = ActionChains(self.driver)
@@ -250,6 +250,7 @@ class BasePage:
             if loc is not None:
                 # 等待滑动到目标元素可见
                 self.log.info(f"传入的是元素定位表达！---{loc[-1]}---")
+                self.wait_for_ele_to_be_presence(loc)
                 ele = self.get_ele_locator(loc)
             actions.move_to_element_with_offset(ele, x_offset, y_offset)
             actions.perform()

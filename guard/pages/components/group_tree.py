@@ -33,24 +33,20 @@ class GroupTreePage(BasePage):
         """
 
         if is_peer:
-            # 先点击分组名
-            GroupTreePage(self.driver).click_group_by_name(group_name=parent_name)
-
-            # 滑动到icon并选择创建同级分组
-            GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=parent_name, menu_name="创建同级")
-
+            """ 如果创建同级，先点击分组名，然后滑动该分组进行menu菜单的选择和点击"""
+            GroupTreePage(self.driver).click_group_by_name(parent_name)
+            # GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=group_name, menu_name="创建同级")
+            GroupTreePage(self.driver).click_menu_name_by_move_icon(parent_name, menu_name="创建同级")
             if is_confirm:
                 # 通过dialog对话框 - 创建同级
                 DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建同级", group_name=group_name)
             else:
                 DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建同级", group_name=group_name, is_confirm=False)
         else:
-            # 先点击分组名
-            GroupTreePage(self.driver).click_group_by_name(group_name=parent_name)
-
+            """ 否则创建下一级，先点击父级分组名，然后滑动该分组进行menu菜单的选择和点击"""
+            GroupTreePage(self.driver).click_group_by_name(parent_name)
             # 滑动到icon并选择创建下一级分组
-            GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=parent_name, menu_name="创建下一级")
-
+            GroupTreePage(self.driver).click_menu_name_by_move_icon(parent_name, menu_name="创建下一级")
             if is_confirm:
                 # 通过dialog对话框 - 创建下一级
                 DialogPage(self.driver).create_group_by_dialog_title_name(loc_by_til="创建下一级", group_name=group_name)

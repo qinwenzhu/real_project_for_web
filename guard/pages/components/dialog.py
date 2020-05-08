@@ -29,10 +29,11 @@ class DialogPage(BasePage):
         if is_confirm:
             # 定位确认按钮
             CONFIRM_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"确定")]')
+            # CONFIRM_BTN = (By.XPATH, f'//div[@aria-label="{loc_by_til}"]/parent::div[not(@style="display: none;")]//span[@class="dialog-footer"]//span[text()="确定"]')
             BasePage(self.driver).click_ele(CONFIRM_BTN)
         else:
             # 定位取消按钮
-            CANCLE_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"取消")]')
+            CANCLE_BTN = (By.XPATH, f'//div[@aria-label="{loc_by_til}"]/parent::div[not(@style="display: none;")]//span[@class="dialog-footer"]//span[text()="取消"]')
             BasePage(self.driver).click_ele(CANCLE_BTN)
 
     # # dialog对话框的删除或取消操作
@@ -89,10 +90,6 @@ class DialogPage(BasePage):
 
     # def close_dialog(self, loc_by_til):
     def close_dialog(self):
-        """
-        关闭dialog弹框
-        # :param loc_by_til: 当前dialog弹框的标题
-        """
-        # CLOSE_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til}")]/following-sibling::button')
+        """ 关闭dialog弹框 """
         CLOSE_BTN = (By.XPATH, f'//span[contains(text(),"")]/following-sibling::button')
         BasePage(self.driver).click_ele(CLOSE_BTN)

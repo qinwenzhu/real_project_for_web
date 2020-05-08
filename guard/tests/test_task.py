@@ -17,22 +17,36 @@ class TestStructTaskPositive:
     pytestmark = [pytest.mark.positive, pytest.mark.smoke]
 
     def test_add_vehicle_illegally_parking_detection_task(self, task):
+        # 测试添加-车辆违停任务
         task_para = Task(task_name=task[1]["task_name"], device_name=task[1]["device_name"])
         TaskPage(task[0]).add_task_by_type(task_para, task_type="车辆-违停检测任务")
-
         time.sleep(2)
         assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
+
+    @pytest.mark.usefixtures("click_close_task_view_btn")
+    def test_view_vehicle_illegally_parking_detection_task(self, task):
+        # 测试查看-车辆违停任务
+        time.sleep(1)
+        TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
+        result = TaskPage(task[0]).verify_view_task_detail()
+        print(result)
+        assert task[1]["task_name"] == result
+
+    # def test_update_vehicle_illegally_parking_detection_task(self, task):
+    #     # 测试编辑-车辆违停任务，修改违停时限，验证违停时限
+    #     TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
+    #     result = TaskPage(task[1]).verify_input_park_time(task_name=task[1]["task_name"])
+    #     assert result > 1
 
     def test_delete_vehicle_illegally_parking_detection_task(self, task):
         # 测试删除-车辆违停任务
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
-
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
 
 class TestStructTaskNegative:
 
-    # @pytest.mark.usefixtures("close_add_task_dialog_btn")
+    # @pytest.mark.usefixtures("click_close_task_add_btn")
     def test_add_parking_detection_task_and_not_null(self, task_no_setup):
         # 测试添加车辆违停任务 - 非空校验
         TaskPage(task_no_setup).verify_parked_vehicle_not_null()

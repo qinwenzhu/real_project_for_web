@@ -76,9 +76,8 @@ def login(start_driver_and_quit):
 """ ---------------------------- 配置-任务管理 ---------------------------- """
 @pytest.fixture(scope="module")
 def task(login, before_structuring_task_common):
-
+    time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "任务管理")
-
     yield login, before_structuring_task_common
 
 
@@ -86,15 +85,21 @@ def task(login, before_structuring_task_common):
 def task_no_setup(login):
     MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login
-    TaskPage(login).click_close_dialog_btn()
+    TaskPage(login).click_close_task_add_btn()
+
+
+@pytest.fixture
+def click_close_task_add_btn(login):
+    # 点击关闭任务添加弹框
+    yield
+    TaskPage(login).click_close_task_add_btn()
 
 
 @pytest.fixture()
-def close_add_task_dialog_btn(login):
-    # 点击关闭添加任务弹框
+def click_close_task_view_btn(login):
+    # 点击关闭任务详情弹框
     yield
-    TaskPage(login).click_close_dialog_btn()
-
+    TaskPage(login).click_close_task_view_btn()
 
 """ ---------------------------- 配置-设备管理 ---------------------------- """
 @pytest.fixture(scope="module")
@@ -258,11 +263,11 @@ def before_device_common(login):
 
     # 进入地图模块，创建地图分组，上传地图
     MenuBarPage(login).click_nav_item("配置", "地图管理")
+    time.sleep(1)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_name["floor_group_name"])
     MapPage(login).upload_map(file_name=r"{}/map_data/company_4th_floor.jpg".format(SharePath.DATA_FOLDER),
                               group_name=before_name["floor_group_name"])
     yield before_name
-
     # 删除地图分组
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     time.sleep(0.2)
@@ -271,22 +276,17 @@ def before_device_common(login):
 
 @pytest.fixture(scope="module")
 def before_structuring_task_common(login, before_device_common):
-
     # 进入设备模块，创建设备分组和对应对应类型的设备
     MenuBarPage(login).click_nav_item("配置", "设备管理")
-
     before_name = uuid4_data()
     rtsp_para = Rtsp(device_name=before_device_common["device_name"], device_id=before_name, group_name=before_device_common["device_group_name"],
                 floor_name=before_device_common["floor_group_name"], rtsp_address="rtsp://10.151.3.119:7554/IMG_0322.264")
-
     # 创建设备 - 网络摄像机 - RTSP
-    time.sleep(2)
+    time.sleep(1)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_device_common["device_group_name"])
-    time.sleep(2)
+    time.sleep(1)
     DevicePage(login).add_device_by_type(rtsp_para, device_type="网络摄像机")
-
     yield before_device_common
-
     MenuBarPage(login).click_nav_item("配置", "设备管理")
     # 删除相对于Default分组的同级设备分组
     GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="device", parent_name=before_device_common["device_group_name"])
