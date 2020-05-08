@@ -5,6 +5,7 @@
 # @file: test_task.py
 # @software: PyCharm
 
+import re
 import time
 import pytest
 from guard.pages.classes.task import Task
@@ -26,17 +27,18 @@ class TestStructTaskPositive:
     @pytest.mark.usefixtures("click_close_task_view_btn")
     def test_view_vehicle_illegally_parking_detection_task(self, task):
         # 测试查看-车辆违停任务
-        time.sleep(1)
+        time.sleep(2)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
+        time.sleep(1)
         result = TaskPage(task[0]).verify_view_task_detail()
-        print(result)
         assert task[1]["task_name"] == result
 
-    # def test_update_vehicle_illegally_parking_detection_task(self, task):
-    #     # 测试编辑-车辆违停任务，修改违停时限，验证违停时限
-    #     TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
-    #     result = TaskPage(task[1]).verify_input_park_time(task_name=task[1]["task_name"])
-    #     assert result > 1
+    @pytest.mark.usefixtures("click_close_task_view_btn")
+    def test_edit_vehicle_illegally_parking_detection_task(self, task):
+        # 测试编辑-车辆违停任务，修改违停时限，验证违停时限
+        TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
+        result = TaskPage(task[0]).verify_input_park_time(task_name=task[1]["task_name"])
+        assert re.match(r"^.+[\u4E00-\u9FA5\s]+$", result)
 
     def test_delete_vehicle_illegally_parking_detection_task(self, task):
         # 测试删除-车辆违停任务
@@ -44,6 +46,7 @@ class TestStructTaskPositive:
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
 
+@pytest.mark.negative
 class TestStructTaskNegative:
 
     # @pytest.mark.usefixtures("click_close_task_add_btn")

@@ -35,7 +35,6 @@ class GroupTreePage(BasePage):
         if is_peer:
             """ 如果创建同级，先点击分组名，然后滑动该分组进行menu菜单的选择和点击"""
             GroupTreePage(self.driver).click_group_by_name(parent_name)
-            # GroupTreePage(self.driver).click_menu_name_by_move_icon(group_name=group_name, menu_name="创建同级")
             GroupTreePage(self.driver).click_menu_name_by_move_icon(parent_name, menu_name="创建同级")
             if is_confirm:
                 # 通过dialog对话框 - 创建同级
@@ -101,57 +100,11 @@ class GroupTreePage(BasePage):
         # 通过传入不同的 menu_name 滑动到不同的操作
         MENU_NAME = (By.XPATH, f'//div[@id="menu"]//li[@class="menu" and contains(text(), "{menu_name}")]')
 
+        time.sleep(1)
         # 滑动到icon元素上
         BasePage(self.driver).mouse_move_ele(GROUP_ICON)
         # 滑动到menu元素上并点击操作名，如：创建同级
         BasePage(self.driver).mouse_move_ele_and_click(MENU, MENU_NAME)
-
-    # def create_dep_group_com(self, group_name, loc_by_til_name, is_confirm=True):
-    # def select_group_operation(self, group_name, loc_by_til_name, is_confirm=True):
-    #     """
-    #     通过组名，滑动到不同的icon进行选择menu菜单的对应操作
-    #     :param group_name: 组名称
-    #     :param loc_by_til_name: 元素定位表达式
-    #     :param is_confirm: 是否创建
-    #     """
-    #
-    #     # 组名称input框
-    #     GROUP_INPUT = (By.XPATH, f'//span[contains(text(),"{loc_by_til_name}")]/parent::div/following-sibling::div[@class="el-dialog__body"]//input')
-    #     BasePage(self.driver).update_input_text(GROUP_INPUT, group_name)
-    #     if is_confirm:
-    #         # 点击确认按钮
-    #         CONFIRM_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til_name}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"确定")]')
-    #         BasePage(self.driver).click_ele(CONFIRM_BTN)
-    #     else:
-    #         # 点击取消按钮
-    #         CONFIRM_BTN = (By.XPATH, f'//span[contains(text(),"{loc_by_til_name}")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"取消")]')
-    #         BasePage(self.driver).click_ele(CONFIRM_BTN)
-    #
-    # # def delete_dep_group_com(self, module_val, is_delete=True):
-    # #     # 删除分组
-    # #     """
-    # #     group_tree分组组件中，弹框删除操作
-    # #     :param module_val: 不同模块共用，由于元素定位不一样，需要动态传入删除操作的模块
-    # #     :param is_delete:
-    # #     :return:
-    # #     """
-    # #     # 如果是用户模块的删除操作
-    # #     if module_val == "user" or module_val == "device":
-    # #         # 定位删除按钮
-    # #         CONFIRM_BTN = (By.XPATH, '//span[contains(text(),"删除")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"删除")]')
-    # #         # 定位取消按钮
-    # #         CANCEL_BTN = (By.XPATH, '//span[contains(text(),"删除")]/parent::div/following-sibling::div[@class="el-dialog__footer"]//span[contains(text(),"取消")]')
-    # #     # 如果是地图模块的删除操作
-    # #     elif module_val == "map":
-    # #         CONFIRM_BTN = (By.XPATH, '//span[contains(text(),"删除")]/ancestor::div[@class="el-message-box"]//button//span[contains(text(), "删除")]')
-    # #         CANCEL_BTN = (By.XPATH, '//span[contains(text(),"删除")]/ancestor::div[@class="el-message-box"]//button//span[contains(text(), "取消")]')
-    # #
-    # #     if is_delete:
-    # #         # 点击删除按钮
-    # #         BasePage(self.driver).click_ele(CONFIRM_BTN)
-    # #     else:
-    # #         # 点击取消按钮
-    # #         BasePage(self.driver).click_ele(CANCEL_BTN)
 
     def search_dep_by_name(self, group_name):
 

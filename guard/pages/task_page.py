@@ -51,9 +51,12 @@ class TaskPage(BasePage):
         self.input_park_time(2)
         # 点击确认或取消按钮
         if is_confirm:
-            DialogPage(self.driver).is_confirm_or_cancel("编辑")
+            CONFIRM_BTN = (By.XPATH, f'//div[@aria-label="编辑"]/parent::div[not(@style="display: none;")]//span[@class="dialog-footer"]//span[text()="确定"]')
+            BasePage(self.driver).click_ele(CONFIRM_BTN)
         else:
-            DialogPage(self.driver).is_confirm_or_cancel("编辑", is_confirm=False)
+            CONFIRM_BTN = (By.XPATH,
+                           f'//div[@aria-label="编辑"]/parent::div[not(@style="display: none;")]//span[@class="dialog-footer"]//span[text()="取消"]')
+            BasePage(self.driver).click_ele(CONFIRM_BTN)
 
     # 点击左侧任务菜单
     def click_left_menu(self, menu_name):

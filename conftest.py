@@ -83,7 +83,7 @@ def task(login, before_structuring_task_common):
 
 @pytest.fixture(scope="module")
 def task_no_setup(login):
-    MenuBarPage(login).click_nav_item("配置", "任务管理")
+    # MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login
     TaskPage(login).click_close_task_add_btn()
 
@@ -262,6 +262,7 @@ def before_device_common(login):
                    "task_name": f"TN-{get_current_time()}"}
 
     # 进入地图模块，创建地图分组，上传地图
+    time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     time.sleep(1)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_name["floor_group_name"])
@@ -269,6 +270,7 @@ def before_device_common(login):
                               group_name=before_name["floor_group_name"])
     yield before_name
     # 删除地图分组
+    time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     time.sleep(0.2)
     GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="map", parent_name=before_name["floor_group_name"])
@@ -277,6 +279,7 @@ def before_device_common(login):
 @pytest.fixture(scope="module")
 def before_structuring_task_common(login, before_device_common):
     # 进入设备模块，创建设备分组和对应对应类型的设备
+    time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "设备管理")
     before_name = uuid4_data()
     rtsp_para = Rtsp(device_name=before_device_common["device_name"], device_id=before_name, group_name=before_device_common["device_group_name"],

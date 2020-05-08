@@ -27,7 +27,8 @@ class MenuBarPage(BasePage):
         # 当推送消息过多，系统会弹出消息提示，但是会挡住nav导航条，所以需要在定位元素之前进行判断和关闭
         try:
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
-            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
+            # WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
+            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(INFO_TEXT))
         except:
             # 此处设置日志的等级为debug，仅仅是为了自己能在控制台中查看，不算抛出异常
             self.log.debug("-------------无消息弹框出现---------------")

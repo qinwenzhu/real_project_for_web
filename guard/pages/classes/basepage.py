@@ -256,6 +256,7 @@ class BasePage:
             actions.perform()
             actions.pause(pause_time)
             actions.click()
+            actions.pause(pause_time)
             actions.perform()
         except Exception as e:
             self.save_web_screenshots()
