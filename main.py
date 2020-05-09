@@ -8,5 +8,6 @@
 import pytest
 
 if __name__ == '__main__':
-    # pytest.main()
-    pytest.main(["-s", "-v", "--html=outputs/reports/report.html"])
+    pytest.main()
+    # pytest.main(["-s", "-v", "--html=outputs/reports/report.html"])
+    # pytest.main(["--html=outputs/reports/report.html"])

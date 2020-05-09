@@ -21,6 +21,7 @@ from guard.pages.classes.path import SharePath
 pytestmark = pytest.mark.smoke
 
 
+@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
 @pytest.mark.usefixtures("tool_close_one_to_one_face_compare")
 def test_one_to_one_face_compare(login):
@@ -31,6 +32,7 @@ def test_one_to_one_face_compare(login):
     assert '评分参考' == result
 
 
+@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
 @pytest.mark.usefixtures("tool_close_one_img_quality")
 @pytest.mark.parametrize("data", ToolData.score_detection_data_negative)
@@ -42,6 +44,7 @@ def test_score_detection(login, data):
     assert re.match(r'\d+ .\d+%', result)
 
 
+@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.negative
 @pytest.mark.usefixtures("tool_close_one_img_quality")
 def test_negative_score_detection(login):
@@ -52,6 +55,7 @@ def test_negative_score_detection(login):
     assert "上传图片大小不能超过 16MB!" in result
 
 
+@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
 @pytest.mark.usefixtures("tool_close_face_score_detection")
 def test_face_property(login):
@@ -74,6 +78,7 @@ def test_face_property(login):
                 "安全帽" in result["helmet"]) and ("帽子" in result["hat"])
 
 
+@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.negative
 @pytest.mark.usefixtures("tool_close_face_score_detection")
 @pytest.mark.parametrize("data", ToolData.face_data_negative)

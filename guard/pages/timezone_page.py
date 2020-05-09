@@ -20,7 +20,7 @@ class TimezonePage(BasePage):
         :param timezone_name: 填入时间条件的名称
         """
         # icon的识别率不高，添加强制等待提高用例成功率
-        # time.sleep(2)
+        time.sleep(2)
         # 定位 -添加时间条件- 的按钮icon
         ICON = (By.XPATH, '//span[contains(text(), "时间条件名称")]/i')
         BasePage(self.driver).click_ele(ICON)

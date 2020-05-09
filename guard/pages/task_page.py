@@ -250,6 +250,7 @@ class TaskPage(BasePage):
         # 进入任务详情页
         TableListPage(self.driver).operations_table_list(task_name, flag="view")
         INPUT_PARK_TIME = (By.XPATH, '//label[contains(text(), "违停时限")]/following-sibling::div')
+        print(f'获取修改后的违停时限为：{BasePage(self.driver).get_text(INPUT_PARK_TIME)}')
         return BasePage(self.driver).get_text(INPUT_PARK_TIME)
 
 
