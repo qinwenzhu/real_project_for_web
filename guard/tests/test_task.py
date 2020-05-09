@@ -38,8 +38,8 @@ class TestStructTaskPositive:
         # 测试编辑-车辆违停任务，修改违停时限，验证违停时限
         TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
         result = TaskPage(task[0]).verify_input_park_time(task_name=task[1]["task_name"])
-        # assert re.match(r"^.+[\u4E00-\u9FA5\s]+$", result)
-        assert re.match(r"^.$", result)
+        assert re.match(r"^.+[\u4E00-\u9FA5\s]+$", result)
+        # assert re.match(r".+$", result)
 
     def test_delete_vehicle_illegally_parking_detection_task(self, task):
         # 测试删除-车辆违停任务
