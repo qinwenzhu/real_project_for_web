@@ -15,6 +15,7 @@ from guard.pages.tool_page import ToolPage
 from guard.pages.task_page import TaskPage
 from guard.pages.login_page import LoginPage
 from guard.pages.device_page import DevicePage
+from guard.pages.components.dialog import DialogPage
 from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.alert_info import AlertInfoPage
 from guard.pages.components.group_tree import GroupTreePage
@@ -74,7 +75,8 @@ def login(start_driver_and_quit):
 
 
 """ ---------------------------- 配置-任务管理 ---------------------------- """
-@pytest.fixture(scope="module")
+# @pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def task(login, before_structuring_task_common):
     time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "任务管理")
@@ -100,6 +102,7 @@ def click_close_task_view_btn(login):
     # 点击关闭任务详情弹框
     yield
     TaskPage(login).click_close_task_view_btn()
+
 
 """ ---------------------------- 配置-设备管理 ---------------------------- """
 @pytest.fixture(scope="module")
@@ -208,11 +211,11 @@ def close_alert_info(login):
     AlertInfoPage(login).close_alert()
 
 
-# @pytest.fixture
-# def close_dialog(login):
-#     # 关闭dialog
-#     yield
-#     DialogPage(login).close_dialog()
+@pytest.fixture
+def close_dialog(login):
+    # 关闭dialog
+    yield
+    DialogPage(login).close_dialog()
 
 
 def get_current_time():

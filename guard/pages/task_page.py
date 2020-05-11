@@ -30,10 +30,9 @@ class TaskPage(BasePage):
             self.input_park_time()
             # 绘制违停区域
             self.draw_park_region()
-
         elif task_type == "人体-区域闯入检测任务":
-            pass
-
+            # 绘制违停区域
+            self.draw_park_region()
         elif task_type == "人体-越线检测任务":
             pass
 
@@ -225,9 +224,9 @@ class TaskPage(BasePage):
     # 点击关闭任务详情窗口
     def click_close_task_view_btn(self):
         # 定位关闭弹窗
-        CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog"]//span[contains(text(), "详情")]/following-sibling::button')
-        ele = BasePage(self.driver).get_ele_locator_by_index(CLOSE_BUTTON, 2)
-        ele.click()
+        CLOSE_BUTTON = (By.XPATH,
+                        '//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
+        BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     # 非空校验
     def verify_parked_vehicle_not_null(self):
@@ -250,7 +249,7 @@ class TaskPage(BasePage):
         # 进入任务详情页
         TableListPage(self.driver).operations_table_list(task_name, flag="view")
         INPUT_PARK_TIME = (By.XPATH, '//label[contains(text(), "违停时限")]/following-sibling::div')
-        print(f'获取修改后的违停时限为：{BasePage(self.driver).get_text(INPUT_PARK_TIME)}')
+        # print(f'获取修改后的违停时限为：{BasePage(self.driver).get_text(INPUT_PARK_TIME)}')
         return BasePage(self.driver).get_text(INPUT_PARK_TIME)
 
 

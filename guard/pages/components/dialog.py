@@ -73,5 +73,5 @@ class DialogPage(BasePage):
     # def close_dialog(self, loc_by_til):
     def close_dialog(self):
         """ 关闭dialog弹框 """
-        CLOSE_BTN = (By.XPATH, f'//span[contains(text(),"")]/following-sibling::button')
+        CLOSE_BTN = (By.XPATH, f'//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
         BasePage(self.driver).click_ele(CLOSE_BTN)
