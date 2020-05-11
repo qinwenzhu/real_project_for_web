@@ -56,16 +56,27 @@ class BasePage:
             self.log.error(f"等待元素存在报错!---{loc[-1]}---")
             raise e
 
-    # def wait_for_ele_to_click(self, loc, img_describe="current", timeout=10, poll_frequency=0.5):
-    #     """ 等待元素可点击 """
-    #
-    #     self.log.info(f"等待元素可点击：{img_describe}页面的-{loc[-1]}元素")
-    #     try:
-    #         WebDriverWait(self.driver, timeout, poll_frequency).until(EC.element_to_be_clickable(loc))
-    #     except TimeoutError as e:
-    #         self.save_web_screenshots(img_describe)
-    #         self.log.error(f"等待元素可点击失败!")
-    #         raise e
+    def wait_ele_to_be_click(self, loc, timeout=10, poll_frequency=0.5):
+        """ 等待元素在页面中可点击 """
+
+        self.log.info(f"等待元素可点击！---{loc[-1]}---")
+        try:
+            WebDriverWait(self.driver, timeout, poll_frequency).until(EC.element_to_be_clickable(loc))
+        except TimeoutError as e:
+            self.save_web_screenshots()
+            self.log.error(f"等待元素可点击报错!---{loc[-1]}---")
+            raise e
+
+    def wait_ele_to_be_selected(self, loc, timeout=10, poll_frequency=0.5):
+        """ 等待元素在页面中被选中 """
+
+        self.log.info(f"等待元素可点击！---{loc[-1]}---")
+        try:
+            WebDriverWait(self.driver, timeout, poll_frequency).until(EC.element_to_be_selected(loc))
+        except TimeoutError as e:
+            self.save_web_screenshots()
+            self.log.error(f"等待元素可点击报错!---{loc[-1]}---")
+            raise e
 
     def get_ele_locator(self, loc):
         """ 获取元素 """
@@ -80,31 +91,18 @@ class BasePage:
         else:
             return ele
 
-    # def get_ele_locator_by_index(self, loc, index):
-    #     """ 页面定位表达式能匹配到多个，通过下标访问 """
-    #
-    #     self.log.info(f"获取元素列表！---{loc[-1]}---")
-    #     try:
-    #         ele = self.driver.find_elements(*loc)
-    #     except Exception as e:
-    #         self.save_web_screenshots()
-    #         self.log.error(f"获取元素列表报错！---{loc[-1]}---")
-    #         raise e
-    #     else:
-    #         return ele[index]
-
     def get_ele_locator_by_index(self, loc, index=None):
         """ 页面定位表达式能匹配到多个，通过下标访问 """
 
         self.log.info(f"获取元素列表！---{loc[-1]}---")
         try:
             if index is None:
-                self.log.info(f"获取单个元素！---{loc[-1]}---")
+                self.log.info(f"通过元素表达式获取单个元素！---{loc[-1]}---")
                 WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
                 ele = BasePage(self.driver).get_ele_locator(loc)
                 return ele
             else:
-                self.log.info(f"获取元素列表，通过下标得到指定的元素！---{loc[-1]}---")
+                self.log.info(f"通过元素表达式获取元素列表，通过指定下标得到对应的元素！---{loc[-1]}---")
                 ele = self.driver.find_elements(*loc)
                 if isinstance(ele, list):
                     # 如果得到的元素为列表，则根据指定下标获取对应元素，否则返回当前元素
@@ -195,8 +193,10 @@ class BasePage:
 
     def click_ele(self, loc):
         """ 点击元素，等待元素可见进行点击"""
-
-        self.wait_for_ele_to_be_visible(loc)
+        # 等待元素可见
+        # self.wait_for_ele_to_be_visible(loc)
+        # 等待元素可点击
+        self.wait_ele_to_be_click(loc)
         ele = self.get_ele_locator(loc)
         self.log.info(f"点击元素！---{loc[-1]}---")
         try:

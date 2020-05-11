@@ -201,19 +201,12 @@ def close_dialog(login):
     DialogPage(login).close_dialog()
 
 
-def get_current_time():
-    # 获取当前系统时间时间
-    return time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-
-
-def uuid4_data():
-    # 生成随机数据
-    return str(uuid.uuid4())
-
-
-def integer_num():
-    # 生成指定范围内的整数
-    return random.randint(1, 60)
+""" ---------------------------- 通用的唯一标识码 ---------------------------- """
+@pytest.fixture()
+def uuid4_para():
+    uid = str(uuid.uuid4())
+    suid = ''.join(uid.split('-'))
+    yield suid
 
 
 @pytest.fixture
@@ -226,14 +219,6 @@ def sole_group_name():
 def overlong_name():
     sole_name = f"ABD-{uuid4_data()}"
     yield sole_name
-
-
-""" ---------------------------- 通用的唯一标识码 ---------------------------- """
-@pytest.fixture()
-def uuid4_para():
-    uid = str(uuid.uuid4())
-    suid = ''.join(uid.split('-'))
-    yield suid
 
 
 """ ---------------------------- 共用前置条件 ---------------------------- """
@@ -279,3 +264,21 @@ def before_structuring_task_common(login, before_device_common):
     MenuBarPage(login).click_nav_item("配置", "设备管理")
     # 删除相对于Default分组的同级设备分组
     GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="device", parent_name=before_device_common["device_group_name"])
+
+
+""" ---------------------------- 自定义方法 ---------------------------- """
+
+
+def get_current_time():
+    # 获取当前系统时间时间
+    return time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+
+
+def uuid4_data():
+    # 生成随机数据
+    return str(uuid.uuid4())
+
+
+def integer_num():
+    # 生成指定范围内的整数
+    return random.randint(1, 60)

@@ -4,10 +4,7 @@
 # @File: user_page.py
 # @Software: PyCharm
 
-import time
-from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
-from guard.pages.components.group_tree import GroupTreePage
 
 
 class UserPage(BasePage):

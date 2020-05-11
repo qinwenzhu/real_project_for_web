@@ -228,11 +228,20 @@ class TaskPage(BasePage):
     #                     '//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
     #     BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
-    # 非空校验
+    # 创建车辆任务的非空校验
     def verify_parked_vehicle_not_null(self):
         """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
         # 点击左侧菜单
         self.click_left_menu("车辆-违停检测任务")
+        # 点击添加任务
+        self.click_add_task_btn()
+        DialogPage(self.driver).is_confirm_or_cancel(loc_by_til="添加任务")
+
+    # 创建人体区域入侵任务的非空校验
+    def verify_pedestrians_not_null(self):
+        """ 点击添加任务，点击确认，进行人体区域入侵的非空校验"""
+        # 点击左侧菜单
+        self.click_left_menu("人体-区域闯入检测任务")
         # 点击添加任务
         self.click_add_task_btn()
         DialogPage(self.driver).is_confirm_or_cancel(loc_by_til="添加任务")
@@ -249,8 +258,10 @@ class TaskPage(BasePage):
         # 进入任务详情页
         TableListPage(self.driver).operations_table_list(task_name, flag="view")
         INPUT_PARK_TIME = (By.XPATH, '//label[contains(text(), "违停时限")]/following-sibling::div')
-        # print(f'获取修改后的违停时限为：{BasePage(self.driver).get_text(INPUT_PARK_TIME)}')
-        return BasePage(self.driver).get_text(INPUT_PARK_TIME)
+        time.sleep(1)
+        result = BasePage(self.driver).get_text(INPUT_PARK_TIME)
+        print(f'获取修改后的违停时限为：{result}')
+        return result
 
 
 if __name__ == '__main__':
