@@ -11,7 +11,6 @@ from guard.datas.login_data import LoginData
 from guard.pages.components.alert_info import AlertInfoPage
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_login_success(setup_login):
@@ -21,7 +20,6 @@ def test_login_success(setup_login):
     assert LoginPage(setup_login).is_login_success()
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.negative
 class TestLoginNegative:
     """ 反向测试类 """

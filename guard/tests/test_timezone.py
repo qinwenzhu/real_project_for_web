@@ -12,7 +12,6 @@ from guard.pages.components.alert_info import AlertInfoPage
 
 
 # 正向测试用例
-@pytest.mark.skip("之前演示过的测试用例")
 class TestTimezonePositive:
     """
     pytest给测试类打标记的功能，单个标记以及多个标记
@@ -64,7 +63,6 @@ class TestTimezonePositive:
         assert timezone[1]["workday_name"] in text_result
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 class TestTimezoneNegative:
 
     # 给测试类打共用标记
@@ -100,7 +98,6 @@ class TestTimezoneNegative:
         assert "创建的特殊工作日与已有的特殊工作日有冲突，请检查后重新设置" == result
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_timezone(timezone):
@@ -109,7 +106,6 @@ def test_delete_timezone(timezone):
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["timezone"])
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_holiday(timezone):
@@ -118,7 +114,6 @@ def test_delete_holiday(timezone):
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["holiday_name"])
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.smoke
 @pytest.mark.positive
 def test_delete_workday(timezone):

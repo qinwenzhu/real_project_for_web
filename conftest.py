@@ -76,6 +76,7 @@ def login(start_driver_and_quit):
 
 """ ---------------------------- 配置-任务管理 ---------------------------- """
 # @pytest.fixture(scope="module")
+# 为确保用例数据的高服用低地解耦，此时的scope的级别设置为：class，每个不同的任务都可以调用相同的前置，但相互独立
 @pytest.fixture(scope="class")
 def task(login, before_structuring_task_common):
     time.sleep(0.5)
@@ -85,23 +86,8 @@ def task(login, before_structuring_task_common):
 
 @pytest.fixture(scope="module")
 def task_no_setup(login):
-    # MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login
-    TaskPage(login).click_close_task_add_btn()
-
-
-@pytest.fixture
-def click_close_task_add_btn(login):
-    # 点击关闭任务添加弹框
-    yield
-    TaskPage(login).click_close_task_add_btn()
-
-
-@pytest.fixture()
-def click_close_task_view_btn(login):
-    # 点击关闭任务详情弹框
-    yield
-    TaskPage(login).click_close_task_view_btn()
+    DialogPage(login).close_dialog()
 
 
 """ ---------------------------- 配置-设备管理 ---------------------------- """
@@ -119,13 +105,6 @@ def map_module(login):
     MenuBarPage(login).click_nav_item("配置", "地图管理")
     required_parameters = {"map_group_name": f"FGN-{uuid4_data()}"}
     yield login, required_parameters
-
-
-@pytest.fixture()
-def close_add_floor_dialog_btn(login):
-    # 点击关闭添加地图分组弹框
-    yield
-    MapPage(login).click_close_dialog_btn()
 
 
 """ ---------------------------- 配置-时间条件 ---------------------------- """
@@ -171,26 +150,30 @@ def del_sub_dep_name_to_user(user, sole_group_name):
         GroupTreePage(user[0]).delete_peer_or_next_group_by_name(group_name=sole_group_name, parent_name=user[1], module_val="user", is_peer=False)
 
 
-""" ---------------------------- 工具 ---------------------------- """
-@pytest.fixture(scope="function")
-def tool_close_one_to_one_face_compare(login):
-    # 后置：关闭当前窗口 - 1:1人脸验证
+""" ---------------------------- 工具模块 ---------------------------- """
+@pytest.fixture()
+def close_tool(login):
+    # 后置：关闭当前处于打开状态的小工具窗口
     yield
-    ToolPage(login).close_tool_current_win("tools-face-verification")
+    ToolPage(login).close_tool()
 
+# @pytest.fixture(scope="function")
+# def tool_close_one_to_one_face_compare(login):
+#     # 后置：关闭当前窗口 - 1:1人脸验证
+#     yield
+#     ToolPage(login).close_tool_current_win("tools-face-verification")
 
-@pytest.fixture
-def tool_close_one_img_quality(login):
-    # 后置：关闭当前窗口 - 质量分数检测
-    yield
-    ToolPage(login).close_tool_current_win("tools-score-detection")
-
-
-@pytest.fixture
-def tool_close_face_score_detection(login):
-    # 后置：关闭当前窗口 - 人脸属性检测
-    yield
-    ToolPage(login).close_tool_current_win("tools-test-detection")
+# @pytest.fixture
+# def tool_close_one_img_quality(login):
+#     # 后置：关闭当前窗口 - 质量分数检测
+#     yield
+#     ToolPage(login).close_tool_current_win("tools-score-detection")
+#
+# @pytest.fixture
+# def tool_close_face_score_detection(login):
+#     # 后置：关闭当前窗口 - 人脸属性检测
+#     yield
+#     ToolPage(login).close_tool_current_win("tools-test-detection")
 
 
 """ ---------------------------- 登录模块 ---------------------------- """

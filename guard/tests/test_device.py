@@ -11,6 +11,8 @@ from guard.pages.device_page import DevicePage
 from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
 
+pytestmark = pytest.mark.test
+
 
 class TestDevicePositive:
 

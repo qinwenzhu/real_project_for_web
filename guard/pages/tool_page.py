@@ -84,21 +84,26 @@ class ToolPage(BasePage):
         else:
             return BasePage(self.driver).get_text(CHECK_CONTENT)
 
-    def close_tool_current_win(self, current_btn):
-        """ common 关闭当前打开的工具窗口 """
-        if current_btn == "tools-face-verification":
-            # 1:1
-            CLOSE_BTN = (By.XPATH,
-                         f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
-        elif current_btn == "tools-score-detection":
-            # 质量分数
-            CLOSE_BTN = (By.XPATH,
-                         f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
-        elif current_btn == "tools-test-detection":
-            # 人脸属性
-            CLOSE_BTN = (By.XPATH,
-                         f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
-        BasePage(self.driver).click_ele(CLOSE_BTN)
+    # def close_tool_current_win(self, current_btn):
+    #     """ common 关闭当前打开的工具窗口 """
+    #     if current_btn == "tools-face-verification":
+    #         # 1:1
+    #         CLOSE_BTN = (By.XPATH,
+    #                      f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
+    #     elif current_btn == "tools-score-detection":
+    #         # 质量分数
+    #         CLOSE_BTN = (By.XPATH,
+    #                      f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
+    #     elif current_btn == "tools-test-detection":
+    #         # 人脸属性
+    #         CLOSE_BTN = (By.XPATH,
+    #                      f'//div[contains(@class, "{current_btn}")]//i[contains(@class, "app-tools-header-close")]')
+    #     BasePage(self.driver).click_ele(CLOSE_BTN)
+
+    # 关闭当前打开的小工具窗口
+    def close_tool(self):
+        CURRENT_CLOSE_BTN  = (By.XPATH, '//i[@class="app-tools-header-close el-icon-close"]')
+        BasePage(self.driver).click_ele(CURRENT_CLOSE_BTN)
 
 
 if __name__ == '__main__':

@@ -12,6 +12,8 @@ from guard.pages.classes.task import Task
 from guard.pages.task_page import TaskPage
 from guard.pages.components.table_list import TableListPage
 
+pytestmark = pytest.mark.test
+
 
 class TestStructCarTaskPositive:
     pytestmark = [pytest.mark.positive, pytest.mark.smoke]

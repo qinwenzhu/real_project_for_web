@@ -21,9 +21,8 @@ from guard.pages.classes.path import SharePath
 pytestmark = pytest.mark.smoke
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
-@pytest.mark.usefixtures("tool_close_one_to_one_face_compare")
+@pytest.mark.usefixtures("close_tool")
 def test_one_to_one_face_compare(login):
     """ 测试1:1人脸验证功能 """
     MenuBarPage(login).click_nav_item("工具", "1:1人脸验证")
@@ -32,9 +31,8 @@ def test_one_to_one_face_compare(login):
     assert '评分参考' == result
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
-@pytest.mark.usefixtures("tool_close_one_img_quality")
+@pytest.mark.usefixtures("close_tool")
 @pytest.mark.parametrize("data", ToolData.score_detection_data_negative)
 def test_score_detection(login, data):
     """ 测试人脸质量分数检测功能 """
@@ -44,9 +42,8 @@ def test_score_detection(login, data):
     assert re.match(r'\d+ .\d+%', result)
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.negative
-@pytest.mark.usefixtures("tool_close_one_img_quality")
+@pytest.mark.usefixtures("close_tool")
 def test_negative_score_detection(login):
     """ 测试上传大于16M的图片 - 系统支持上传小于16M的图片 """
     MenuBarPage(login).click_nav_item("工具", "质量分数检测")
@@ -55,9 +52,8 @@ def test_negative_score_detection(login):
     assert "上传图片大小不能超过 16MB!" in result
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.positive
-@pytest.mark.usefixtures("tool_close_face_score_detection")
+@pytest.mark.usefixtures("close_tool")
 def test_face_property(login):
     """ 测试人脸属性输出的属性字段 """
     MenuBarPage(login).click_nav_item("工具", "人脸属性检测")
@@ -78,9 +74,8 @@ def test_face_property(login):
                 "安全帽" in result["helmet"]) and ("帽子" in result["hat"])
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 @pytest.mark.negative
-@pytest.mark.usefixtures("tool_close_face_score_detection")
+@pytest.mark.usefixtures("close_tool")
 @pytest.mark.parametrize("data", ToolData.face_data_negative)
 def test_negative_face_property(login, data):
     """ 测试上传不同属性的人脸照片检测出对应的人脸属性 """

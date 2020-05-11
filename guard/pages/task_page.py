@@ -216,17 +216,17 @@ class TaskPage(BasePage):
         return ele.text
 
     # 点击关闭任务添加窗口
-    def click_close_task_add_btn(self):
-        # 定位关闭弹窗
-        CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog__wrapper"]//span[contains(text(), "添加任务")]/following-sibling::button')
-        BasePage(self.driver).click_ele(CLOSE_BUTTON)
+    # def click_close_task_add_btn(self):
+    #     # 定位关闭弹窗
+    #     CLOSE_BUTTON = (By.XPATH, '//div[@class="el-dialog__wrapper"]//span[contains(text(), "添加任务")]/following-sibling::button')
+    #     BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     # 点击关闭任务详情窗口
-    def click_close_task_view_btn(self):
-        # 定位关闭弹窗
-        CLOSE_BUTTON = (By.XPATH,
-                        '//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
-        BasePage(self.driver).click_ele(CLOSE_BUTTON)
+    # def click_close_task_view_btn(self):
+    #     # 定位关闭弹窗
+    #     CLOSE_BUTTON = (By.XPATH,
+    #                     '//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
+    #     BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     # 非空校验
     def verify_parked_vehicle_not_null(self):

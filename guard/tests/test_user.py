@@ -10,7 +10,6 @@ from guard.pages.components.group_tree import GroupTreePage
 from guard.pages.components.alert_info import AlertInfoPage
 
 
-@pytest.mark.skip("之前演示过的测试用例")
 class TestUserPositive:
 
     pytestmark = [pytest.mark.positive, pytest.mark.smoke]
