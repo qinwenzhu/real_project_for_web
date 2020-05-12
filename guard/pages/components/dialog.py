@@ -24,6 +24,18 @@ class DialogPage(BasePage):
 
         self.is_confirm_or_cancel(loc_by_til, is_confirm)
 
+    def close_dialog(self):
+        """ 关闭dialog弹框 """
+        CLOSE_BTN = (By.XPATH, f'//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
+        BasePage(self.driver).click_ele(CLOSE_BTN)
+
+    def operation_dialog_btn(self, btn_text="确定"):
+        """ 封装dialog的按钮操作
+            定位到当前活动的dialog窗口，并通过传递btn的文本来动态点击按钮
+         """
+        BUTTON = (By.XPATH, f'//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__footer"]//button//span[text()="{btn_text}"]')
+        BasePage(self.driver).click_ele(BUTTON)
+
     # dialog对话框的确定或取消操作
     def is_confirm_or_cancel(self, loc_by_til, is_confirm=True):
         if is_confirm:
@@ -69,9 +81,3 @@ class DialogPage(BasePage):
         else:
             # 点击取消按钮
             BasePage(self.driver).click_ele(CANCEL_BTN)
-
-    # def close_dialog(self, loc_by_til):
-    def close_dialog(self):
-        """ 关闭dialog弹框 """
-        CLOSE_BTN = (By.XPATH, f'//div[not(contains(@style, "display: none;")) and contains(@class, "el-dialog__wrapper")]//div[@class="el-dialog__header"]//button')
-        BasePage(self.driver).click_ele(CLOSE_BTN)

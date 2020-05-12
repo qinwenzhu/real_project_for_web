@@ -95,10 +95,10 @@ class BasePage:
         """ 页面定位表达式能匹配到多个，通过下标访问 """
 
         self.log.info(f"获取元素列表！---{loc[-1]}---")
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
         try:
             if index is None:
                 self.log.info(f"通过元素表达式获取单个元素！---{loc[-1]}---")
-                WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
                 ele = BasePage(self.driver).get_ele_locator(loc)
                 return ele
             else:
@@ -194,7 +194,7 @@ class BasePage:
     def click_ele(self, loc):
         """ 点击元素，等待元素可见进行点击"""
         # 等待元素可见
-        # self.wait_for_ele_to_be_visible(loc)
+        self.wait_for_ele_to_be_visible(loc)
         # 等待元素可点击
         self.wait_ele_to_be_click(loc)
         ele = self.get_ele_locator(loc)

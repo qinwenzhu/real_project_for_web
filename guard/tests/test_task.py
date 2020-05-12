@@ -11,7 +11,6 @@ import pytest
 from guard.pages.classes.task import Task
 from guard.pages.task_page import TaskPage
 from guard.pages.components.table_list import TableListPage
-
 pytestmark = pytest.mark.test
 
 
@@ -22,7 +21,6 @@ class TestStructCarTaskPositive:
         # 测试添加-车辆违停任务
         task_para = Task(task_name=task[1]["task_name"], device_name=task[1]["device_name"])
         TaskPage(task[0]).add_task_by_type(task_para, task_type="车辆-违停检测任务")
-        time.sleep(2)
         assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
 
     @pytest.mark.usefixtures("close_dialog")
@@ -30,9 +28,27 @@ class TestStructCarTaskPositive:
         # 测试查看-车辆违停任务
         time.sleep(2)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
-        time.sleep(1)
         result = TaskPage(task[0]).verify_view_task_detail()
         assert task[1]["task_name"] == result
+
+    def test_update_task_state(self, task):
+        # 测试更新当前新建任务的启用状态为：禁用
+        time.sleep(1)
+        TableListPage(task[0]).table_list_switch(name=task[1]["task_name"])
+        assert TableListPage(task[0]).verify_state_success(name=task[1]["task_name"])
+
+    @pytest.mark.usefixtures("back_default")
+    def test_batch_disabled_task(self, task):
+        # 测试任务的批量禁用操作
+        TaskPage(task[0]).operation_batch_disabled(flag="disabled")
+        assert TaskPage(task[0]).verify_operation_disabled_success()
+
+    @pytest.mark.usefixtures("back_default")
+    def test_batch_start_task(self, task):
+        # 测试任务的批量启用操作
+        TaskPage(task[0]).operation_batch_disabled(flag="start")
+        time.sleep(0.5)
+        assert TaskPage(task[0]).verify_operation_start_success()
 
     @pytest.mark.usefixtures("close_dialog")
     def test_edit_vehicle_illegally_parking_detection_task(self, task):
@@ -43,6 +59,7 @@ class TestStructCarTaskPositive:
 
     def test_delete_vehicle_illegally_parking_detection_task(self, task):
         # 测试删除-车辆违停任务
+        time.sleep(1)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
@@ -54,15 +71,12 @@ class TestStructPedestriansTaskPositive:
         # 测试添加-行人区域入侵任务
         task_para = Task(task_name=task[1]["task_name"], device_name=task[1]["device_name"])
         TaskPage(task[0]).add_task_by_type(task_para, task_type="人体-区域闯入检测任务")
-        time.sleep(2)
         assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
 
     @pytest.mark.usefixtures("close_dialog")
     def test_view_pedestrians_task(self, task):
         # 测试查看-行人区域入侵任务
-        time.sleep(2)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
-        time.sleep(1)
         result = TaskPage(task[0]).verify_view_task_detail()
         assert task[1]["task_name"] == result
 
@@ -79,7 +93,6 @@ class TestStructCarTaskNegative:
     def test_add_parking_detection_task_and_not_null(self, task_no_setup):
         # 测试添加车辆违停任务 - 非空校验
         TaskPage(task_no_setup).verify_parked_vehicle_not_null()
-        time.sleep(2)
         result = [TaskPage(task_no_setup).dialog_error_info(flag="task"),
                   TaskPage(task_no_setup).dialog_error_info(flag="device"),
                   TaskPage(task_no_setup).dialog_error_info(flag="region")]
@@ -92,7 +105,6 @@ class TestStructPedestriansTaskNegative:
     def test_add_pedestrians_task_and_not_null(self, task_no_setup):
         # 测试添加行人区域入侵任务 - 非空校验
         TaskPage(task_no_setup).verify_pedestrians_not_null()
-        time.sleep(2)
         result = [TaskPage(task_no_setup).dialog_error_info(flag="task"),
                   TaskPage(task_no_setup).dialog_error_info(flag="device"),
                   TaskPage(task_no_setup).dialog_error_info(flag="region")]

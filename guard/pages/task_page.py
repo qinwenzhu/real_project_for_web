@@ -8,7 +8,9 @@ import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from guard.pages.components.dialog import DialogPage
+from selenium.webdriver.support.wait import WebDriverWait
 from guard.pages.components.table_list import TableListPage
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -62,10 +64,81 @@ class TaskPage(BasePage):
         TASK_MENU = (By.XPATH, f'//div[@class="task-menu-container"]//li[contains(text(), "{menu_name}")]')
         BasePage(self.driver).click_ele(TASK_MENU)
 
-    # 点击添加任务
+    # 点击添加任务按钮
     def click_add_task_btn(self):
         ADD_BTN = (By.XPATH, '//span[contains(text(), "添加任务")]')
         BasePage(self.driver).click_ele(ADD_BTN)
+
+    # 点击批量操作按钮
+    def click_batch_operation_btn(self):
+        ADD_BTN = (By.XPATH, '//span[contains(text(), "批量操作")]')
+        BasePage(self.driver).click_ele(ADD_BTN)
+
+    # 点击全选
+    def check_all(self):
+        # ALL_SELECT = (By.XPATH, '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//input')
+        ALL_SELECT = (By.XPATH, '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//span[@class="el-checkbox__input"]')
+        BasePage(self.driver).wait_for_ele_to_be_visible(ALL_SELECT)
+        BasePage(self.driver).click_ele(ALL_SELECT)
+
+    # 点击批量禁用按钮
+    def click_batch_disabled_btn(self):
+        BTN = (By.XPATH, '//span[contains(text(), "批量禁用")]')
+        BasePage(self.driver).click_ele(BTN)
+
+    # 点击批量启用按钮
+    def click_batch_start_btn(self):
+        BTN = (By.XPATH, '//span[contains(text(), "批量启用")]')
+        BasePage(self.driver).click_ele(BTN)
+
+    # 点击返回icon，回到默认状态界面
+    def click_back_icon(self):
+        BTN = (By.XPATH, '//span[contains(text(), "批量删除")]/parent::button/preceding-sibling::button')
+        BasePage(self.driver).click_ele(BTN)
+
+    # 进行任务的批量禁用操作
+    def operation_batch_disabled(self, flag, is_confirm=True):
+        # 点击批量操作按钮
+        self.click_batch_operation_btn()
+        # 全选操作
+        self.check_all()
+        if flag == "disabled":
+            # 点击批量禁用按钮
+            self.click_batch_disabled_btn()
+        elif flag == "start":
+            # 点击批量启用按钮
+            self.click_batch_start_btn()
+        if is_confirm:
+            # dialog窗口 - 确定状态的修改
+            DialogPage(self.driver).operation_dialog_btn()
+        else:
+            # dialog窗口 - 取消状态的修改
+            DialogPage(self.driver).operation_dialog_btn(btn_text="取消")
+
+    # 验证当前页的批量任务禁用操作是否成功
+    def verify_operation_disabled_success(self):
+        """ 如果在页面中能定位到该元素，则批量禁用操作失败，反之成功 """
+        # 在任务批量禁用之后，查看页面是否还存在启用状态的任务
+        SWITCH = (By.XPATH, '//table[@class="el-table__body"]//div[@role="switch" and contains(@class, "is-checked")]')
+        try:
+            time.sleep(1)
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(SWITCH))
+        except:
+            return True
+        else:
+            return False
+
+    # 验证当前页的批量任务启用操作是否成功
+    def verify_operation_start_success(self):
+        """ 如果在页面中能定位到该元素，则批量启用操作失败，反之成功 """
+        # 在任务批量启用之后，查看页面是否还存在停用状态的任务
+        SWITCH = (By.XPATH, '//table[@class="el-table__body"]//div[@role="switch" and not(contains(@class, "is-checked"))]')
+        try:
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(SWITCH))
+        except:
+            return False
+        else:
+            return True
 
     # 添加各种任务类型共用的部分
     def task_basic_set(self, task):
@@ -74,7 +147,7 @@ class TaskPage(BasePage):
         # 通过设备名选择设备
         self.select_device(device_name=task.device_name)
         # 设置特殊属性
-        self.select_special_attr(attr_name=task.special_attributes)
+        # self.select_special_attr(attr_name=task.special_attributes)
 
     """ ---------------------------- 添加任务 - dialog界面元素操作 ---------------------------- """
 
@@ -276,10 +349,12 @@ if __name__ == '__main__':
     LoginPage(driver).login("zhuwenqin", "888888", login_way="debug")
     MenuBarPage(driver).click_nav_item("配置", "任务管理")
 
-    task = Task("wse", "3210")
-    TaskPage(driver).add_task_by_type(task, task_type="车辆-违停检测任务")
+    # task = Task("wse", "3210")
+    # TaskPage(driver).add_task_by_type(task, task_type="车辆-违停检测任务")
     # TaskPage(driver).add_task_to_parked_vehicle(task_name="test", device_name="1111", time_minute=1)
 
     # from guard.pages.components.table_list import TableListPage
     # TaskPage(driver).click_left_menu("车辆-违停检测任务")
     # TableListPage(driver).operations_table_list(name="id-2b244f07-cb55-47e7-87ef-3dca9ca47593", flag="delete")
+
+    # TaskPage(driver).operation_batch_disabled()

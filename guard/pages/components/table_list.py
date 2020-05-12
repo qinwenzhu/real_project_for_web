@@ -7,6 +7,7 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
+from guard.pages.components.dialog import DialogPage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -43,35 +44,43 @@ class TableListPage(BasePage):
         DELETE_ICON = (By.XPATH, f'//table[@class="el-table__body"]//div[@class="cell" and  text() = "{name}"]/parent::td/following-sibling::td[contains(@class, "tables-operate")]//i[contains(@class, "icon-delete")]')
 
         # 点击查看、 编辑、删除icon
-        time.sleep(2)
         if flag == "view":
             BasePage(self.driver).click_ele(VIEW_ICON)
         elif flag == "edit":
             BasePage(self.driver).click_ele(EDIT_ICON)
         elif flag == "delete":
-            time.sleep(2)
             BasePage(self.driver).click_ele(DELETE_ICON)
             # 进行弹框删除操作
-            self.table_list_delete()
+            DialogPage(self.driver).operation_dialog_btn(btn_text="删除")
 
-    def table_list_delete(self, is_delete=True):
-        """  table_list 删除操作 """
-        if is_delete:
-            # 点击删除按钮
-            CONFIRM_BTN = (By.XPATH, '//button//span[text()="删除"]')
-            ele = BasePage(self.driver).get_ele_locator_by_index(CONFIRM_BTN, 1)
-            ele.click()
-        else:
-            # 点击取消按钮
-            CONFIRM_BTN = (By.XPATH, '//button//span[text()="取消"]')
-            ele = BasePage(self.driver).get_ele_locator_by_index(CONFIRM_BTN, 1)
-            ele.click()
+    # def table_list_delete(self, is_delete=True):
+    #     """  table_list 删除操作 """
+    #     if is_delete:
+    #         # 点击删除按钮
+    #         CONFIRM_BTN = (By.XPATH, '//button//span[text()="删除"]')
+    #         ele = BasePage(self.driver).get_ele_locator_by_index(CONFIRM_BTN, 1)
+    #         ele.click()
+    #     else:
+    #         # 点击取消按钮
+    #         CONFIRM_BTN = (By.XPATH, '//button//span[text()="取消"]')
+    #         ele = BasePage(self.driver).get_ele_locator_by_index(CONFIRM_BTN, 1)
+    #         ele.click()
 
     def table_list_switch(self, name):
         """  table_list 列表状态开关，如任务的启用/禁用 """
         # 定位开关操作
         SWITCH_BTN = (By.XPATH, f'//div[@class="cell" and text()="{name}"]/parent::td/following-sibling::td//div[@class="el-switch"]')
         BasePage(self.driver).click_ele(SWITCH_BTN)
-        # 在弹框中点击修改状态
-        # TODO
-        # DialogPage(self.driver).is_delete_or_cancel(module_val="")
+        # 在弹框中确定点击按钮 - 修改状态
+        DialogPage(self.driver).operation_dialog_btn()
+
+    # 验证禁用指定任务的启用状态是否成功
+    def verify_state_success(self, name):
+        """  如果禁用操作结束后，该元素定位表达式存在，则禁用成功 """
+        try:
+            ELE_EXP = (By.XPATH, f'//div[@class="cell" and text()="{name}"]/parent::td/following-sibling::td//div[@class="el-switch" and not(contains(@class, "is-checked"))]')
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(ELE_EXP))
+        except:
+            return False
+        else:
+            return True

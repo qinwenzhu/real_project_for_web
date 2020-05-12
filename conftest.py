@@ -90,6 +90,14 @@ def task_no_setup(login):
     DialogPage(login).close_dialog()
 
 
+@pytest.fixture
+def back_default(login):
+    # 批量操作之后返回到默认状态
+    yield
+    time.sleep(1)
+    TaskPage(login).click_back_icon()
+
+
 """ ---------------------------- 配置-设备管理 ---------------------------- """
 @pytest.fixture(scope="module")
 def device(login, before_device_common):
