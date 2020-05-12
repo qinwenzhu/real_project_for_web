@@ -69,7 +69,7 @@ class TableListPage(BasePage):
     def table_list_switch(self, name):
         """  table_list 列表状态开关，如任务的启用/禁用 """
         # 定位开关操作
-        SWITCH_BTN = (By.XPATH, f'//div[@class="cell" and text()="{name}"]/parent::td/following-sibling::td//div[@class="el-switch"]')
+        SWITCH_BTN = (By.XPATH, f'//div[@class="cell" and text()="{name}"]/parent::td/following-sibling::td//div[contains(@class, "el-switch")]')
         BasePage(self.driver).click_ele(SWITCH_BTN)
         # 在弹框中确定点击按钮 - 修改状态
         DialogPage(self.driver).operation_dialog_btn()

@@ -33,7 +33,7 @@ class TestStructCarTaskPositive:
 
     def test_update_task_state(self, task):
         # 测试更新当前新建任务的启用状态为：禁用
-        time.sleep(1)
+        time.sleep(2)
         TableListPage(task[0]).table_list_switch(name=task[1]["task_name"])
         assert TableListPage(task[0]).verify_state_success(name=task[1]["task_name"])
 
