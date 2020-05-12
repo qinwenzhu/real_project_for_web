@@ -76,44 +76,57 @@ class TaskPage(BasePage):
 
     # 点击全选
     def check_all(self):
-        # ALL_SELECT = (By.XPATH, '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//input')
         ALL_SELECT = (By.XPATH, '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//span[@class="el-checkbox__input"]')
         BasePage(self.driver).wait_for_ele_to_be_visible(ALL_SELECT)
         BasePage(self.driver).click_ele(ALL_SELECT)
-
-    # 点击批量禁用按钮
-    def click_batch_disabled_btn(self):
-        BTN = (By.XPATH, '//span[contains(text(), "批量禁用")]')
-        BasePage(self.driver).click_ele(BTN)
-
-    # 点击批量启用按钮
-    def click_batch_start_btn(self):
-        BTN = (By.XPATH, '//span[contains(text(), "批量启用")]')
-        BasePage(self.driver).click_ele(BTN)
 
     # 点击返回icon，回到默认状态界面
     def click_back_icon(self):
         BTN = (By.XPATH, '//span[contains(text(), "批量删除")]/parent::button/preceding-sibling::button')
         BasePage(self.driver).click_ele(BTN)
 
-    # 进行任务的批量禁用操作
-    def operation_batch_disabled(self, flag, is_confirm=True):
+    def crumbs_btn_opreration(self, btn_text):
+        BTN = (By.XPATH, f'//span[contains(text(), "{btn_text}")]')
+        BasePage(self.driver).click_ele(BTN)
+
+    # 点击批量禁用按钮
+    # def click_batch_disabled_btn(self):
+    #     BTN = (By.XPATH, '//span[contains(text(), "批量禁用")]')
+    #     BasePage(self.driver).click_ele(BTN)
+    # 点击批量启用按钮
+    # def click_batch_start_btn(self):
+    #     BTN = (By.XPATH, '//span[contains(text(), "批量启用")]')
+    #     BasePage(self.driver).click_ele(BTN)
+    # 点击批量删除按钮
+    # def click_batch_delete_btn(self):
+    #     BTN = (By.XPATH, '//span[contains(text(), "批量删除")]')
+    #     BasePage(self.driver).click_ele(BTN)
+
+    # 进行任务的全批量操作。如：批量禁用、批量启用和批量删除
+    def task_batch_operation(self, flag, text="确定"):
         # 点击批量操作按钮
         self.click_batch_operation_btn()
         # 全选操作
         self.check_all()
         if flag == "disabled":
             # 点击批量禁用按钮
-            self.click_batch_disabled_btn()
+            self.crumbs_btn_opreration(btn_text="批量禁用")
         elif flag == "start":
             # 点击批量启用按钮
-            self.click_batch_start_btn()
-        if is_confirm:
+            self.crumbs_btn_opreration(btn_text="批量启用")
+        elif flag == "delete":
+            # 点击批量删除按钮
+            self.crumbs_btn_opreration(btn_text="批量删除")
+
+        if text == "确定":
             # dialog窗口 - 确定状态的修改
             DialogPage(self.driver).operation_dialog_btn()
-        else:
+        elif text == "取消":
             # dialog窗口 - 取消状态的修改
             DialogPage(self.driver).operation_dialog_btn(btn_text="取消")
+        elif text == "删除":
+            # dialog窗口 - 批量删除
+            DialogPage(self.driver).operation_dialog_btn(btn_text="删除")
 
     # 验证当前页的批量任务禁用操作是否成功
     def verify_operation_disabled_success(self):
@@ -323,6 +336,7 @@ class TaskPage(BasePage):
     def verify_view_task_detail(self):
         """ 验证查看任务详情是否是当前任务名的详情 """
         TASK_NAME = (By.XPATH, '//label[contains(text(), "任务名称")]/following-sibling::div')
+        time.sleep(2)
         return BasePage(self.driver).get_text(TASK_NAME)
 
     # 任务编辑-验证违停时限是否修改成功

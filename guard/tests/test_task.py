@@ -26,7 +26,6 @@ class TestStructCarTaskPositive:
     @pytest.mark.usefixtures("close_dialog")
     def test_view_vehicle_illegally_parking_detection_task(self, task):
         # 测试查看-车辆违停任务
-        time.sleep(2)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
         result = TaskPage(task[0]).verify_view_task_detail()
         assert task[1]["task_name"] == result
@@ -40,13 +39,13 @@ class TestStructCarTaskPositive:
     @pytest.mark.usefixtures("back_default")
     def test_batch_disabled_task(self, task):
         # 测试任务的批量禁用操作
-        TaskPage(task[0]).operation_batch_disabled(flag="disabled")
+        TaskPage(task[0]).task_batch_operation(flag="disabled")
         assert TaskPage(task[0]).verify_operation_disabled_success()
 
     @pytest.mark.usefixtures("back_default")
     def test_batch_start_task(self, task):
         # 测试任务的批量启用操作
-        TaskPage(task[0]).operation_batch_disabled(flag="start")
+        TaskPage(task[0]).task_batch_operation(flag="start")
         time.sleep(0.5)
         assert TaskPage(task[0]).verify_operation_start_success()
 
@@ -62,6 +61,14 @@ class TestStructCarTaskPositive:
         time.sleep(1)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
+
+    @pytest.mark.usefixtures("back_default")
+    def test_batch_delete_task(self, task):
+        # 测试任务的批量删除操作
+        TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
+        # TODO
+        # time.sleep(0.5)
+        # assert TaskPage(task[0]).verify_operation_start_success()
 
 
 class TestStructPedestriansTaskPositive:
