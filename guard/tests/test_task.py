@@ -30,6 +30,17 @@ class TestStructCarTaskPositive:
         result = TaskPage(task[0]).verify_view_task_detail()
         assert task[1]["task_name"] == result
 
+    @pytest.mark.usefixtures("close_dialog")
+    def test_edit_vehicle_illegally_parking_detection_task(self, task):
+        # 测试编辑-车辆违停任务，修改违停时限，验证任务是否能被正常修改
+        TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
+        result = TaskPage(task[0]).verify_input_park_time(task_name=task[1]["task_name"])
+        assert re.match(r"^.+[\u4E00-\u9FA5\s]+$", result)
+
+    # # 查看任务推送记录
+    # def test_view_task_push_record(self, task):
+    #     pass
+
     def test_update_task_state(self, task):
         # 测试更新当前新建任务的启用状态为：禁用
         time.sleep(2)
@@ -49,26 +60,18 @@ class TestStructCarTaskPositive:
         time.sleep(0.5)
         assert TaskPage(task[0]).verify_operation_start_success()
 
-    @pytest.mark.usefixtures("close_dialog")
-    def test_edit_vehicle_illegally_parking_detection_task(self, task):
-        # 测试编辑-车辆违停任务，修改违停时限，验证任务是否能被正常修改
-        TaskPage(task[0]).update_input_park_time(task_name=task[1]["task_name"])
-        result = TaskPage(task[0]).verify_input_park_time(task_name=task[1]["task_name"])
-        assert re.match(r"^.+[\u4E00-\u9FA5\s]+$", result)
-
     def test_delete_vehicle_illegally_parking_detection_task(self, task):
         # 测试删除-车辆违停任务
         time.sleep(1)
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
-    @pytest.mark.usefixtures("back_default")
-    def test_batch_delete_task(self, task):
-        # 测试任务的批量删除操作
-        TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
-        # TODO
-        # time.sleep(0.5)
-        # assert TaskPage(task[0]).verify_operation_start_success()
+    # @pytest.mark.usefixtures("back_default")
+    # def test_batch_delete_task(self, task):
+    #     # 测试任务的批量删除操作
+    #     TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
+    #     # TODO
+    #     time.sleep(0.5)
 
 
 class TestStructPedestriansTaskPositive:

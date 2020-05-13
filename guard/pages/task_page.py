@@ -315,6 +315,7 @@ class TaskPage(BasePage):
     #     BasePage(self.driver).click_ele(CLOSE_BUTTON)
 
     # 创建车辆任务的非空校验
+
     def verify_parked_vehicle_not_null(self):
         """ 点击添加任务，点击确认，进行车辆违停的非空校验"""
         # 点击左侧菜单
