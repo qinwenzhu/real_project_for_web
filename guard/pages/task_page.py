@@ -118,6 +118,20 @@ class TaskPage(BasePage):
             # 点击批量删除按钮
             self.crumbs_btn_opreration(btn_text="批量删除")
 
+            """ 针对批量 """
+            # 定位批量全选不能操作的情况
+            BTN = (By.XPATH,
+                   '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//span[contains(@class, "el-checkbox__input") and contains(@class, "is-disabled")]')
+            try:
+                # 如果全选按钮处于不可点击状态，则说明当前页面的列表为空
+                WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(BTN))
+            except:
+                # 删除
+                pass
+            else:
+                # 如果定位不到，则说明有任务列表，可以进行批量删除操作
+                pass
+
         if text == "确定":
             # dialog窗口 - 确定状态的修改
             DialogPage(self.driver).operation_dialog_btn()
@@ -136,6 +150,18 @@ class TaskPage(BasePage):
         try:
             time.sleep(1)
             WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(SWITCH))
+        except:
+            return True
+        else:
+            return False
+
+    # 验证当前页面的批量任务删除操作是否成功
+    def verify_operation_delete_success(self):
+        # 批量删除操作之后定位tr，如果存在，则批量删除失败，反之成功
+        ELE_LOC = (By.XPATH, '//table[@class="el-table__body"]//tbody//tr')
+        try:
+            time.sleep(1)
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(ELE_LOC))
         except:
             return True
         else:
@@ -346,7 +372,6 @@ class TaskPage(BasePage):
         # 进入任务详情页
         TableListPage(self.driver).operations_table_list(task_name, flag="view")
         INPUT_PARK_TIME = (By.XPATH, '//label[contains(text(), "违停时限")]/following-sibling::div')
-        time.sleep(1)
         result = BasePage(self.driver).get_text(INPUT_PARK_TIME)
         print(f'获取修改后的违停时限为：{result}')
         return result

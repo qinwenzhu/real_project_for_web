@@ -86,6 +86,7 @@ def task(login, before_structuring_task_common):
 
 @pytest.fixture(scope="module")
 def task_no_setup(login):
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
     yield login
     DialogPage(login).close_dialog()
 
@@ -98,8 +99,18 @@ def back_default(login):
     TaskPage(login).click_back_icon()
 
 
+@pytest.fixture
+def back_task_page(login):
+    # 批量操作之后返回到默认状态
+    yield
+    time.sleep(0.5)
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
+    TaskPage(login).click_left_menu(menu_name="车辆-违停检测任务")
+
+
 """ ---------------------------- 配置-设备管理 ---------------------------- """
-@pytest.fixture(scope="module")
+# @pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def device(login, before_device_common):
     # 进入设备模块
     MenuBarPage(login).click_nav_item("配置", "设备管理")
@@ -230,7 +241,8 @@ def overlong_name():
 
 
 """ ---------------------------- 共用前置条件 ---------------------------- """
-@pytest.fixture(scope="module")
+# @pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def before_device_common(login):
 
     # before_name = {"floor_group_name": f"FGN-{get_current_time()}"}
@@ -255,7 +267,8 @@ def before_device_common(login):
     GroupTreePage(login).delete_peer_or_next_group_by_name(module_val="map", parent_name=before_name["floor_group_name"])
 
 
-@pytest.fixture(scope="module")
+# @pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def before_structuring_task_common(login, before_device_common):
     # 进入设备模块，创建设备分组和对应对应类型的设备
     time.sleep(0.5)
