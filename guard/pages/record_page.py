@@ -89,9 +89,13 @@ class RecordPage(BasePage):
         :param device_name:
         :return:
         """
+        # 点击车辆记录
         self.click_tab_list_btn()
+        # 点击筛选按钮
         self.click_filter_btn()
+        # 根据设备名称进行筛选过滤
         self.comm_search_result_by_name(device_name)
+        # 点击筛选按钮
         self.click_filter_or_reset_btn()
 
 
@@ -109,4 +113,3 @@ if __name__ == '__main__':
     RecordPage(driver).click_filter_btn()
     RecordPage(driver).comm_search_result_by_name(name="3210")
     RecordPage(driver).click_filter_or_reset_btn()
-

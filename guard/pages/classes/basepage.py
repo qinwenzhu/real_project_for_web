@@ -56,7 +56,7 @@ class BasePage:
             self.log.error(f"等待元素存在报错!---{loc[-1]}---")
             raise e
 
-    def wait_ele_to_be_click(self, loc, timeout=10, poll_frequency=0.5):
+    def wait_ele_to_be_click(self, loc, timeout=20, poll_frequency=0.5):
         """ 等待元素在页面中可点击 """
 
         self.log.info(f"等待元素可点击！---{loc[-1]}---")

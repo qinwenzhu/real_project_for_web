@@ -102,6 +102,7 @@ def back_default(login):
 @pytest.fixture
 def back_task_page(login):
     # 批量操作之后返回到默认状态
+    MenuBarPage(login).click_nav_item("记录")
     yield
     time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "任务管理")

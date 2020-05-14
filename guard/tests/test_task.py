@@ -63,11 +63,13 @@ class TestStructCarTaskPositive:
     @pytest.mark.usefixtures("back_task_page")
     def test_view_task_push_record(self, task):
         # 查看任务在记录页面是否有推送记录
-        MenuBarPage(task[0]).click_nav_item("记录")
+        time.sleep(2)
         RecordPage(task[0]).record_filter_by_device(device_name=task[1]["device_name"])
-        # 强制等待一段时间后，再次点击筛选按钮，查看是否有记录推送
-        time.sleep(10)
-        RecordPage(task[0]).click_filter_or_reset_btn()
+        time.sleep(1)
+        if RecordPage(task[0]).verify_record_total == 0:
+            # 强制等待一段时间后，再次点击筛选按钮，查看是否有记录推送
+            time.sleep(10)
+            RecordPage(task[0]).click_filter_or_reset_btn()
         assert RecordPage(task[0]).verify_record_total()
 
     def test_delete_vehicle_illegally_parking_detection_task(self, task):

@@ -28,7 +28,7 @@ class MenuBarPage(BasePage):
         try:
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
             # WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(INFO_TEXT))
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(INFO_TEXT))
+            WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(INFO_TEXT))
         except:
             # 此处设置日志的等级为debug，仅仅是为了自己能在控制台中查看，不算抛出异常
             self.log.debug("-------------无消息弹框出现---------------")
