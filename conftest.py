@@ -280,7 +280,7 @@ def before_structuring_task_common(login, before_device_common):
     # 创建设备 - 网络摄像机 - RTSP
     time.sleep(1)
     GroupTreePage(login).create_peer_or_next_group(group_name=before_device_common["device_group_name"])
-    time.sleep(1)
+    time.sleep(2)
     DevicePage(login).add_device_by_type(rtsp_para, device_type="网络摄像机")
     yield before_device_common
     MenuBarPage(login).click_nav_item("配置", "设备管理")
