@@ -11,7 +11,6 @@ import pytest
 from guard.pages.classes.task import Task
 from guard.pages.task_page import TaskPage
 from guard.pages.record_page import RecordPage
-from guard.pages.components.menubar import MenuBarPage
 from guard.pages.components.table_list import TableListPage
 pytestmark = pytest.mark.test
 
@@ -114,6 +113,7 @@ class TestStructPedestriansTaskPositive:
 class TestStructCarTaskNegative:
 
     @pytest.mark.usefixtures("close_dialog")
+    # @pytest.mark.fl
     def test_add_parking_detection_task_and_not_null(self, task_no_setup):
         # 测试添加车辆违停任务 - 非空校验
         TaskPage(task_no_setup).verify_parked_vehicle_not_null()
