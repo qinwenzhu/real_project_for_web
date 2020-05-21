@@ -103,6 +103,7 @@ def back_default(login):
 def back_task_page(login):
     # 批量操作之后返回到默认状态
     MenuBarPage(login).click_nav_item("记录")
+    time.sleep(2)
     yield
     time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "任务管理")

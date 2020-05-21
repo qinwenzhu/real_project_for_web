@@ -7,11 +7,6 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
-from guard.pages.components.dialog import DialogPage
-from selenium.webdriver.support.wait import WebDriverWait
-from guard.pages.components.table_list import TableListPage
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 
 
 class RecordPage(BasePage):
@@ -95,6 +90,7 @@ class RecordPage(BasePage):
         self.click_filter_btn()
         # 根据设备名称进行筛选过滤
         self.comm_search_result_by_name(device_name)
+        time.sleep(1)
         # 点击筛选按钮
         self.click_filter_or_reset_btn()
 
