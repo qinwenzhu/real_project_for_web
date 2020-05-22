@@ -21,8 +21,8 @@ class TaskPage(BasePage):
         self.click_left_menu(menu_name=task_type)
         # 点击添加任务按钮
         self.click_add_task_btn()
-        # 选择任务类型
-        # self.select_task_type(task_type=task_type)    # 点击了左侧的任务列表，此处会默认选中当前任务
+        # 选择任务类型 - 通过选择延长下面列表的加载时间
+        self.select_task_type(task_type=task_type)    # 点击了左侧的任务列表，此处会默认选中当前任务
         """ 开始添加任务界面的基础共用操作：任务名称、设备名称、设备分组，选择特殊属性 """
         self.task_basic_set(task)
         if task_type == "车辆-违停检测任务":
@@ -328,6 +328,8 @@ class TaskPage(BasePage):
             ele = BasePage(self.driver).get_ele_locator_by_index(ERROR_INFO, 1)
         elif flag == "region":
             ele = BasePage(self.driver).get_ele_locator_by_index(ERROR_INFO, 2)
+        elif flag == "direction":
+            ele = BasePage(self.driver).get_ele_locator_by_index(ERROR_INFO, 3)
         return ele.text
 
     # 点击关闭任务添加窗口

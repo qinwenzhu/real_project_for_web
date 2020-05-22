@@ -136,6 +136,16 @@ class TestStructPedestriansTaskPositive:
         assert TaskPage(task[0]).verify_operation_delete_success()
 
 
+class TestStructCrossLineTaskPositive:
+    pytestmark = [pytest.mark.positive, pytest.mark.smoke]
+
+    def test_add_cross_line_task(self, task):
+        # 测试添加-人体越线检测任务
+        task_para = Task(task_name=task[1]["task_name"], device_name=task[1]["device_name"])
+        TaskPage(task[0]).add_task_by_type(task_para, task_type="人体-越线检测任务")
+        assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
+
+
 @pytest.mark.negative
 class TestStructCarTaskNegative:
 
@@ -151,7 +161,7 @@ class TestStructCarTaskNegative:
 
 @pytest.mark.negative
 class TestStructPedestriansTaskNegative:
-    # @pytest.mark.usefixtures("close_dialog")
+    @pytest.mark.usefixtures("close_dialog")
     def test_add_pedestrians_task_and_not_null(self, task_no_setup):
         # 测试添加行人区域入侵任务 - 非空校验
         TaskPage(task_no_setup).verify_pedestrians_not_null()
@@ -159,3 +169,17 @@ class TestStructPedestriansTaskNegative:
                   TaskPage(task_no_setup).dialog_error_info(flag="device"),
                   TaskPage(task_no_setup).dialog_error_info(flag="region")]
         assert "请输入正确格式的任务名称" in result[0] and "请选择设备" in result[1] and "请绘制区域" in result[2]
+
+
+@pytest.mark.negative
+class TestStructPedestriansTaskNegative:
+    # @pytest.mark.usefixtures("close_dialog")
+    def test_add_pedestrians_task_and_not_null(self, task_no_setup):
+        # 测试添加人体越线检测任务 - 非空校验
+        TaskPage(task_no_setup).verify_pedestrians_not_null()
+        result = [TaskPage(task_no_setup).dialog_error_info(flag="task"),
+                  TaskPage(task_no_setup).dialog_error_info(flag="device"),
+                  TaskPage(task_no_setup).dialog_error_info(flag="region"),
+                  TaskPage(task_no_setup).dialog_error_info(flag="direction")]
+        assert "请输入正确格式的任务名称" in result[0] and "请选择设备" in result[1] \
+               and "请设置告警线" in result[2] and "请选择越线方向" in result[3]
