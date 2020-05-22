@@ -126,6 +126,15 @@ class TestStructPedestriansTaskPositive:
         TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
         assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
 
+    @pytest.mark.usefixtures("back_default")
+    @pytest.mark.skip("The number of tasks is zero！")
+    def test_batch_delete_pedestrians_task(self, task):
+        # 测试任务的批量删除操作
+        time.sleep(3)
+        TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
+        time.sleep(0.5)
+        assert TaskPage(task[0]).verify_operation_delete_success()
+
 
 @pytest.mark.negative
 class TestStructCarTaskNegative:
