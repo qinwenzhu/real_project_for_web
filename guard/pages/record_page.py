@@ -7,6 +7,8 @@
 import time
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class RecordPage(BasePage):
@@ -32,6 +34,14 @@ class RecordPage(BasePage):
         CLICK_BTN = (By.XPATH, '//div[@class="condition-box"]//div[contains(@class, "tree-input")]//span[contains(text(), "设备")]/following-sibling::div')
         BasePage(self.driver).click_ele(CLICK_BTN)
         # 强制等待3秒，等下拉列表全部加载完成，再进行搜索查询
+
+        # TODO 判断设备列表是否成功加载出来
+        try:
+            CONTENT_WRAP = (By.XPATH,
+                            '//ul[contains(@class, "el-dropdown-menu") and not(contains(@style, "display: none;"))]//div[@class="el-tree"]//div')
+            WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(CONTENT_WRAP))
+        except:
+            time.sleep(3)
         time.sleep(3)
         # 通过设备名device_name,查找设备
         SELECT_GROUP = (By.XPATH,
