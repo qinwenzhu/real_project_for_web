@@ -25,7 +25,7 @@ class AlertInfoPage(BasePage):
         try:
             # 定位alert弹框
             INFO_TEXT = (By.XPATH, '//div[@role="alert"]//p')
-            WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(INFO_TEXT))
+            WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(INFO_TEXT))
         except:
             self.log.debug("-------------等待alert弹框消息可见失败！---------------")
         else:
@@ -42,4 +42,3 @@ class AlertInfoPage(BasePage):
             self.log.debug("-------------等待alert消息弹框关闭按钮可见失败！---------------")
         else:
             BasePage(self.driver).click_ele(CLOSE_BTN)
-

@@ -53,8 +53,19 @@ def connect_mysql_and_close():
 @pytest.fixture(scope="module")
 def start_driver_and_quit():
     # 前置 - 启动会话窗口 后置 - 关闭
-    driver = webdriver.Chrome()
-    driver.maximize_window()
+    # driver = webdriver.Chrome()
+    # driver.maximize_window()
+    # yield driver
+    # driver.quit()
+
+    # TODO：优化Jenkins中无法通过 driver.maximize_window() 最大化窗口的问题，
+    #  通过chrome浏览器的chrome_options属性进行设置
+    # 设置chrome浏览器的options参数
+    chrome_options = webdriver.ChromeOptions()
+    # 设置浏览器启动的时候就最大化窗口
+    chrome_options.add_argument("start-maximized")
+    # 启动会话窗口
+    driver = webdriver.Chrome(chrome_options=chrome_options)
     yield driver
     driver.quit()
 
