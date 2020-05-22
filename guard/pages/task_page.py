@@ -17,16 +17,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 class TaskPage(BasePage):
 
     def add_task_by_type(self, task, task_type, is_confirm=True):
-
         # 点击任务左侧菜单
         self.click_left_menu(menu_name=task_type)
         # 点击添加任务按钮
         self.click_add_task_btn()
         # 选择任务类型
-        self.select_task_type(task_type=task_type)
+        # self.select_task_type(task_type=task_type)    # 点击了左侧的任务列表，此处会默认选中当前任务
         """ 开始添加任务界面的基础共用操作：任务名称、设备名称、设备分组，选择特殊属性 """
         self.task_basic_set(task)
-
         if task_type == "车辆-违停检测任务":
             # 设置违停时限
             self.input_park_time()
@@ -36,8 +34,8 @@ class TaskPage(BasePage):
             # 绘制违停区域
             self.draw_park_region()
         elif task_type == "人体-越线检测任务":
-            pass
-
+            # 绘制告警线
+            self.draw_park_region(default="line")
         # 点击确认或取消按钮
         if is_confirm:
             DialogPage(self.driver).is_confirm_or_cancel("添加任务")
@@ -242,10 +240,8 @@ class TaskPage(BasePage):
         BasePage(self.driver).click_ele(SPECIAL_ATTR)
 
         if attr_name is not None:
-            # if len(attr_name) > 1:
             for single_attr in attr_name:
                 # 通过指定特殊属性的名称，进行选择
-                # SELECT_ATTR = (By.XPATH, f'//span[text()="{attr_name}"]')
                 SELECT_ATTR = (By.XPATH, f'//span[text()="{single_attr}"]')
                 # 移动到特殊属性下拉列表上并进行选择
                 BasePage(self.driver).mouse_move_ele_and_click(SPECIAL_ATTR, SELECT_ATTR)
@@ -273,21 +269,28 @@ class TaskPage(BasePage):
         BasePage(self.driver).update_input_text(SIZE_WIDTH, width)
         BasePage(self.driver).update_input_text(SIZE_HEIGHT, height)
 
-    # 定位-区域绘制
-    def draw_park_region(self):
-        # 定位点击绘制区域的按钮
-        REGION_BTN = (By.XPATH, '//i/parent::div[contains(text(), "点击绘制区域 ")]')
+    # 定位-区域绘制 - 绘制告警区域/人体区域告警/车辆违停告警 - 绘制告警线/人体越线告警
+    def draw_park_region(self, default="region"):
+        if default == "region":
+            # 定位点击绘制区域的按钮
+            REGION_BTN = (By.XPATH, '//i/parent::div[contains(text(), "点击绘制区域 ")]')
+        elif default == "line":
+            REGION_BTN = (By.XPATH, '//i/parent::div[contains(text(), "点击绘制告警线")]')
         BasePage(self.driver).click_ele(REGION_BTN)
         # 滚动到视频违停区域
         VIEW_REGION = (By.XPATH, '//div[@class="addTaskPC-video"]')
         BasePage(self.driver).scroll_visibility_region(loc=VIEW_REGION)
         time.sleep(2)
-        # 绘制违停区域
+        # 绘制区域
         PARK_REGION = (By.CSS_SELECTOR, '.draw-line')
         ele = BasePage(self.driver).get_ele_locator(PARK_REGION)
-
-        # 参数形式
-        draw_param = [(-100, -100), (100, -100), (100, 100), (-100, 100), (-100, -100)]
+        if default == "region":
+            # 绘制告警区域的传参形式
+            draw_param = [(-100, -100), (100, -100), (100, 100), (-100, 100), (-100, -100)]
+        elif default == "line":
+            # 绘制告警线的传参形式
+            draw_param = [(-100, -100), (100, 100)]
+        # 循环进行线条的绘制
         for point in draw_param:
             self.draw_line(point[0], point[1], ele)
 
@@ -389,12 +392,10 @@ if __name__ == '__main__':
     LoginPage(driver).login("zhuwenqin", "888888", login_way="debug")
     MenuBarPage(driver).click_nav_item("配置", "任务管理")
 
-    # task = Task("wse", "3210")
-    # TaskPage(driver).add_task_by_type(task, task_type="车辆-违停检测任务")
+    task = Task("rtyx", "3210")
+    TaskPage(driver).add_task_by_type(task, task_type="人体-越线检测任务")
     # TaskPage(driver).add_task_to_parked_vehicle(task_name="test", device_name="1111", time_minute=1)
-
     # from guard.pages.components.table_list import TableListPage
     # TaskPage(driver).click_left_menu("车辆-违停检测任务")
     # TableListPage(driver).operations_table_list(name="id-2b244f07-cb55-47e7-87ef-3dca9ca47593", flag="delete")
-
     # TaskPage(driver).operation_batch_disabled()
