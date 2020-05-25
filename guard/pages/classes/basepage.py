@@ -32,6 +32,8 @@ class BasePage:
     def __init__(self, driver: WebDriver):
         # 传入 driver - 指定类型为：WebDriver
         self.driver = driver
+        # 加入智能等待 - 隐性等待
+        self.driver.implicitly_wait(30)
 
     def wait_for_ele_to_be_visible(self, loc, timeout=20, poll_frequency=0.5):
         """ 等待元素在页面中可见 """
@@ -95,7 +97,9 @@ class BasePage:
         """ 页面定位表达式能匹配到多个，通过下标访问 """
 
         self.log.info(f"获取元素列表！---{loc[-1]}---")
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
+        # WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc))
+        # 等待元素在页面中存在
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(loc))
         try:
             if index is None:
                 self.log.info(f"通过元素表达式获取单个元素！---{loc[-1]}---")

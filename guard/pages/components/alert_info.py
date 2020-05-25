@@ -4,11 +4,11 @@
 # @File: alert_info.py
 # @Software: PyCharm
 
-import logging
 from selenium.webdriver.common.by import By
 from guard.pages.classes.basepage import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 """ 
 全局组件 - alert消息框

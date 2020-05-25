@@ -7,3 +7,5 @@ utils/__pycache__/
 outputs/screenshots/*.jpg
 outputs/logs/*
 outputs/reports/*
+lambda.py
+pool.py
