@@ -145,6 +145,46 @@ class TestStructCrossLineTaskPositive:
         TaskPage(task[0]).add_task_by_type(task_para, task_type="人体-越线检测任务")
         assert TableListPage(task[0]).judge_table_list_add_name(task_para.task_name)
 
+    @pytest.mark.usefixtures("close_dialog")
+    def test_view_cross_line_task(self, task):
+        # 测试查看-人体越线检测任务
+        TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="view")
+        result = TaskPage(task[0]).verify_view_task_detail()
+        assert task[1]["task_name"] == result
+
+    def test_update_cross_line_task_state(self, task):
+        # 测试更新当前新建任务的启用状态为：禁用
+        time.sleep(2)
+        TableListPage(task[0]).table_list_switch(name=task[1]["task_name"])
+        assert TableListPage(task[0]).verify_state_success(name=task[1]["task_name"])
+
+    @pytest.mark.usefixtures("back_default")
+    def test_batch_disabled_cross_line_task(self, task):
+        # 测试任务的批量禁用操作
+        TaskPage(task[0]).task_batch_operation(flag="disabled")
+        assert TaskPage(task[0]).verify_operation_disabled_success()
+
+    @pytest.mark.usefixtures("back_default")
+    def test_batch_start_cross_line_task(self, task):
+        # 测试任务的批量启用操作
+        TaskPage(task[0]).task_batch_operation(flag="start")
+        time.sleep(0.5)
+        assert TaskPage(task[0]).verify_operation_start_success()
+
+    def test_delete_cross_line_task(self, task):
+        # 测试删除-行人区域入侵任务
+        TableListPage(task[0]).operations_table_list(name=task[1]["task_name"], flag="delete")
+        assert TableListPage(task[1]).judge_table_list_delete_name(task[1]["task_name"])
+
+    @pytest.mark.usefixtures("back_default")
+    @pytest.mark.skip("The number of tasks is zero！")
+    def test_batch_delete_cross_line_task(self, task):
+        # 测试任务的批量删除操作
+        time.sleep(3)
+        TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
+        time.sleep(0.5)
+        assert TaskPage(task[0]).verify_operation_delete_success()
+
 
 @pytest.mark.negative
 class TestStructCarTaskNegative:
