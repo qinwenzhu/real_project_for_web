@@ -111,14 +111,25 @@ def back_default(login):
 
 
 @pytest.fixture
-def back_task_page(login):
-    # 批量操作之后返回到默认状态
+def back_car_task_page(login):
+    # 批量操作之后返回到车辆违停检测页面的默认状态
     MenuBarPage(login).click_nav_item("记录")
     time.sleep(2)
     yield
     time.sleep(0.5)
     MenuBarPage(login).click_nav_item("配置", "任务管理")
     TaskPage(login).click_left_menu(menu_name="车辆-违停检测任务")
+
+
+@pytest.fixture
+def back_ped_task_page(login):
+    # 批量操作之后返回到人体区域入侵页面的默认状态
+    MenuBarPage(login).click_nav_item("记录")
+    time.sleep(2)
+    yield
+    time.sleep(0.5)
+    MenuBarPage(login).click_nav_item("配置", "任务管理")
+    TaskPage(login).click_left_menu(menu_name="人体-区域闯入检测任务")
 
 
 """ ---------------------------- 配置-设备管理 ---------------------------- """

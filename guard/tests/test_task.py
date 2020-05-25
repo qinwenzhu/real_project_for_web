@@ -59,7 +59,7 @@ class TestStructCarTaskPositive:
         time.sleep(0.5)
         assert TaskPage(task[0]).verify_operation_start_success()
 
-    @pytest.mark.usefixtures("back_task_page")
+    @pytest.mark.usefixtures("back_car_task_page")
     def test_view_task_push_record(self, task):
         # 查看任务在记录页面是否有推送记录
         RecordPage(task[0]).record_filter_by_device(device_name=task[1]["device_name"])
@@ -78,7 +78,7 @@ class TestStructCarTaskPositive:
 
     @pytest.mark.usefixtures("back_default")
     @pytest.mark.skip("The number of tasks is zero！")
-    def test_batch_delete_task(self, task):
+    def test_batch_delete_car_task(self, task):
         # 测试任务的批量删除操作
         time.sleep(3)
         TaskPage(task[0]).task_batch_operation(flag="delete", text="删除")
@@ -120,6 +120,17 @@ class TestStructPedestriansTaskPositive:
         TaskPage(task[0]).task_batch_operation(flag="start")
         time.sleep(0.5)
         assert TaskPage(task[0]).verify_operation_start_success()
+
+    @pytest.mark.usefixtures("back_ped_task_page")
+    def test_view_pedestrians_task_push_record(self, task):
+        # 查看任务在人体记录页面是否有推送记录
+        RecordPage(task[0]).record_filter_by_device(device_name=task[1]["device_name"], flag="ped")
+        time.sleep(1)
+        if RecordPage(task[0]).verify_record_total == 0:
+            # 强制等待一段时间后，再次点击筛选按钮，查看是否有记录推送
+            time.sleep(10)
+            RecordPage(task[0]).click_filter_or_reset_btn()
+        assert RecordPage(task[0]).verify_record_total()
 
     def test_delete_pedestrians_task(self, task):
         # 测试删除-行人区域入侵任务
@@ -212,11 +223,13 @@ class TestStructPedestriansTaskNegative:
 
 
 @pytest.mark.negative
-class TestStructPedestriansTaskNegative:
+class TestStructCrossLineTaskNegative:
     # @pytest.mark.usefixtures("close_dialog")
     def test_add_pedestrians_task_and_not_null(self, task_no_setup):
         # 测试添加人体越线检测任务 - 非空校验
         TaskPage(task_no_setup).verify_pedestrians_not_null()
+        # 等待获取所有的错误信息
+        time.sleep(1)
         result = [TaskPage(task_no_setup).dialog_error_info(flag="task"),
                   TaskPage(task_no_setup).dialog_error_info(flag="device"),
                   TaskPage(task_no_setup).dialog_error_info(flag="region"),

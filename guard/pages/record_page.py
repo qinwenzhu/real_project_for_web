@@ -14,8 +14,13 @@ from selenium.webdriver.support import expected_conditions as EC
 class RecordPage(BasePage):
 
     # 点击车辆记录
-    def click_tab_list_btn(self):
+    def click_tab_vehicle_btn(self):
         TAB_ID = (By.ID, "tab-vehicle")
+        BasePage(self.driver).click_ele(TAB_ID)
+
+    # 点击人体记录
+    def click_tab_ped_btn(self):
+        TAB_ID = (By.ID, "tab-pedestrian")
         BasePage(self.driver).click_ele(TAB_ID)
 
     # 点击筛选按钮
@@ -88,14 +93,17 @@ class RecordPage(BasePage):
             return False
 
     # 通过设备进行记录的筛选
-    def record_filter_by_device(self, device_name):
+    def record_filter_by_device(self, device_name, flag="car"):
         """
         通过设备名称进行记录的筛选
-        :param device_name:
-        :return:
+        :param device_name: 通过设备名进行记录的过滤筛选
+        :param flag: 点击不同的记录tab，默认为车辆记录，有：人体、人群、非机动车、人脸记录
         """
-        # 点击车辆记录
-        self.click_tab_list_btn()
+        if flag == "car":
+            # 点击车辆记录
+            self.click_tab_vehicle_btn()
+        elif flag == "ped":
+            self.click_tab_ped_btn()
         # 点击筛选按钮
         self.click_filter_btn()
         # 根据设备名称进行筛选过滤

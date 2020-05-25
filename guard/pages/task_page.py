@@ -114,21 +114,23 @@ class TaskPage(BasePage):
             self.crumbs_btn_opreration(btn_text="批量启用")
         elif flag == "delete":
             # 点击批量删除按钮
-            self.crumbs_btn_opreration(btn_text="批量删除")
+            # self.crumbs_btn_opreration(btn_text="批量删除")
 
-            """ 针对批量 """
-            # 定位批量全选不能操作的情况
-            BTN = (By.XPATH,
-                   '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//span[contains(@class, "el-checkbox__input") and contains(@class, "is-disabled")]')
+            """ 针对批量删除操作 """
             try:
+                # BTN = (By.XPATH,
+                #        '//div[@class="el-table__header-wrapper"]//div[text()="任务名称"]/parent::th/preceding-sibling::th//span[contains(@class, "el-checkbox__input") and contains(@class, "is-disabled")]')
+                # WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(BTN))
+                # 获取当前表格中的任务列表是否为空
+                LIST_TAB = (By.XPATH, '//div[contains(@class, "el-table__body-wrapper")]//tbody//tr')
                 # 如果全选按钮处于不可点击状态，则说明当前页面的列表为空
-                WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(BTN))
+                WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(LIST_TAB))
             except:
                 # 删除
-                pass
+                print("当前任务列表为空，不能进行批量删除操作！")
             else:
-                # 如果定位不到，则说明有任务列表，可以进行批量删除操作
-                pass
+                # 如果能定位到任务列表，则进行任务列表的批量删除操作
+                self.crumbs_btn_opreration(btn_text="批量删除")
 
         if text == "确定":
             # dialog窗口 - 确定状态的修改
