@@ -11,7 +11,6 @@ from guard.pages.components.alert_info import AlertInfoPage
 
 
 class TestUserPositive:
-
     pytestmark = [pytest.mark.positive, pytest.mark.smoke]
 
     def test_create_peer_dep_from_default(self, user):
@@ -67,4 +66,4 @@ class TestUserPositive:
 
 
 if __name__ == '__main__':
-    pytest.main()
+    pytest.main(["--reruns", "2", "--reruns-delay", "5"])
