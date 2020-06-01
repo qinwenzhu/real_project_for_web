@@ -120,3 +120,7 @@ def test_delete_workday(timezone):
     # 删除特殊工作日
     TimezonePage(timezone[0]).delete_or_rename_holidays_or_workday(timezone[1]["workday_name"])
     assert TimezonePage(timezone[0]).judge_delete_success(timezone[1]["workday_name"])
+
+
+if __name__ == '__main__':
+    pytest.main()

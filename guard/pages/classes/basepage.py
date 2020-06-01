@@ -197,10 +197,12 @@ class BasePage:
 
     def click_ele(self, loc):
         """ 点击元素，等待元素可见进行点击"""
+        # 等待元素存在
+        self.wait_for_ele_to_be_presence(loc, timeout=2)
         # 等待元素可见
-        self.wait_for_ele_to_be_visible(loc)
+        self.wait_for_ele_to_be_visible(loc, timeout=2)
         # 等待元素可点击
-        self.wait_ele_to_be_click(loc)
+        self.wait_ele_to_be_click(loc, timeout=2)
         ele = self.get_ele_locator(loc)
         self.log.info(f"点击元素！---{loc[-1]}---")
         try:

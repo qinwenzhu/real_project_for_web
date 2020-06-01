@@ -95,3 +95,7 @@ def test_negative_face_property(login, data):
     assert (data["sex"] in result["sex"]) and (data["age"] in result["age"]) and (data["phiz"] in result["phiz"]) and (
             data["mustache"] in result["mustache"]) and (data["glasse"] in result["glasse"]) and (
             data["mask"] in result["mask"]) and (data["helmet"] in result["helmet"]) and (data["hat"] in result["hat"])
+
+
+if __name__ == '__main__':
+    pytest.main()
