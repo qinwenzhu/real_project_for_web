@@ -1,5 +1,5 @@
 operation:
-  host: "10.151.3.96"
+  host: "10.151.3.97"
   username: "zhuwenqin"
   password: "888888"
-  login_way: "ssh"
+  login_way: "redis"

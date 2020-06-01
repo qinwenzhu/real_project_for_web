@@ -148,8 +148,8 @@ class LoginPage(BasePage):
 
 if __name__ == '__main__':
     from selenium import webdriver
-    # driver = webdriver.Chrome()
-    # driver.get("http://10.151.3.96/login")
+    driver = webdriver.Chrome()
+    driver.get("http://10.151.3.96/login")
     # 测试ssh连接服务器进行验证码获取来进行登录
     # LoginPage(driver).login("zhuwenqin", "888888", login_way="ssh")
     # 设置默认通过redis来识别验证码并进行登录
@@ -161,9 +161,9 @@ if __name__ == '__main__':
     # options.addArguments("start-maximized")
     # WebDriver driver = new ChromeDriver(options)
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("start-maximized")
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_argument("start-maximized")
+    # driver = webdriver.Chrome(chrome_options=chrome_options)
 
     # 设置好应用扩展
     # extension_path = 'D:/extension/XPath-Helper_v2.0.2.crx'

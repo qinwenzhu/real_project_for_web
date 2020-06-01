@@ -66,3 +66,7 @@ class TestLoginNegative:
         LoginPage(setup_login).login(data["username"], data["password"])
         result = AlertInfoPage(setup_login).get_alert_info()
         assert data["error_info"] in result
+
+
+if __name__ == '__main__':
+    pytest.main()

@@ -77,11 +77,9 @@ def login(start_driver_and_quit):
     # 优化：动态传入测试环境  start_driver_and_quit.get("http://10.151.3.96/login")
     start_driver_and_quit.get(f'http://{env()["host"]}/login')
     # 优化：动态传入登陆用户  LoginPage(start_driver_and_quit).login("zhuwenqin", "888888")
-    # LoginPage(start_driver_and_quit).login(f'{env()["username"]}',
-    #                                        f'{env()["password"]}',
-    #                                        login_way=env()["login_way"])
-    LoginPage(start_driver_and_quit).login(f'{env()["username"]}',
-                                           f'{env()["password"]}')
+    LoginPage(start_driver_and_quit).login(username=f'{env()["username"]}',
+                                           password=f'{env()["password"]}',
+                                           login_way=env()["login_way"])
     yield start_driver_and_quit
 
 
